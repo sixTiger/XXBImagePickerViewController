@@ -1,0 +1,2 @@
+# XXBImagePickerViewController
+初始化跟系统自在的图片徐咱泽器一样好用直接push就行
