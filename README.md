@@ -1,5 +1,6 @@
 # XXBImagePickerViewController
 初始化跟系统自在的图片徐咱泽器一样好用直接push就行
+里边注释很多，很方便初学者
 只需要导入XXBImagePickerController.h
 
 - (IBAction)openXXBImagePicker:(id)sender {
@@ -15,8 +16,9 @@
 @protocol XXBImagePickerControllerDelegate <NSObject>
 
 @optional
-
+//取消
 - (void)imagePickerControllerCancleselect:(XXBImagePickerController *)imagePickController;
+// 确定
 - (void)imagePickerController:(XXBImagePickerController *)imagePickController didselectPhotos:(NSArray *)selectPhotos;
 
 @end
