@@ -26,11 +26,12 @@
 
 
 //  一行显示的照片个数
+
 //  默认是4个
-//
+
 @property(nonatomic , assign)NSInteger photoInRow;
-//  如果想在打开的时候原来选中的图片还是选中的话需要设置 selectPhotoALAssets
-//  里边放的是 XXBPhotoAlasetModle 模型
-//  原来选中的photo的ALAsset 默认为空
+
+//  如果想在打开的时候原来选中的图片还是选中的话需要设置 selectPhotoALAssets  里边放的是 XXBPhotoAlasetModle 模型 
+原来选中的photo的ALAsset 默认为空
 
 @property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;
