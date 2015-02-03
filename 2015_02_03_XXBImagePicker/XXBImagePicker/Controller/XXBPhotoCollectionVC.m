@@ -1,0 +1,70 @@
+//
+//  XXBPhotoCollectionVC.m
+//  2015_02_03_XXBImagePicker
+//
+//  Created by Jinhong on 15/2/3.
+//  Copyright (c) 2015年 xiaoxiaobing. All rights reserved.
+//
+
+#import "XXBPhotoCollectionVC.h"
+#import "XXBPhotoCollectionViewCell.h"
+#import "XXBPhotoAlasetModle.h"
+
+@interface XXBPhotoCollectionVC ()
+
+@end
+
+@implementation XXBPhotoCollectionVC
+
+static NSString * const reuseIdentifier = @"photoCollectionViewCell";
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupItems];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.alwaysBounceVertical = YES;
+    [self.collectionView registerClass:[XXBPhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+}
+- (void)setupItems
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(selectPhotos)];
+}
+- (void)selectPhotos
+{
+    if ([self.photoCollectionDelegate respondsToSelector:@selector(photoCollectionVCDidselectPhotos:)])
+    {
+        [self.photoCollectionDelegate photoCollectionVCDidselectPhotos:self];
+    }
+}
+- (void)setPhotoALAssets:(NSMutableArray *)photoALAssets
+{
+    _photoALAssets = photoALAssets;
+    [self.collectionView reloadData];
+}
+#pragma mark - collectionView 的相关处理
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.photoALAssets.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    XXBPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.photoAlasetModle = self.photoALAssets[indexPath.row];
+    return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    XXBPhotoAlasetModle *photoAlasetModle = self.photoALAssets[indexPath.row];
+    photoAlasetModle.select = !photoAlasetModle.select;
+    if(photoAlasetModle.select)
+    {
+        [self.selectPhotoALAssets addObject:photoAlasetModle];
+    }
+    else
+    {
+        [self.selectPhotoALAssets removeObject:photoAlasetModle];
+    }
+    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+}
+@end
