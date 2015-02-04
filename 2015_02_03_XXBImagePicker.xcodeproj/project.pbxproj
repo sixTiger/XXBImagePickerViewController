@@ -21,6 +21,9 @@
 		C4063C2A1A80D3B800606E16 /* XXBPhotoGroupModle.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C201A80D3B800606E16 /* XXBPhotoGroupModle.m */; };
 		C4063C2B1A80D3B800606E16 /* XXBPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C231A80D3B800606E16 /* XXBPhotoCollectionViewCell.m */; };
 		C4063C2C1A80D3B800606E16 /* XXBPhotoGroupTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C251A80D3B800606E16 /* XXBPhotoGroupTVCell.m */; };
+		C4137C4E1A81DAE3005D9A51 /* XXBImagePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4137C4D1A81DAE3005D9A51 /* XXBImagePicker.bundle */; };
+		C4137C511A81E037005D9A51 /* XXBImagePickerTabr.m in Sources */ = {isa = PBXBuildFile; fileRef = C4137C501A81E037005D9A51 /* XXBImagePickerTabr.m */; };
+		C4137C541A81F856005D9A51 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4137C531A81F856005D9A51 /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,11 @@
 		C4063C231A80D3B800606E16 /* XXBPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		C4063C241A80D3B800606E16 /* XXBPhotoGroupTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupTVCell.h; sourceTree = "<group>"; };
 		C4063C251A80D3B800606E16 /* XXBPhotoGroupTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupTVCell.m; sourceTree = "<group>"; };
+		C4137C4D1A81DAE3005D9A51 /* XXBImagePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XXBImagePicker.bundle; sourceTree = "<group>"; };
+		C4137C4F1A81E037005D9A51 /* XXBImagePickerTabr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XXBImagePickerTabr.h; path = 2015_02_03_XXBImagePicker/XXBImagePicker/View/XXBImagePickerTabr.h; sourceTree = SOURCE_ROOT; };
+		C4137C501A81E037005D9A51 /* XXBImagePickerTabr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XXBImagePickerTabr.m; path = 2015_02_03_XXBImagePicker/XXBImagePicker/View/XXBImagePickerTabr.m; sourceTree = SOURCE_ROOT; };
+		C4137C521A81F856005D9A51 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		C4137C531A81F856005D9A51 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,7 @@
 		C4063C141A80D3B800606E16 /* XXBImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				C4137C4D1A81DAE3005D9A51 /* XXBImagePicker.bundle */,
 				C4063C151A80D3B800606E16 /* Controller */,
 				C4063C1C1A80D3B800606E16 /* Modle */,
 				C4063C211A80D3B800606E16 /* View */,
@@ -154,6 +163,8 @@
 		C4063C151A80D3B800606E16 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4137C521A81F856005D9A51 /* UIView+AutoLayout.h */,
+				C4137C531A81F856005D9A51 /* UIView+AutoLayout.m */,
 				C4063C161A80D3B800606E16 /* XXBImagePickerController.h */,
 				C4063C171A80D3B800606E16 /* XXBImagePickerController.m */,
 				C4063C181A80D3B800606E16 /* XXBPhotoCollectionVC.h */,
@@ -178,6 +189,8 @@
 		C4063C211A80D3B800606E16 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4137C4F1A81E037005D9A51 /* XXBImagePickerTabr.h */,
+				C4137C501A81E037005D9A51 /* XXBImagePickerTabr.m */,
 				C4063C221A80D3B800606E16 /* XXBPhotoCollectionViewCell.h */,
 				C4063C231A80D3B800606E16 /* XXBPhotoCollectionViewCell.m */,
 				C4063C241A80D3B800606E16 /* XXBPhotoGroupTVCell.h */,
@@ -267,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4137C4E1A81DAE3005D9A51 /* XXBImagePicker.bundle in Resources */,
 				C4063BDB1A809ED100606E16 /* Main.storyboard in Resources */,
 				C4063BE01A809ED100606E16 /* LaunchScreen.xib in Resources */,
 				C4063BDD1A809ED100606E16 /* Images.xcassets in Resources */,
@@ -288,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4063C261A80D3B800606E16 /* XXBImagePickerController.m in Sources */,
+				C4137C541A81F856005D9A51 /* UIView+AutoLayout.m in Sources */,
+				C4137C511A81E037005D9A51 /* XXBImagePickerTabr.m in Sources */,
 				C4063C2A1A80D3B800606E16 /* XXBPhotoGroupModle.m in Sources */,
 				C4063BD81A809ED100606E16 /* ViewController.m in Sources */,
 				C4063BD51A809ED100606E16 /* AppDelegate.m in Sources */,
@@ -489,6 +505,7 @@
 				C4063BF11A809ED100606E16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4063BF21A809ED100606E16 /* Build configuration list for PBXNativeTarget "2015_02_03_XXBImagePickerTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +514,7 @@
 				C4063BF41A809ED100606E16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

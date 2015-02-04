@@ -9,9 +9,12 @@
 #import "XXBPhotoCollectionVC.h"
 #import "XXBPhotoCollectionViewCell.h"
 #import "XXBPhotoAlasetModle.h"
+#import "XXBImagePickerTabr.h"
+#import "UIView+AutoLayout.h"
+
 
 @interface XXBPhotoCollectionVC ()
-
+@property(nonatomic , weak)XXBImagePickerTabr *imagePickerTar;
 @end
 
 @implementation XXBPhotoCollectionVC
@@ -21,13 +24,29 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupItems];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.collectionView.alwaysBounceVertical = YES;
+    [self setupCollectionView];
+    [self setupImagePickerTar];
     [self.collectionView registerClass:[XXBPhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 }
 - (void)setupItems
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(selectPhotos)];
+}
+- (void)setupCollectionView
+{
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    [self.collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 44, 0)];
+    self.collectionView.alwaysBounceVertical = YES;
+
+}
+- (void)setupImagePickerTar
+{
+    XXBImagePickerTabr *imagePickerTar = [[XXBImagePickerTabr alloc] init];
+    
+    [self.view addSubview:imagePickerTar];
+    [imagePickerTar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+    [imagePickerTar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.collectionView];
+    _imagePickerTar = imagePickerTar;
 }
 - (void)selectPhotos
 {
@@ -67,4 +86,5 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
     }
     [collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }
+
 @end

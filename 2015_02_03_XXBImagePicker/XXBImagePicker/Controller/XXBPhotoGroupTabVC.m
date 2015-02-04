@@ -10,6 +10,7 @@
 #import "XXBPhotoGroupModle.h"
 #import "XXBPhotoGroupTVCell.h"
 #import "XXBPhotoCollectionVC.h"
+#import "XXBPhotoAlasetModle.h"
 
 @interface XXBPhotoGroupTabVC ()<XXBPhotoCollectionVCDelegate>
 {
@@ -53,7 +54,7 @@
     _photoGroupArray = [photoGroupArray mutableCopy];
     [self.tableView reloadData];
     //默认跳转到相机胶卷选项里边
-    self.photoCollectionVC.photoALAssets = [self.photoGroupArray[0] photoALAssets];
+//    self.photoCollectionVC.photoALAssets = [self.photoGroupArray[0] photoALAssets];
 }
 
 #pragma mark - tableView相关方法的处理
@@ -75,6 +76,11 @@
 {
     self.photoCollectionVC.photoALAssets = [self.photoGroupArray[indexPath.row] photoALAssets];
     self.photoCollectionVC.title = [self.photoGroupArray[indexPath.row] photoGroupName];
+    for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+    {
+        photoAlaset.select = NO;
+    }
+    [self.selectPhotoALAssets removeAllObjects];
     [self.navigationController pushViewController:self.photoCollectionVC animated:YES];
 }
 #pragma mark - 懒加载
