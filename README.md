@@ -35,3 +35,15 @@
 原来选中的photo的ALAsset 默认为空
 
 @property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;
+ipaid的效果图 做了适配iPhone一样支持
+效果图
+![image](./image/1.png)
+
+
+![image](./image/2.png)
+
+![image](./image/3.png)
+
+
+![image](./image/4.png)
+
