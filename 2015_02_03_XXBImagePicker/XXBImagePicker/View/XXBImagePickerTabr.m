@@ -24,7 +24,7 @@
 }
 - (void)setupImagePickerTabr
 {
-    self.backgroundColor = [UIColor orangeColor];
+    self.backgroundColor = [UIColor colorWithRed:12/255.0 green:185/255.0 blue:8/255.0 alpha:1.0];
 }
 - (void)setSelectCount:(NSInteger)selectCount
 {
@@ -65,7 +65,8 @@
 }
 - (UIColor *)textColor
 {
-    if (!_textColor) {
+    if (!_textColor)
+    {
         _textColor = [UIColor whiteColor];
     }
     return _textColor;
