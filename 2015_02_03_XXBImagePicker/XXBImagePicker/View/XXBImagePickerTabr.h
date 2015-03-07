@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XXBImagePickerTabr : UIView
-
+@property(nonatomic , assign)NSInteger selectCount;
+@property(nonatomic , strong)UIColor *textColor;
 @end

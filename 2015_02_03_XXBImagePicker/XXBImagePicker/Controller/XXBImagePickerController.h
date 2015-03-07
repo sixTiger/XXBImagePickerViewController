@@ -21,7 +21,7 @@
 @interface XXBImagePickerController : UINavigationController
 
 /**
- *  一行显示的照片个数
+ *  竖屏状态下默认照片个数
  *  默认是4个
  */
 @property(nonatomic , assign)NSInteger photoInRow;

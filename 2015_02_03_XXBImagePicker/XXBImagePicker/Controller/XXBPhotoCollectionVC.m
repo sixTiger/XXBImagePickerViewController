@@ -85,6 +85,7 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
         [self.selectPhotoALAssets removeObject:photoAlasetModle];
     }
     [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    self.imagePickerTar.selectCount = self.selectPhotoALAssets.count;
 }
 
 @end

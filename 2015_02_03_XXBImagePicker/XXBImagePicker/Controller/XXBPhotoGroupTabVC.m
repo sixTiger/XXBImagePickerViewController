@@ -103,7 +103,7 @@
     if (_photoCollectionVC == nil)
     {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        CGFloat screenWidth = MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         CGFloat itemWidth = (screenWidth - self.photoInRow -1)/(CGFloat)self.photoInRow;
         layout.itemSize = CGSizeMake(itemWidth, itemWidth);
         layout.minimumInteritemSpacing = 1;
