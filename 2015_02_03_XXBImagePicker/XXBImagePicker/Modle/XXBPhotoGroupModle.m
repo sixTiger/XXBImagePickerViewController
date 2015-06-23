@@ -14,11 +14,14 @@
     if ([photoGroupName isEqualToString:@"All Photos"])
     {
         _photoGroupName = @"全部相册";
+        return;
     }
-    else
+    if([photoGroupName isEqualToString:@"Camera Roll"])
     {
-        _photoGroupName = [photoGroupName copy];
+        _photoGroupName = @"相机胶卷";
+        return;
     }
+    _photoGroupName = [photoGroupName copy];
 
 }
 - (NSMutableArray *)photoALAssets
