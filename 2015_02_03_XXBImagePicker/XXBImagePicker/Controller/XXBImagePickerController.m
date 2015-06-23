@@ -61,10 +61,6 @@
 }
 - (void)photoGroupTabVCDidSelectPhotos:(XXBPhotoGroupTabVC *)photoGroupTabVC
 {
-//    [self.moveCellArray sortUsingComparator:^NSComparisonResult(XXBMoveCell *moveCell1, XXBMoveCell *moveCell2) {
-//        // 按照按钮的索引降序重新排列数组
-//        return moveCell1.index > moveCell2.index;
-//    }];
     switch (self.photoSortType)
     {
         case XXBPhotoSortTypeSelectOrder:
@@ -128,7 +124,7 @@
                     /**
                      *  取出对应的photoGroupModle模型
                      */
-                    XXBPhotoGroupModle *photoGroupModle = [weakSelf.photoGroupArray lastObject];
+                    XXBPhotoGroupModle *photoGroupModle = [weakSelf.photoGroupArray firstObject];
                     XXBPhotoAlasetModle *photoAlaetModle = [[XXBPhotoAlasetModle alloc] init];
                     photoAlaetModle.photoAlaset = result;
                     /**
@@ -149,7 +145,14 @@
                  *  有一个新的group的模型来存放相关的信息
                  */
                 XXBPhotoGroupModle *groupModle = [[XXBPhotoGroupModle alloc] init];
-                [weakSelf.photoGroupArray addObject:groupModle];
+                if (weakSelf.photoGroupArray.count > 0)
+                {
+                    [weakSelf.photoGroupArray insertObject:groupModle atIndex:0];
+                }
+                else
+                {
+                    [weakSelf.photoGroupArray addObject:groupModle];
+                }
                 /**
                  *  获取photoGroup的组名
                  */
@@ -172,7 +175,6 @@
                                 usingBlock:libraryGroupsEnumeration
                               failureBlock:failureblock];
     });
-    
 }
 #pragma mark - 懒加载
 

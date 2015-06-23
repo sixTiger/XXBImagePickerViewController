@@ -16,12 +16,19 @@
 {
     NSInteger _photoInRow;
 }
+@property(nonatomic , assign)BOOL firstShow;
 @property(nonatomic , strong)XXBPhotoCollectionVC *photoCollectionVC;
-
 @end
 
 @implementation XXBPhotoGroupTabVC
-
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self.firstShow = YES;
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,6 +39,24 @@
 - (void)setupItems
 {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleSelectPhotos)];
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.firstShow)
+    {
+        self.firstShow = NO;
+        self.photoCollectionVC.photoALAssets = [self.photoGroupArray[0] photoALAssets];
+        self.photoCollectionVC.title = [self.photoGroupArray[0] photoGroupName];
+        for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+        {
+            photoAlaset.select = NO;
+        }
+        [self.selectPhotoALAssets removeAllObjects];
+        [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
+
+    }
+    
 }
 #pragma mark - 相关的代理方法的处理
 - (void)cancleSelectPhotos
