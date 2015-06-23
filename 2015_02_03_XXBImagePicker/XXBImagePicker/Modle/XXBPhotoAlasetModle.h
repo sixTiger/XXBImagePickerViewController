@@ -18,4 +18,8 @@
  *  标记这张照片是否选中了
  */
 @property(nonatomic , assign)BOOL select ;
+/**
+ *  当前的下标
+ */
+@property(nonatomic , assign)NSInteger index;
 @end

@@ -16,7 +16,6 @@
 {
     NSInteger _photoInRow;
 }
-
 @property(nonatomic , strong)XXBPhotoCollectionVC *photoCollectionVC;
 
 @end

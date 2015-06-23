@@ -8,6 +8,7 @@
 
 #import "XXBPhotoCollectionViewCell.h"
 #import "XXBPhotoAlasetModle.h"
+#import "XXBBadgeValueBtn.h"
 
 @interface XXBPhotoCollectionViewCell ()
 /**
@@ -19,6 +20,7 @@
  */
 @property(nonatomic , weak)UIImageView *selectCover;
 @property(nonatomic , weak)UIButton *coverButton;
+@property(nonatomic , weak)XXBBadgeValueBtn *bageButton;
 @end
 
 @implementation XXBPhotoCollectionViewCell
@@ -27,9 +29,10 @@
 - (void)setPhotoAlasetModle:(XXBPhotoAlasetModle *)photoAlasetModle
 {
     _photoAlasetModle = photoAlasetModle;
-    self.selectCover.hidden= !photoAlasetModle.select;
-    self.coverButton.selected = photoAlasetModle.select;
-    ALAsset *photoAlaset = photoAlasetModle.photoAlaset;
+    self.selectCover.hidden= !_photoAlasetModle.select;
+    self.bageButton.badgeValue = [NSString stringWithFormat:@"%@",@(_photoAlasetModle.index)];
+    self.coverButton.selected = _photoAlasetModle.select;
+    ALAsset *photoAlaset = _photoAlasetModle.photoAlaset;
     //媒体类型是视频
     if ([[photoAlaset valueForProperty:@"ALAssetPropertyType"] isEqualToString:ALAssetTypeVideo])
     {
@@ -65,8 +68,7 @@
     {
         UIImageView *selectCover = [[UIImageView alloc] initWithFrame:self.bounds];
         [self.photoView addSubview:selectCover];
-        selectCover.backgroundColor = [UIColor whiteColor];
-        selectCover.alpha = 0.4;
+        selectCover.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.4];
         _selectCover = selectCover;
     }
     return _selectCover;
@@ -87,5 +89,16 @@
         _coverButton =coverButton;
     }
     return _coverButton;
+}
+- (XXBBadgeValueBtn *)bageButton
+{
+    if (_bageButton == nil)
+    {
+        XXBBadgeValueBtn *bageButton = [[XXBBadgeValueBtn alloc] init];
+        [self.selectCover addSubview:bageButton];
+        bageButton.frame = CGRectMake(0, 0, 10, 10);
+        _bageButton = bageButton;
+    }
+    return _bageButton;
 }
 @end

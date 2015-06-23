@@ -9,6 +9,18 @@
 #import "XXBPhotoGroupModle.h"
 
 @implementation XXBPhotoGroupModle
+- (void)setPhotoGroupName:(NSString *)photoGroupName
+{
+    if ([photoGroupName isEqualToString:@"All Photos"])
+    {
+        _photoGroupName = @"全部相册";
+    }
+    else
+    {
+        _photoGroupName = [photoGroupName copy];
+    }
+
+}
 - (NSMutableArray *)photoALAssets
 {
     if (_photoALAssets == nil) {
