@@ -6,7 +6,6 @@
 可以显示右上角的指示按钮
 
 只需要导入XXBImagePickerController.h
-
 - (void)openPhoto
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
@@ -22,11 +21,7 @@
         
     }];
 }
-
 相关的返回结果在代理里边
-
-
-
 代理方法
 //取消
 - (void)imagePickerControllerCancleselect:(XXBImagePickerController *)imagePickController;
