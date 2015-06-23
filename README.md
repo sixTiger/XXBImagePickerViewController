@@ -1,6 +1,8 @@
 # XXBImagePickerViewController
 初始化跟系统自在的图片选择器一样好用直接push就行
+
 可以对选择的照片进行排序 
+
 可以显示右上角的指示按钮
 
 只需要导入XXBImagePickerController.h
