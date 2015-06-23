@@ -7,6 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+
+typedef enum : NSUInteger {
+    /**
+     *  选择的顺序
+     */
+    XXBPhotoSortTypeSelectOrder = 0,
+    /**
+     *  选择的顺序 倒叙
+     */
+    XXBPhotoSortTypeSelectDesc = 1,
+    /**
+     *  系统的顺序
+     */
+    XXBPhotoSortTypeSystemOrder = 2,
+    /**
+     *  系统的顺序 倒叙
+     */
+    XXBPhotoSortTypeSystemDesc = 3,
+} XXBPhotoSortType;
 @class XXBImagePickerController;
 
 @protocol XXBImagePickerControllerDelegate <NSObject>
@@ -37,5 +56,5 @@
  *  用来处理选中和和取消的代理方法
  */
 @property(nonatomic , weak)id<XXBImagePickerControllerDelegate> imagePickerDelegate;
-
+@property(nonatomic , assign)XXBPhotoSortType photoSortType;
 @end

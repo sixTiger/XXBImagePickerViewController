@@ -13,13 +13,17 @@
 /**
  *  要显示的照片的ALAsset
  */
-@property(nonatomic , strong)ALAsset *photoAlaset;
+@property(nonatomic , strong)ALAsset        *photoAlaset;
 /**
  *  标记这张照片是否选中了
  */
-@property(nonatomic , assign)BOOL select ;
+@property(nonatomic , assign)BOOL           select ;
 /**
- *  当前的下标
+ *  当前的第几个
  */
-@property(nonatomic , assign)NSInteger index;
+@property(nonatomic , assign)NSInteger      index;
+/**
+ *  对应的模型的indexPath
+ */
+@property(nonatomic , assign)NSIndexPath    *indexPath;
 @end

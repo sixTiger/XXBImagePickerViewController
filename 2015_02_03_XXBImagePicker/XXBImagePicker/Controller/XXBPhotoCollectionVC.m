@@ -76,6 +76,7 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
 {
     XXBPhotoAlasetModle *photoAlasetModle = self.photoALAssets[indexPath.row];
     photoAlasetModle.select = !photoAlasetModle.select;
+    photoAlasetModle.indexPath = indexPath;
     if(photoAlasetModle.select)
     {
         [self.selectPhotoALAssets addObject:photoAlasetModle];
@@ -84,7 +85,6 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
     {
         [self.selectPhotoALAssets removeObject:photoAlasetModle];
     }
-//    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
     self.imagePickerTar.selectCount = self.selectPhotoALAssets.count;
     NSInteger count = self.selectPhotoALAssets.count;
     for (int i = 0;i < count ; i++)

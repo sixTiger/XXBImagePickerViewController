@@ -54,7 +54,6 @@
 #pragma mark - 代理方法的处理
 - (void)photoGroupTabVCCancleSelect:(XXBPhotoGroupTabVC *)photoGroupTabVC
 {
-    NSLog(@"取消选中");
     if ([self.imagePickerDelegate respondsToSelector:@selector(imagePickerControllerCancleselect:)])
     {
         [self.imagePickerDelegate imagePickerControllerCancleselect:self];
@@ -62,11 +61,45 @@
 }
 - (void)photoGroupTabVCDidSelectPhotos:(XXBPhotoGroupTabVC *)photoGroupTabVC
 {
-    NSLog(@"确定");
-    NSLog(@"选择的照片 %@",self.selectPhotoALAssets);
+//    [self.moveCellArray sortUsingComparator:^NSComparisonResult(XXBMoveCell *moveCell1, XXBMoveCell *moveCell2) {
+//        // 按照按钮的索引降序重新排列数组
+//        return moveCell1.index > moveCell2.index;
+//    }];
+    switch (self.photoSortType)
+    {
+        case XXBPhotoSortTypeSelectOrder:
+        {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+                return photo1.index > photo2.index;
+            }];
+            break;
+        }
+        case XXBPhotoSortTypeSelectDesc:
+        {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+                return photo1.index < photo2.index;
+            }];
+            break;
+        }
+        case XXBPhotoSortTypeSystemOrder:
+        {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+                return photo1.indexPath.row > photo2.indexPath.row;
+            }];
+            break;
+        }
+        case XXBPhotoSortTypeSystemDesc:
+        {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+                return photo1.indexPath.row < photo2.indexPath.row;
+            }];
+            break;
+        }
+        default:
+            break;
+    }
     if ([self.imagePickerDelegate respondsToSelector:@selector(imagePickerController:didselectPhotos:)])
     {
-        NSLog(@"选择的照片 %@",self.selectPhotoALAssets);
         [self.imagePickerDelegate imagePickerController:self didselectPhotos:[self.selectPhotoALAssets copy]];
     }
 }

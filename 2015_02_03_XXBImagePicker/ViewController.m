@@ -40,7 +40,14 @@
 - (void)openPhoto
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
+    /**
+     *  设置代理
+     */
     imagePickController.imagePickerDelegate = self;
+    /**
+     *  设置排序方式
+     */
+    imagePickController.photoSortType = XXBPhotoSortTypeSystemOrder;
     [self presentViewController:imagePickController animated:YES completion:^{
         
     }];
