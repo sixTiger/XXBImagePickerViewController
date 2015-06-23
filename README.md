@@ -6,6 +6,8 @@
 可以显示右上角的指示按钮
 
 只需要导入XXBImagePickerController.h
+
+
 - (void)openPhoto
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
@@ -18,11 +20,13 @@
      */
     imagePickController.photoSortType = XXBPhotoSortTypeSystemOrder;
     [self presentViewController:imagePickController animated:YES completion:^{
-        
     }];
 }
 相关的返回结果在代理里边
+
 代理方法
+
+
 //取消
 - (void)imagePickerControllerCancleselect:(XXBImagePickerController *)imagePickController;
 // 确定
@@ -38,15 +42,19 @@
 @property(nonatomic , assign)NSInteger photoInRow;
 
 //  如果想在打开的时候原来选中的图片还是选中的话需要设置 selectPhotoALAssets  里边放的是 XXBPhotoAlasetModle 模型 
-原来选中的photo的ALAsset 默认为空
 
+原来选中的photo的ALAsset 默认为空
 @property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;
-ipaid的效果图 做了适配iPhone一样支持
-效果图
+
+ipaid的效果图
+
 ![image](./image/1.png)
 
 
 ![image](./image/2.png)
+
+做了适配iPhone一样支持
+效果图如下
 
 ![image](./image/3.png)
 
