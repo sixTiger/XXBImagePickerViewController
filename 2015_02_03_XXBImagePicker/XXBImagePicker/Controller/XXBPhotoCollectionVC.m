@@ -37,7 +37,7 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 44, 0)];
     self.collectionView.alwaysBounceVertical = YES;
-
+    
 }
 - (void)setupImagePickerTar
 {
@@ -53,6 +53,18 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
     if ([self.photoCollectionDelegate respondsToSelector:@selector(photoCollectionVCDidselectPhotos:)])
     {
         [self.photoCollectionDelegate photoCollectionVCDidselectPhotos:self];
+    }
+}
+- (void)setShowPage:(BOOL)showPage
+{
+    _showPage = showPage;
+    for (XXBPhotoAlasetModle  *photoAlasetModle in self.selectPhotoALAssets)
+    {
+        photoAlasetModle.showPage = _showPage;
+    }
+    if (self.selectPhotoALAssets.count > 0)
+    {
+        [self.collectionView reloadData];
     }
 }
 - (void)setPhotoALAssets:(NSMutableArray *)photoALAssets
