@@ -3,7 +3,7 @@
  * 可以对选择的照片进行排序 <br>
  * 可以设置右上角的指示数字按钮<br>
  * 只需要导入XXBImagePickerController.h
-``` m
+``` c
 - (void)openPhoto
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
@@ -20,21 +20,21 @@
 ```
 ## 相关的返回结果在代理里边
    代理方法
-``` m
+``` c
 //取消
 - (void)imagePickerControllerCancleselect:(XXBImagePickerController *)imagePickController;
 // 确定
 - (void)imagePickerController:(XXBImagePickerController *)imagePickController didselectPhotos:(NSArray *)selectPhotos;
 ```
 ## *相关属性
-``` m
+``` c
 //  一行显示的照片个数
 //  默认是4个
 @property(nonatomic , assign)NSInteger photoInRow;
 ```
 //  如果想在打开的时候原来选中的图片还是选中的话需要设置 selectPhotoALAssets  里边放的是 XXBPhotoAlasetModle 模型 <br>
 原来选中的photo的ALAsset 默认为空<br>
-``` m
+``` c
 @property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;<\br>
 ```
 #ipaid的效果图
