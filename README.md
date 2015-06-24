@@ -9,7 +9,9 @@
 
 
 - (void)openPhoto
+
 {
+
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
     
     //是否显示右上角的指示数字
@@ -27,7 +29,9 @@
     [self presentViewController:imagePickController animated:YES completion:^{
     
     }];
+    
 }
+
 相关的返回结果在代理里边
 
 代理方法
