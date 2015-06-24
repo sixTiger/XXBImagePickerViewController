@@ -11,13 +11,11 @@
 - (void)openPhoto
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
-    /**
-     *  设置代理
-     */
+    //是否显示右上角的指示数字
+    imagePickController.showPage = YES;
+    // 设置代理
     imagePickController.imagePickerDelegate = self;
-    /**
-     *  设置排序方式
-     */
+    //设置排序方式
     imagePickController.photoSortType = XXBPhotoSortTypeSystemOrder;
     [self presentViewController:imagePickController animated:YES completion:^{
     }];
