@@ -25,5 +25,9 @@
 /**
  *  对应的模型的indexPath
  */
-@property(nonatomic , assign)NSIndexPath    *indexPath;
+@property(nonatomic , strong)NSIndexPath    *indexPath;
+/**
+ *  是否显示数字角标
+ */
+@property(nonatomic , assign)BOOL           showPage;
 @end

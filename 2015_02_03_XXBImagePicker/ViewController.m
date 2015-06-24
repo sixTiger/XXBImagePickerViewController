@@ -40,6 +40,7 @@
 - (void)openPhoto
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
+    imagePickController.showPage = YES;
     /**
      *  设置代理
      */

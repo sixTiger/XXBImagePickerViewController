@@ -33,6 +33,12 @@
  *  所有照片的ALAsset
  */
 @property(nonatomic , strong)NSMutableArray  				*photoALAssets;
-
+/**
+ *  是否显示数字标签
+ */
+@property(nonatomic , assign)BOOL showPage;
+/**
+ *  处理照片选中的代理
+ */
 @property(nonatomic , weak)id<XXBPhotoCollectionVCDelegate> photoCollectionDelegate;
 @end

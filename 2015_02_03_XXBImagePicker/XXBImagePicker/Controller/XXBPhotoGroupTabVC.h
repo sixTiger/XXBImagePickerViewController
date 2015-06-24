@@ -35,7 +35,12 @@
  *  相册分组的模型数组
  */
 @property(nonatomic , strong)NSMutableArray  	*photoGroupArray;
-
+/**
+ *  处理照片选中的的代理
+ */
 @property(nonatomic , weak)id<XXBPhotoGroupTabVCDelegate> photoGroupTabVCDelegate;
-
+/**
+ *  是否显示数字标签
+ */
+@property(nonatomic , assign)BOOL showPage;
 @end

@@ -53,6 +53,10 @@ typedef enum : NSUInteger {
  */
 @property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;
 /**
+ *  是否显示数字标签
+ */
+@property(nonatomic , assign)BOOL showPage;
+/**
  *  用来处理选中和和取消的代理方法
  */
 @property(nonatomic , weak)id<XXBImagePickerControllerDelegate> imagePickerDelegate;

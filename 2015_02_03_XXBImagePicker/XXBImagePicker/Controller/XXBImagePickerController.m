@@ -176,6 +176,12 @@
                               failureBlock:failureblock];
     });
 }
+#pragma - 一些逻辑处理
+- (void)setShowPage:(BOOL)showPage
+{
+    _showPage = showPage;
+    self.photoTableVC.showPage = _showPage;
+}
 #pragma mark - 懒加载
 
 - (void)setPhotoInRow:(NSInteger)photoInRow

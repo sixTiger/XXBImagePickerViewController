@@ -33,6 +33,11 @@
     self.bageButton.badgeValue = [NSString stringWithFormat:@"%@",@(_photoAlasetModle.index)];
     self.coverButton.selected = _photoAlasetModle.select;
     ALAsset *photoAlaset = _photoAlasetModle.photoAlaset;
+    if (!self.photoAlasetModle.showPage)
+    {
+        [self.bageButton removeFromSuperview];
+        _bageButton = nil;
+    }
     //媒体类型是视频
     if ([[photoAlaset valueForProperty:@"ALAssetPropertyType"] isEqualToString:ALAssetTypeVideo])
     {
@@ -92,7 +97,7 @@
 }
 - (XXBBadgeValueBtn *)bageButton
 {
-    if (_bageButton == nil)
+    if (_bageButton == nil && self.photoAlasetModle.showPage)
     {
         XXBBadgeValueBtn *bageButton = [[XXBBadgeValueBtn alloc] init];
         [self.selectCover addSubview:bageButton];

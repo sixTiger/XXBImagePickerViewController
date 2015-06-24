@@ -75,6 +75,7 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XXBPhotoAlasetModle *photoAlasetModle = self.photoALAssets[indexPath.row];
+    photoAlasetModle.showPage = self.showPage;
     photoAlasetModle.select = !photoAlasetModle.select;
     photoAlasetModle.indexPath = indexPath;
     if(photoAlasetModle.select)
