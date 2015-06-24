@@ -9,16 +9,27 @@
 
 
 - (void)openPhoto
+
 {
+    
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
+    
     //是否显示右上角的指示数字
+    
     imagePickController.showPage = YES;
+    
     // 设置代理
+    
     imagePickController.imagePickerDelegate = self;
+    
     //设置排序方式
+    
     imagePickController.photoSortType = XXBPhotoSortTypeSystemOrder;
+    
     [self presentViewController:imagePickController animated:YES completion:^{
+    
     }];
+
 }
 相关的返回结果在代理里边
 
@@ -26,8 +37,10 @@
 
 
 //取消
+
 - (void)imagePickerControllerCancleselect:(XXBImagePickerController *)imagePickController;
 // 确定
+
 - (void)imagePickerController:(XXBImagePickerController *)imagePickController didselectPhotos:(NSArray *)selectPhotos;
 
 相关属性
