@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "2015_02_03_XXBImagePicker/XXBImagePicker/Controller/XXBImagePickerController.m"
-            timestampString = "456750262.606768"
+            timestampString = "456920302.974285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-photoGroupTabVCDidSelectPhotos:"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "2015_02_03_XXBImagePicker/XXBImagePicker/Controller/XXBImagePickerController.m"
-            timestampString = "456750519.932818"
+            timestampString = "456921301.204549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-setupImagePickerController"
             landmarkType = "5">
          </BreakpointContent>

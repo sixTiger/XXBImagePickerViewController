@@ -27,6 +27,12 @@
  *  图片group
  */
 @property(nonatomic , strong)NSMutableArray *photoGroupArray;
+
+/**
+ *  所有的图片
+ */
+@property(nonatomic , strong)NSMutableArray *photoArray;
+
 @end
 
 @implementation XXBImagePickerController
@@ -105,76 +111,81 @@
  */
 - (void)setupImagePickerController
 {
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        ALAssetsLibraryAccessFailureBlock failureblock = ^(NSError *myerror){
-            NSLog(@"相册访问失败 =%@", [myerror localizedDescription]);
-            if ([myerror.localizedDescription rangeOfString:@"Global denied access"].location!=NSNotFound) {
-                NSLog(@"无法访问相册.请在'设置->定位服务'设置为打开状态.");
-            }else{
-                NSLog(@"相册访问失败.");
-            }
-        };
-        ALAssetsGroupEnumerationResultsBlock groupEnumerAtion = ^(ALAsset *result, NSUInteger index, BOOL *stop){
-            if (result!=NULL)
-            {
-                if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto])
-                {
-                    /**
-                     *  取出对应的photoGroupModle模型
-                     */
-                    XXBPhotoGroupModle *photoGroupModle = [weakSelf.photoGroupArray firstObject];
-                    XXBPhotoAlasetModle *photoAlaetModle = [[XXBPhotoAlasetModle alloc] init];
-                    photoAlaetModle.photoAlaset = result;
-                    /**
-                     *  判断是否选中
-                     */
-                    photoAlaetModle.select = [weakSelf.selectPhotoALAssets containsObject:photoAlaetModle];
-                    [photoGroupModle.photoALAssets addObject:photoAlaetModle];
-                }
-            }
-        };
-        /**
-         *  获取对应的组
-         */
-        ALAssetsLibraryGroupsEnumerationResultsBlock libraryGroupsEnumeration = ^(ALAssetsGroup* group, BOOL* stop){
-            if (group!=nil)
+    ALAssetsLibraryAccessFailureBlock failureblock = ^(NSError *myerror){
+        NSLog(@"相册访问失败 =%@", [myerror localizedDescription]);
+        if ([myerror.localizedDescription rangeOfString:@"Global denied access"].location!=NSNotFound) {
+            NSLog(@"无法访问相册.请在'设置->定位服务'设置为打开状态.");
+        }
+        else
+        {
+            NSLog(@"相册访问失败.");
+        }
+    };
+    ALAssetsGroupEnumerationResultsBlock groupEnumerAtion = ^(ALAsset *result, NSUInteger index, BOOL *stop){
+        if (result!=NULL)
+        {
+            if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto])
             {
                 /**
-                 *  有一个新的group的模型来存放相关的信息
+                 *  取出对应的photoGroupModle模型
                  */
-                XXBPhotoGroupModle *groupModle = [[XXBPhotoGroupModle alloc] init];
-                if (weakSelf.photoGroupArray.count > 0)
+                XXBPhotoGroupModle *photoGroupModle = [self.photoGroupArray firstObject];
+                XXBPhotoAlasetModle *photoAlaetModle = [[XXBPhotoAlasetModle alloc] init];
+                photoAlaetModle.photoAlaset = result;
+                /**
+                 *  判断是否选中
+                 */
+                photoAlaetModle.select = [self.selectPhotoALAssets containsObject:photoAlaetModle];
+                [photoGroupModle.photoALAssets addObject:photoAlaetModle];
+                if ([self.photoArray indexOfObject:photoAlaetModle] == NSNotFound)
                 {
-                    [weakSelf.photoGroupArray insertObject:groupModle atIndex:0];
+                    [self.photoArray addObject:photoAlaetModle];
                 }
-                else
-                {
-                    [weakSelf.photoGroupArray addObject:groupModle];
-                }
-                /**
-                 *  获取photoGroup的组名
-                 */
-                groupModle.photoGroupName = [group valueForProperty:ALAssetsGroupPropertyName];
-                /**
-                 *  获取缩略图
-                 */
-                groupModle.photoGroupIcon = [UIImage imageWithCGImage:[group posterImage]];
-                /**
-                 *  便利组
-                 */
-                [group enumerateAssetsUsingBlock:groupEnumerAtion];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    weakSelf.photoTableVC.photoGroupArray = weakSelf.photoGroupArray;
-                });
             }
-        };
-        _library = [[ALAssetsLibrary alloc] init];
-        [_library enumerateGroupsWithTypes:ALAssetsGroupAll
-                                usingBlock:libraryGroupsEnumeration
-                              failureBlock:failureblock];
-    });
+        }
+    };
+    /**
+     *  获取对应的组
+     */
+    ALAssetsLibraryGroupsEnumerationResultsBlock libraryGroupsEnumeration = ^(ALAssetsGroup* group, BOOL* stop){
+        ALAssetsFilter *onlyPhotosFilter = [ALAssetsFilter allPhotos];
+        [group setAssetsFilter:onlyPhotosFilter];
+        if ([group numberOfAssets] > 0)
+        {
+            /**
+             *  有一个新的group的模型来存放相关的信息
+             */
+            XXBPhotoGroupModle *groupModle = [[XXBPhotoGroupModle alloc] init];
+            if (self.photoGroupArray.count > 0)
+            {
+                [self.photoGroupArray insertObject:groupModle atIndex:0];
+            }
+            else
+            {
+                [self.photoGroupArray addObject:groupModle];
+            }
+            /**
+             *  获取photoGroup的组名
+             */
+            groupModle.photoGroupName = [group valueForProperty:ALAssetsGroupPropertyName];
+            /**
+             *  获取缩略图
+             */
+            groupModle.photoGroupIcon = [UIImage imageWithCGImage:[group posterImage]];
+            /**
+             *  便利组
+             */
+            [group enumerateAssetsUsingBlock:groupEnumerAtion];
+        }
+        else
+        {
+            [self.photoTableVC.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        }
+    };
+    _library = [[ALAssetsLibrary alloc] init];
+    [_library enumerateGroupsWithTypes:ALAssetsGroupAll
+                            usingBlock:libraryGroupsEnumeration
+                          failureBlock:failureblock];
 }
 #pragma - 一些逻辑处理
 - (void)setShowPage:(BOOL)showPage
@@ -197,6 +208,8 @@
         _photoTableVC = [[XXBPhotoGroupTabVC alloc] init];
         _photoTableVC.selectPhotoALAssets = self.selectPhotoALAssets;
         _photoTableVC.photoGroupTabVCDelegate = self;
+        _photoTableVC.photoArray = self.photoArray;
+        _photoTableVC.photoGroupArray = self.photoGroupArray;
     }
     return _photoTableVC;
 }
@@ -217,5 +230,13 @@
         _photoGroupArray = [NSMutableArray array];
     }
     return _photoGroupArray;
+}
+- (NSMutableArray *)photoArray
+{
+    if(_photoArray == nil)
+    {
+        _photoArray = [NSMutableArray array];
+    }
+    return _photoArray;
 }
 @end

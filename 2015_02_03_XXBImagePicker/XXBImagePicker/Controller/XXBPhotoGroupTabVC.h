@@ -36,6 +36,10 @@
  */
 @property(nonatomic , strong)NSMutableArray  	*photoGroupArray;
 /**
+ *  相册的模型数组
+ */
+@property(nonatomic , strong)NSMutableArray  	*photoArray;
+/**
  *  处理照片选中的的代理
  */
 @property(nonatomic , weak)id<XXBPhotoGroupTabVCDelegate> photoGroupTabVCDelegate;

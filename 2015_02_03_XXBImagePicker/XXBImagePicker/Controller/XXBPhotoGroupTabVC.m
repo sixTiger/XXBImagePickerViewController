@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"相机胶卷";
+    self.title = @"照片";
     self.tableView.rowHeight = 60;
     [self setupItems];
 }
@@ -55,16 +55,7 @@
         [self.photoGroupTabVCDelegate photoGroupTabVCDidSelectPhotos:self];
     }
 }
-- (void)setPhotoGroupArray:(NSMutableArray *)photoGroupArray
-{
-    _photoGroupArray = [photoGroupArray mutableCopy];
-    [self.tableView reloadData];
-    //默认跳转到相机胶卷选项里边
-//    self.photoCollectionVC.photoALAssets = [self.photoGroupArray[0] photoALAssets];
-}
-
 #pragma mark - tableView相关方法的处理
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -77,7 +68,6 @@
     cell.photoGroupModle = photoGroupModle;
     return cell;
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.photoCollectionVC.photoALAssets = [self.photoGroupArray[indexPath.row] photoALAssets];
