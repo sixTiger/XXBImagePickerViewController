@@ -137,7 +137,8 @@
                  */
                 photoAlaetModle.select = [self.selectPhotoALAssets containsObject:photoAlaetModle];
                 [photoGroupModle.photoALAssets addObject:photoAlaetModle];
-                if ([self.photoArray indexOfObject:photoAlaetModle] == NSNotFound)
+#warning 有卡顿问题
+                if (![self.photoArray containsObject:photoAlaetModle])
                 {
                     [self.photoArray addObject:photoAlaetModle];
                 }

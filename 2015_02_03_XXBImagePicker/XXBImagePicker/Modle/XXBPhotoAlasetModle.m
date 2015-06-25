@@ -12,7 +12,7 @@
 
 - (BOOL)isEqual:(XXBPhotoAlasetModle *)other
 {
-    return [self.photoAlaset isEqual:other.photoAlaset];
+    return [[self.photoAlaset.defaultRepresentation url]  isEqual:[other.photoAlaset.defaultRepresentation url]] ;
 }
 
 @end
