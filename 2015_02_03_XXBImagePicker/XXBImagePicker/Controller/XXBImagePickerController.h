@@ -61,6 +61,10 @@ typedef enum : NSUInteger {
  */
 @property(nonatomic , assign)BOOL showAllPhoto;
 /**
+ *  最多可选的照片的张数
+ */
+@property(nonatomic , assign)NSInteger photoCount;
+/**
  *  用来处理选中和和取消的代理方法
  */
 @property(nonatomic , weak)id<XXBImagePickerControllerDelegate> imagePickerDelegate;

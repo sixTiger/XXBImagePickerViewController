@@ -40,6 +40,7 @@
 - (void)openPhoto
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
+    imagePickController.photoCount = 3;
     imagePickController.showPage = YES;
     imagePickController.showAllPhoto = YES;
     /**

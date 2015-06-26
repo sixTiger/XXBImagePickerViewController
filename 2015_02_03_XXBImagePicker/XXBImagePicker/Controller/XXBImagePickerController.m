@@ -49,6 +49,7 @@
     if (self = [super initWithRootViewController:self.photoTableVC])
     {
         self.showAllPhoto = NO;
+        self.photoCount = NSIntegerMax;
         [self setupImagePickerController];
     }
     return self;
@@ -190,6 +191,11 @@
 {
     _showPage = showPage;
     self.photoTableVC.showPage = _showPage;
+}
+- (void)setPhotoCount:(NSInteger)photoCount
+{
+    _photoCount = photoCount;
+    self.photoTableVC.photoCount = _photoCount;
 }
 #pragma mark - 懒加载
 

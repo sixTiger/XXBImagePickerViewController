@@ -44,6 +44,10 @@
  */
 @property(nonatomic , assign)BOOL showPage;
 /**
+ *  最多可选的照片的张数
+ */
+@property(nonatomic , assign)NSInteger photoCount;
+/**
  *  是否显示所有的照片
  */
 @property(nonatomic , assign)BOOL showAllPhoto;

@@ -91,6 +91,11 @@
     _showPage = showPage;
     self.photoCollectionVC.showPage = _showPage;
 }
+- (void)setPhotoCount:(NSInteger)photoCount
+{
+    _photoCount = photoCount;
+    self.photoCollectionVC.photoCount = _photoCount;
+}
 #pragma mark - 懒加载
 - (void)setPhotoInRow:(NSInteger)photoInRow
 {
