@@ -103,7 +103,7 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
         {
             
             photoAlasetModle.select = !photoAlasetModle.select;
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"选择的照片超过最大数" message:[NSString stringWithFormat:@"最大照片数：%@",@(self.photoCount)] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"你最多只能选择%@张照片",@(self.photoCount)] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
             [alertView show];
         }
     }

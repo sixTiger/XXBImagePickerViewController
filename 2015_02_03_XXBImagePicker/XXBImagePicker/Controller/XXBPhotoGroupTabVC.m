@@ -108,6 +108,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     self.photoCollectionVC.photoALAssets = [self.photoGroupArray[indexPath.row] photoALAssets];
     self.photoCollectionVC.title = [self.photoGroupArray[indexPath.row] photoGroupName];
     for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
