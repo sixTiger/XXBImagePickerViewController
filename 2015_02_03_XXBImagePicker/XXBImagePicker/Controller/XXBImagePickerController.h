@@ -57,6 +57,10 @@ typedef enum : NSUInteger {
  */
 @property(nonatomic , assign)BOOL showPage;
 /**
+ *  是否默认显示所有的相册
+ */
+@property(nonatomic , assign)BOOL showAllPhoto;
+/**
  *  用来处理选中和和取消的代理方法
  */
 @property(nonatomic , weak)id<XXBImagePickerControllerDelegate> imagePickerDelegate;

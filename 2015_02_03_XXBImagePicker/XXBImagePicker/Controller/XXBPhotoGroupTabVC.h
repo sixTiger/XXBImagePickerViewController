@@ -36,10 +36,6 @@
  */
 @property(nonatomic , strong)NSMutableArray  	*photoGroupArray;
 /**
- *  相册的模型数组
- */
-@property(nonatomic , strong)NSMutableArray  	*photoArray;
-/**
  *  处理照片选中的的代理
  */
 @property(nonatomic , weak)id<XXBPhotoGroupTabVCDelegate> photoGroupTabVCDelegate;
@@ -47,4 +43,9 @@
  *  是否显示数字标签
  */
 @property(nonatomic , assign)BOOL showPage;
+/**
+ *  是否显示所有的照片
+ */
+@property(nonatomic , assign)BOOL showAllPhoto;
+- (void)showAllPhotos;
 @end

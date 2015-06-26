@@ -41,6 +41,7 @@
 {
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
     imagePickController.showPage = YES;
+    imagePickController.showAllPhoto = YES;
     /**
      *  设置代理
      */

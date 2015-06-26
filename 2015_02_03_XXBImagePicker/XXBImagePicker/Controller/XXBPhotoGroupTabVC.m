@@ -16,17 +16,12 @@
 {
     NSInteger _photoInRow;
 }
-@property(nonatomic , assign)BOOL firstShow;
 @property(nonatomic , strong)XXBPhotoCollectionVC *photoCollectionVC;
 @end
 
 @implementation XXBPhotoGroupTabVC
 - (instancetype)init
 {
-    if (self = [super init])
-    {
-        self.firstShow = YES;
-    }
     return self;
 }
 - (void)viewDidLoad
@@ -35,6 +30,17 @@
     self.title = @"照片";
     self.tableView.rowHeight = 60;
     [self setupItems];
+}
+- (void)showAllPhotos
+{
+    self.photoCollectionVC.photoALAssets = [self.photoGroupArray[0] photoALAssets];
+    self.photoCollectionVC.title = [self.photoGroupArray[0] photoGroupName];
+    for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+    {
+        photoAlaset.select = NO;
+    }
+    [self.selectPhotoALAssets removeAllObjects];
+    [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
 }
 - (void)setupItems
 {
