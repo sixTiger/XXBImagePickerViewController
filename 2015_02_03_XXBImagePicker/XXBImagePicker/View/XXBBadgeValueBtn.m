@@ -44,7 +44,7 @@
          *  有值并且值不等于1 的情况向才进行相关设置
          */
         self.hidden = NO;
-        
+#warning keyi 对现实的数字进行个性化的处理
         if (_badgeValue.length>2)
         {
             _badgeValue= @"99+";
