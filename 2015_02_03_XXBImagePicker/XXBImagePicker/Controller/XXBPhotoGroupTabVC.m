@@ -17,11 +17,16 @@
     NSInteger _photoInRow;
 }
 @property(nonatomic , strong)XXBPhotoCollectionVC *photoCollectionVC;
+@property(nonatomic , assign)BOOL havePush;
 @end
 
 @implementation XXBPhotoGroupTabVC
 - (instancetype)init
 {
+    if (self = [super init])
+    {
+        self.havePush = NO;
+    }
     return self;
 }
 - (void)viewDidLoad
@@ -33,14 +38,38 @@
 }
 - (void)showAllPhotos
 {
-    self.photoCollectionVC.photoALAssets = [self.photoGroupArray[0] photoALAssets];
-    self.photoCollectionVC.title = [self.photoGroupArray[0] photoGroupName];
-    for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+    XXBPhotoGroupModle *photoGroupModle = [self shouldShowPhotoGroupModle];
+    if (self.havePush)
     {
-        photoAlaset.select = NO;
+        self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
+        self.photoCollectionVC.title = photoGroupModle.photoGroupName;
+        [self.photoCollectionVC.collectionView reloadData];
     }
-    [self.selectPhotoALAssets removeAllObjects];
-    [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
+    else
+    {
+        self.havePush = YES;
+        self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
+        self.photoCollectionVC.title = photoGroupModle.photoGroupName;
+        for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+        {
+            photoAlaset.select = NO;
+        }
+        [self.selectPhotoALAssets removeAllObjects];
+        [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
+    }
+}
+- (XXBPhotoGroupModle *)shouldShowPhotoGroupModle
+{
+    NSInteger count = self.photoGroupArray.count;
+    for (int  i = 0; i < count; i++)
+    {
+        XXBPhotoGroupModle *photoGroupModle = self.photoGroupArray[i];
+        if ([photoGroupModle.photoGroupName isEqualToString:@"所有照片"] || [photoGroupModle.photoGroupName isEqualToString:@"相机胶卷"])
+        {
+            return  photoGroupModle;
+        }
+    }
+    return self.photoGroupArray[0];
 }
 - (void)setupItems
 {

@@ -13,7 +13,7 @@
 {
     if ([photoGroupName isEqualToString:@"All Photos"])
     {
-        _photoGroupName = @"全部相册";
+        _photoGroupName = @"所有照片";
         return;
     }
     if([photoGroupName isEqualToString:@"Camera Roll"])
