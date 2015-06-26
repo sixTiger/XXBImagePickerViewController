@@ -45,4 +45,5 @@
  *  处理照片选中的代理
  */
 @property(nonatomic , weak)id<XXBPhotoCollectionVCDelegate> photoCollectionDelegate;
+- (void)scrollToButtom;
 @end

@@ -37,7 +37,6 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 44, 0)];
     self.collectionView.alwaysBounceVertical = YES;
-    
 }
 - (void)setupImagePickerTar
 {
@@ -71,6 +70,10 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
 {
     _photoALAssets = photoALAssets;
     [self.collectionView reloadData];
+}
+- (void)scrollToButtom
+{
+     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.photoALAssets.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
 }
 #pragma mark - collectionView 的相关处理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

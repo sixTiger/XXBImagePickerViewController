@@ -173,8 +173,6 @@
             else
             {
                 [self.photoTableVC.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-                
-                NSLog(@"%d",self.showAllPhoto);
                 if(self.showAllPhoto)
                 {
                     [self.photoTableVC performSelectorOnMainThread:@selector(showAllPhotos) withObject:nil waitUntilDone:nil];
@@ -182,6 +180,9 @@
             }
         };
         _library = [[ALAssetsLibrary alloc] init];
+//    [_library enumerateGroupsWithTypes:(1 << 6) - 1
+//                            usingBlock:libraryGroupsEnumeration
+//                          failureBlock:failureblock];
         [_library enumerateGroupsWithTypes:ALAssetsGroupAll
                                 usingBlock:libraryGroupsEnumeration
                               failureBlock:failureblock];

@@ -57,6 +57,9 @@
         [self.selectPhotoALAssets removeAllObjects];
         [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
     }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.photoCollectionVC scrollToButtom];
+    });
 }
 - (XXBPhotoGroupModle *)shouldShowPhotoGroupModle
 {
@@ -113,6 +116,9 @@
     }
     [self.selectPhotoALAssets removeAllObjects];
     [self.navigationController pushViewController:self.photoCollectionVC animated:YES];
+    
+    [self.photoCollectionVC scrollToButtom];
+    
 }
 #pragma mark - 
 - (void)setShowPage:(BOOL)showPage
