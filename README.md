@@ -40,7 +40,7 @@
 //  如果想在打开的时候原来选中的图片还是选中的话需要设置 selectPhotoALAssets  里边放的是 XXBPhotoAlasetModle 模型 <br>
 原来选中的photo的ALAsset 默认为空<br>
 ``` c
-@property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;<\br>
+@property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;
 ```
 #ipaid的效果图
 ![image](./image/1.png)<br>
