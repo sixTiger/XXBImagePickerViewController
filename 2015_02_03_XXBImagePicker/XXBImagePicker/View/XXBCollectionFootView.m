@@ -24,6 +24,7 @@
     {
         UILabel *countNumberLabel = [[UILabel alloc] initWithFrame:self.bounds];
         countNumberLabel.autoresizingMask = (1 << 6) - 1;
+        countNumberLabel.textColor = [UIColor grayColor];
         countNumberLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:countNumberLabel];
         _countNumberLabel = countNumberLabel;

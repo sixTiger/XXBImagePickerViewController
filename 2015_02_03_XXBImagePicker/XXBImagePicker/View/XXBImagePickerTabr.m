@@ -43,7 +43,6 @@
         [leftLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10];
         [leftLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
         [leftLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-        
         UILabel *centerLable = [[UILabel alloc] init];
         centerLable.textColor = self.textColor;
         [self addSubview:centerLable];
@@ -58,8 +57,6 @@
         [rightLable autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:centerLable];
         [rightLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
         [rightLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-
-        
         _selectMessageLabel = centerLable;
     }
     return _selectMessageLabel;
