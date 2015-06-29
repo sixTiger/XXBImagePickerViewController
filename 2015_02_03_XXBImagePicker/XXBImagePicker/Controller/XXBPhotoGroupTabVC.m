@@ -11,6 +11,7 @@
 #import "XXBPhotoGroupTVCell.h"
 #import "XXBPhotoCollectionVC.h"
 #import "XXBPhotoAlasetModle.h"
+#import "XXBDeviceHelp.h"
 
 @interface XXBPhotoGroupTabVC ()<XXBPhotoCollectionVCDelegate>
 {
@@ -139,8 +140,16 @@
 
 - (NSInteger)photoInRow
 {
-    if (_photoInRow == 0) {
-        _photoInRow = 4;
+    if (_photoInRow == 0)
+    {
+        if ([XXBDeviceHelp isIpad])
+        {
+            _photoInRow = 6;
+        }
+        else
+        {
+            _photoInRow = 4;
+        }
     }
     return _photoInRow;
 }

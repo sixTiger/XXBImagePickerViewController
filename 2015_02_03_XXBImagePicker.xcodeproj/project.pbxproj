@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		620C411C1B4111BD007930F8 /* XXBCollectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */; };
+		620C411F1B413D13007930F8 /* XXBDeviceHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 620C411E1B413D13007930F8 /* XXBDeviceHelp.m */; };
 		622534581B3943F6001D8705 /* XXBBadgeValueBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 622534571B3943F6001D8705 /* XXBBadgeValueBtn.m */; };
 		6225345F1B3957A1001D8705 /* XXBHelpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6225345E1B3957A1001D8705 /* XXBHelpTools.m */; };
 		622534661B395DC8001D8705 /* MBProgressHUD+XXB.m in Sources */ = {isa = PBXBuildFile; fileRef = 622534621B395DC8001D8705 /* MBProgressHUD+XXB.m */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		620C411A1B4111BD007930F8 /* XXBCollectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBCollectionFootView.h; sourceTree = "<group>"; };
 		620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBCollectionFootView.m; sourceTree = "<group>"; };
+		620C411D1B413D13007930F8 /* XXBDeviceHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBDeviceHelp.h; sourceTree = "<group>"; };
+		620C411E1B413D13007930F8 /* XXBDeviceHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBDeviceHelp.m; sourceTree = "<group>"; };
 		622534561B3943F6001D8705 /* XXBBadgeValueBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBBadgeValueBtn.h; sourceTree = "<group>"; };
 		622534571B3943F6001D8705 /* XXBBadgeValueBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBBadgeValueBtn.m; sourceTree = "<group>"; };
 		6225345D1B3957A1001D8705 /* XXBHelpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBHelpTools.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				622534601B395DC8001D8705 /* MBProgressHUD */,
 				6225345D1B3957A1001D8705 /* XXBHelpTools.h */,
 				6225345E1B3957A1001D8705 /* XXBHelpTools.m */,
+				620C411D1B413D13007930F8 /* XXBDeviceHelp.h */,
+				620C411E1B413D13007930F8 /* XXBDeviceHelp.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				C4063C291A80D3B800606E16 /* XXBPhotoAlasetModle.m in Sources */,
 				C4063C281A80D3B800606E16 /* XXBPhotoGroupTabVC.m in Sources */,
 				C4063C271A80D3B800606E16 /* XXBPhotoCollectionVC.m in Sources */,
+				620C411F1B413D13007930F8 /* XXBDeviceHelp.m in Sources */,
 				622534581B3943F6001D8705 /* XXBBadgeValueBtn.m in Sources */,
 				622534681B395DC8001D8705 /* MBProgressHUD.m in Sources */,
 			);
