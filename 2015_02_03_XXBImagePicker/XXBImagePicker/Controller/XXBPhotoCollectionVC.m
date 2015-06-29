@@ -11,6 +11,7 @@
 #import "XXBPhotoAlasetModle.h"
 #import "XXBImagePickerTabr.h"
 #import "UIView+AutoLayout.h"
+#import "XXBCollectionFootView.h"
 
 
 @interface XXBPhotoCollectionVC ()
@@ -19,19 +20,22 @@
 
 @implementation XXBPhotoCollectionVC
 
-static NSString * const reuseIdentifier = @"photoCollectionViewCell";
-
+static NSString * const reuseCellIdentifier = @"photoCollectionViewCell";
+static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupItems];
     [self setupCollectionView];
     [self setupImagePickerTar];
-    [self.collectionView registerClass:[XXBPhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[XXBPhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseCellIdentifier];
+    self.collectionView.allowsMultipleSelection = YES;
+    [self.collectionView registerClass:[XXBCollectionFootView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:reuseFooterIdentifier];
 }
 - (void)setupItems
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(selectPhotos)];
 }
+
 - (void)setupCollectionView
 {
     self.collectionView.backgroundColor = [UIColor whiteColor];
@@ -41,7 +45,6 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
 - (void)setupImagePickerTar
 {
     XXBImagePickerTabr *imagePickerTar = [[XXBImagePickerTabr alloc] init];
-    
     [self.view addSubview:imagePickerTar];
     [imagePickerTar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
     [imagePickerTar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.collectionView];
@@ -76,14 +79,32 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
      [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.photoALAssets.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
 }
 #pragma mark - collectionView 的相关处理
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    XXBCollectionFootView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader){
+        
+    }
+    
+    if (kind == UICollectionElementKindSectionFooter){
+        
+        reusableview = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:reuseFooterIdentifier forIndexPath:indexPath];
+        reusableview.numberString = [NSString stringWithFormat:@"%@",@(self.photoALAssets.count)];
+    }
+    return reusableview;
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.photoALAssets.count;
 }
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    XXBPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    XXBPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseCellIdentifier forIndexPath:indexPath];
     cell.photoAlasetModle = self.photoALAssets[indexPath.row];
     return cell;
 }
@@ -120,5 +141,4 @@ static NSString * const reuseIdentifier = @"photoCollectionViewCell";
     }
     [collectionView reloadData];
 }
-
 @end

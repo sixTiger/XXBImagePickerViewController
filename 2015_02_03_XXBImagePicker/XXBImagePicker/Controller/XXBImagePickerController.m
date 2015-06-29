@@ -180,9 +180,6 @@
             }
         };
         _library = [[ALAssetsLibrary alloc] init];
-//    [_library enumerateGroupsWithTypes:(1 << 6) - 1
-//                            usingBlock:libraryGroupsEnumeration
-//                          failureBlock:failureblock];
         [_library enumerateGroupsWithTypes:ALAssetsGroupAll
                                 usingBlock:libraryGroupsEnumeration
                               failureBlock:failureblock];

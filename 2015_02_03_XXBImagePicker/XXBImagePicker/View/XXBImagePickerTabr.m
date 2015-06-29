@@ -19,6 +19,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self setupImagePickerTabr];
+        self.selectCount = 0;
     }
     return self;
 }

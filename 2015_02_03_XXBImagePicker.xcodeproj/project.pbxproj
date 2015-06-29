@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		620C411C1B4111BD007930F8 /* XXBCollectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */; };
 		622534581B3943F6001D8705 /* XXBBadgeValueBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 622534571B3943F6001D8705 /* XXBBadgeValueBtn.m */; };
 		6225345F1B3957A1001D8705 /* XXBHelpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6225345E1B3957A1001D8705 /* XXBHelpTools.m */; };
 		622534661B395DC8001D8705 /* MBProgressHUD+XXB.m in Sources */ = {isa = PBXBuildFile; fileRef = 622534621B395DC8001D8705 /* MBProgressHUD+XXB.m */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		620C411A1B4111BD007930F8 /* XXBCollectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBCollectionFootView.h; sourceTree = "<group>"; };
+		620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBCollectionFootView.m; sourceTree = "<group>"; };
 		622534561B3943F6001D8705 /* XXBBadgeValueBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBBadgeValueBtn.h; sourceTree = "<group>"; };
 		622534571B3943F6001D8705 /* XXBBadgeValueBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBBadgeValueBtn.m; sourceTree = "<group>"; };
 		6225345D1B3957A1001D8705 /* XXBHelpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBHelpTools.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				C4063C231A80D3B800606E16 /* XXBPhotoCollectionViewCell.m */,
 				C4063C241A80D3B800606E16 /* XXBPhotoGroupTVCell.h */,
 				C4063C251A80D3B800606E16 /* XXBPhotoGroupTVCell.m */,
+				620C411A1B4111BD007930F8 /* XXBCollectionFootView.h */,
+				620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				C4137C511A81E037005D9A51 /* XXBImagePickerTabr.m in Sources */,
 				C4063C2A1A80D3B800606E16 /* XXBPhotoGroupModle.m in Sources */,
 				C4063BD81A809ED100606E16 /* ViewController.m in Sources */,
+				620C411C1B4111BD007930F8 /* XXBCollectionFootView.m in Sources */,
 				C4063BD51A809ED100606E16 /* AppDelegate.m in Sources */,
 				C4063BD21A809ED100606E16 /* main.m in Sources */,
 				C4063C2C1A80D3B800606E16 /* XXBPhotoGroupTVCell.m in Sources */,

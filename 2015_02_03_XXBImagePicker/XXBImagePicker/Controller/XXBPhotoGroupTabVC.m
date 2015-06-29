@@ -117,9 +117,7 @@
     }
     [self.selectPhotoALAssets removeAllObjects];
     [self.navigationController pushViewController:self.photoCollectionVC animated:YES];
-    
     [self.photoCollectionVC scrollToButtom];
-    
 }
 #pragma mark - 
 - (void)setShowPage:(BOOL)showPage
@@ -157,7 +155,8 @@
         layout.itemSize = CGSizeMake(itemWidth, itemWidth);
         layout.minimumInteritemSpacing = 1;
         layout.minimumLineSpacing = 1;
-        
+        layout.sectionInset = UIEdgeInsetsMake(2,0,2,0);
+        layout.footerReferenceSize = CGSizeMake(300.0f, 50.0f);
         _photoCollectionVC  = [[XXBPhotoCollectionVC alloc] initWithCollectionViewLayout:layout];
         _photoCollectionVC.selectPhotoALAssets = self.selectPhotoALAssets;
         _photoCollectionVC.photoCollectionDelegate = self;
