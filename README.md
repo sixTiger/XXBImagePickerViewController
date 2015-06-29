@@ -44,10 +44,10 @@
 ```
 #ipaid的效果图
 ![image](./image/1.png)<br>
-![image](./image/2.png)
-![image](./image/3.png)
+![image](./image/2.png)<br>
+![image](./image/3.png)<br>
 #iphone的效果图
 ![image](./image/4.png)<br>
-![image](./image/5.png)
-![image](./image/6.png)
+![image](./image/5.png)<br>
+![image](./image/6.png)<br>
 
