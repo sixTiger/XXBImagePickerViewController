@@ -11,16 +11,21 @@
 @implementation XXBPhotoGroupModle
 - (void)setPhotoGroupName:(NSString *)photoGroupName
 {
-    if ([photoGroupName isEqualToString:@"All Photos"])
-    {
-        _photoGroupName = @"所有照片";
-        return;
-    }
-    if([photoGroupName isEqualToString:@"Camera Roll"])
-    {
-        _photoGroupName = @"相机胶卷";
-        return;
-    }
+//    if ([photoGroupName isEqualToString:@"All Photos"])
+//    {
+//        _photoGroupName = @"所有照片";
+//        return;
+//    }
+//    if([photoGroupName isEqualToString:@"Camera Roll"])
+//    {
+//        _photoGroupName = @"相机胶卷";
+//        return;
+//    }
+//    if([photoGroupName isEqualToString:@"My Photo Stream"])
+//    {
+//        _photoGroupName = @"我的照片流";
+//        return;
+//    }
     _photoGroupName = [photoGroupName copy];
 
 }

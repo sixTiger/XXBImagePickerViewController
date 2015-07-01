@@ -39,7 +39,7 @@
 }
 - (void)showAllPhotos
 {
-    XXBPhotoGroupModle *photoGroupModle = [self shouldShowPhotoGroupModle];
+    XXBPhotoGroupModle *photoGroupModle = self.photoGroupArray[0];
     if (self.havePush)
     {
         self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
@@ -61,19 +61,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.photoCollectionVC scrollToButtom];
     });
-}
-- (XXBPhotoGroupModle *)shouldShowPhotoGroupModle
-{
-    NSInteger count = self.photoGroupArray.count;
-    for (int  i = 0; i < count; i++)
-    {
-        XXBPhotoGroupModle *photoGroupModle = self.photoGroupArray[i];
-        if ([photoGroupModle.photoGroupName isEqualToString:@"所有照片"] || [photoGroupModle.photoGroupName isEqualToString:@"相机胶卷"])
-        {
-            return  photoGroupModle;
-        }
-    }
-    return self.photoGroupArray[0];
 }
 - (void)setupItems
 {

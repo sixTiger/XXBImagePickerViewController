@@ -160,6 +160,7 @@
                 /**
                  *  获取photoGroup的组名
                  */
+                
                 groupModle.photoGroupName = [group valueForProperty:ALAssetsGroupPropertyName];
                 /**
                  *  获取缩略图
