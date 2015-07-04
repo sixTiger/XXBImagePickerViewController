@@ -39,7 +39,8 @@
 }
 - (void)showAllPhotos
 {
-    XXBPhotoGroupModle *photoGroupModle = self.photoGroupArray[0];
+    
+    XXBPhotoGroupModle *photoGroupModle = [self.photoGroupArray firstObject];
     if (self.havePush)
     {
         self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;

@@ -88,6 +88,7 @@
         UIButton *coverButton = [UIButton buttonWithType:UIButtonTypeCustom];
         coverButton.frame = CGRectMake(self.bounds.size.width - width - margin, margin , width , width);
         [self.photoView addSubview:coverButton];
+#warning 预先展示的图片可以去掉
         [coverButton setImage:[UIImage imageNamed:@"XXBImagePicker.bundle/XXBPhoto"] forState:UIControlStateNormal];
         [coverButton setImage:[UIImage imageNamed:@"XXBImagePicker.bundle/XXBPhotoSelected"] forState:UIControlStateSelected];
         coverButton.userInteractionEnabled = NO;

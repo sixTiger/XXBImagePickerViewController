@@ -76,6 +76,8 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 }
 - (void)scrollToButtom
 {
+    if (self.photoALAssets.count == 0)
+        return;
      [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.photoALAssets.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
 }
 #pragma mark - collectionView 的相关处理
