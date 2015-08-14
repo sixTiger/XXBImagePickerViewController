@@ -42,7 +42,7 @@
     // 创建一个照片选择器
     XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
     // 设置做多可选的照片数
-    imagePickController.photoCount = 3;
+    imagePickController.photoCount = 100;
     // 是都展示左上角的数字标签
     imagePickController.showPage = YES;
     //  是否默认打开全部相册

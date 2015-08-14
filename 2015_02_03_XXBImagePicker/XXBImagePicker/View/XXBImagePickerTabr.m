@@ -8,9 +8,11 @@
 
 #import "XXBImagePickerTabr.h"
 #import "UIView+AutoLayout.h"
+#import "XXBBadgeValueBtn.h"
 
 @interface XXBImagePickerTabr ()
-@property(nonatomic , weak)UILabel *selectMessageLabel;
+@property(nonatomic , strong)UIButton *finishButton;
+@property(nonatomic , strong)XXBBadgeValueBtn *bageValueButton;
 @end
 
 @implementation XXBImagePickerTabr
@@ -25,48 +27,37 @@
 }
 - (void)setupImagePickerTabr
 {
-    self.backgroundColor = [UIColor colorWithRed:12/255.0 green:185/255.0 blue:8/255.0 alpha:1.0];
+    self.backgroundColor = [UIColor whiteColor];
+    _finishButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:_finishButton];
+    [_finishButton setTitle:@"完成" forState:UIControlStateNormal];
+    [_finishButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [_finishButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [_finishButton addTarget:self action:@selector(p_finishButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [_finishButton autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self withOffset:-10];
+    [_finishButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+    [_finishButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+//    [_finishButton autoSetDimension:ALDimensionWidth toSize:64];
+    
+    _bageValueButton = [XXBBadgeValueBtn buttonWithType:UIButtonTypeCustom];
+    [self addSubview:_bageValueButton];
+    _bageValueButton.frame = CGRectMake(0, 0, 10, 10);
+}
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - 26,(self.frame.size.height - 26) * 0.5, 26, 26);
+}
+- (void)p_finishButtonClick
+{
+    [self.delegate imagePickerTabrFinishClick];
 }
 - (void)setSelectCount:(NSInteger)selectCount
 {
     _selectCount = selectCount;
-    self.selectMessageLabel.text = [NSString stringWithFormat:@"%@",@(selectCount)];
-}
-- (UILabel *)selectMessageLabel
-{
-    if (_selectMessageLabel == nil)
-    {
-        UILabel *leftLable = [[UILabel alloc] init];
-        leftLable.textColor = self.textColor;
-        leftLable.text = @"已选择:";
-        [self addSubview:leftLable];
-        [leftLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10];
-        [leftLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-        [leftLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-        UILabel *centerLable = [[UILabel alloc] init];
-        centerLable.textColor = self.textColor;
-        [self addSubview:centerLable];
-        [centerLable autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:leftLable];
-        [centerLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-        [centerLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-        
-        UILabel *rightLable = [[UILabel alloc] init];
-        rightLable.textColor = self.textColor;
-        rightLable.text = @" 张照片";
-        [self addSubview:rightLable];
-        [rightLable autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:centerLable];
-        [rightLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-        [rightLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-        _selectMessageLabel = centerLable;
-    }
-    return _selectMessageLabel;
-}
-- (UIColor *)textColor
-{
-    if (!_textColor)
-    {
-        _textColor = [UIColor whiteColor];
-    }
-    return _textColor;
+    self.bageValueButton.badgeValue = [NSString stringWithFormat:@"%@",@(selectCount)];
+    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - self.bageValueButton.frame.size.width, self.bageValueButton.frame.origin.y, self.bageValueButton.frame.size.width, self.bageValueButton.frame.size.height);
 }
 @end

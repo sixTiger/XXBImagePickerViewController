@@ -65,7 +65,7 @@
 }
 - (void)setupItems
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleSelectPhotos)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleSelectPhotos)];
 }
 #pragma mark - 相关的代理方法的处理
 - (void)cancleSelectPhotos

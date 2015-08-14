@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol  XXBImagePickerTabrDelegate<NSObject>
+
+- (void)imagePickerTabrFinishClick;
+@end
+
 @interface XXBImagePickerTabr : UIView
+@property(nonatomic , weak)id<XXBImagePickerTabrDelegate> delegate;
 @property(nonatomic , assign)NSInteger selectCount;
-@property(nonatomic , strong)UIColor *textColor;
 @end
