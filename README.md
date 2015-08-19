@@ -1,4 +1,8 @@
 # XXBImagePickerViewController
+# 支持pod
+``` c
+pod 'XXBImagePickerViewController', :git => "https://github.com/sixTiger/XXBImagePickerViewController"
+```
 ## 初始化跟系统自在的图片选择器一样好用直接push就行
  * 可以对选择的照片进行排序 <br>
  * 可以设置右上角的指示数字按钮<br>
