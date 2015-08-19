@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author             = { '杨小兵' => 'six_tiger@163.com' }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/sixTiger/XXBImagePickerViewController", :tag => s.version }
-  s.source_files = "XXBImagePicker/*.{h,m}"
+  s.source_files = "XXBImagePicker/**/*.{h,m}"
   s.resource     = "XXBImagePicker/XXBImagePicker.bundle"
   s.require_arc  = true
 end
