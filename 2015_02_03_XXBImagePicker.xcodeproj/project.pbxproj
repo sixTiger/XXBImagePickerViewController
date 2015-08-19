@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		620C411C1B4111BD007930F8 /* XXBCollectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */; };
-		620C411F1B413D13007930F8 /* XXBDeviceHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 620C411E1B413D13007930F8 /* XXBDeviceHelp.m */; };
-		622534581B3943F6001D8705 /* XXBBadgeValueBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 622534571B3943F6001D8705 /* XXBBadgeValueBtn.m */; };
-		6225345F1B3957A1001D8705 /* XXBHelpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6225345E1B3957A1001D8705 /* XXBHelpTools.m */; };
-		622534661B395DC8001D8705 /* MBProgressHUD+XXB.m in Sources */ = {isa = PBXBuildFile; fileRef = 622534621B395DC8001D8705 /* MBProgressHUD+XXB.m */; };
-		622534671B395DC8001D8705 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 622534631B395DC8001D8705 /* MBProgressHUD.bundle */; };
-		622534681B395DC8001D8705 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 622534651B395DC8001D8705 /* MBProgressHUD.m */; };
+		62C52B3E1B84973000C1E13F /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B1B1B84973000C1E13F /* UIView+AutoLayout.m */; };
+		62C52B3F1B84973000C1E13F /* XXBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B1D1B84973000C1E13F /* XXBImagePickerController.m */; };
+		62C52B401B84973000C1E13F /* XXBPhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B1F1B84973000C1E13F /* XXBPhotoCollectionVC.m */; };
+		62C52B411B84973000C1E13F /* XXBPhotoGroupTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B211B84973000C1E13F /* XXBPhotoGroupTabVC.m */; };
+		62C52B421B84973000C1E13F /* XXBPhotoAlasetModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B241B84973000C1E13F /* XXBPhotoAlasetModle.m */; };
+		62C52B431B84973000C1E13F /* XXBPhotoGroupModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B261B84973000C1E13F /* XXBPhotoGroupModle.m */; };
+		62C52B491B84973000C1E13F /* XXBBadgeValueBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B341B84973000C1E13F /* XXBBadgeValueBtn.m */; };
+		62C52B4A1B84973000C1E13F /* XXBCollectionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B361B84973000C1E13F /* XXBCollectionFootView.m */; };
+		62C52B4B1B84973000C1E13F /* XXBImagePickerTabr.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B381B84973000C1E13F /* XXBImagePickerTabr.m */; };
+		62C52B4C1B84973000C1E13F /* XXBPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B3A1B84973000C1E13F /* XXBPhotoCollectionViewCell.m */; };
+		62C52B4D1B84973000C1E13F /* XXBPhotoGroupTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B3C1B84973000C1E13F /* XXBPhotoGroupTVCell.m */; };
+		62C52B501B84976900C1E13F /* XXBImagePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62C52B4F1B84976900C1E13F /* XXBImagePicker.bundle */; };
+		62C52B5C1B84978D00C1E13F /* MBProgressHUD+XXB.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B541B84978D00C1E13F /* MBProgressHUD+XXB.m */; };
+		62C52B5E1B84978D00C1E13F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B571B84978D00C1E13F /* MBProgressHUD.m */; };
+		62C52B5F1B84978D00C1E13F /* XXBDeviceHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B591B84978D00C1E13F /* XXBDeviceHelp.m */; };
+		62C52B601B84978D00C1E13F /* XXBHelpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B5B1B84978D00C1E13F /* XXBHelpTools.m */; };
 		C4063BD21A809ED100606E16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BD11A809ED100606E16 /* main.m */; };
 		C4063BD51A809ED100606E16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BD41A809ED100606E16 /* AppDelegate.m */; };
 		C4063BD81A809ED100606E16 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BD71A809ED100606E16 /* ViewController.m */; };
@@ -21,16 +30,6 @@
 		C4063BDD1A809ED100606E16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4063BDC1A809ED100606E16 /* Images.xcassets */; };
 		C4063BE01A809ED100606E16 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4063BDE1A809ED100606E16 /* LaunchScreen.xib */; };
 		C4063BEC1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BEB1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m */; };
-		C4063C261A80D3B800606E16 /* XXBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C171A80D3B800606E16 /* XXBImagePickerController.m */; };
-		C4063C271A80D3B800606E16 /* XXBPhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C191A80D3B800606E16 /* XXBPhotoCollectionVC.m */; };
-		C4063C281A80D3B800606E16 /* XXBPhotoGroupTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C1B1A80D3B800606E16 /* XXBPhotoGroupTabVC.m */; };
-		C4063C291A80D3B800606E16 /* XXBPhotoAlasetModle.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C1E1A80D3B800606E16 /* XXBPhotoAlasetModle.m */; };
-		C4063C2A1A80D3B800606E16 /* XXBPhotoGroupModle.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C201A80D3B800606E16 /* XXBPhotoGroupModle.m */; };
-		C4063C2B1A80D3B800606E16 /* XXBPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C231A80D3B800606E16 /* XXBPhotoCollectionViewCell.m */; };
-		C4063C2C1A80D3B800606E16 /* XXBPhotoGroupTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063C251A80D3B800606E16 /* XXBPhotoGroupTVCell.m */; };
-		C4137C4E1A81DAE3005D9A51 /* XXBImagePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4137C4D1A81DAE3005D9A51 /* XXBImagePicker.bundle */; };
-		C4137C511A81E037005D9A51 /* XXBImagePickerTabr.m in Sources */ = {isa = PBXBuildFile; fileRef = C4137C501A81E037005D9A51 /* XXBImagePickerTabr.m */; };
-		C4137C541A81F856005D9A51 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4137C531A81F856005D9A51 /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,19 +43,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		620C411A1B4111BD007930F8 /* XXBCollectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBCollectionFootView.h; sourceTree = "<group>"; };
-		620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBCollectionFootView.m; sourceTree = "<group>"; };
-		620C411D1B413D13007930F8 /* XXBDeviceHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBDeviceHelp.h; sourceTree = "<group>"; };
-		620C411E1B413D13007930F8 /* XXBDeviceHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBDeviceHelp.m; sourceTree = "<group>"; };
-		622534561B3943F6001D8705 /* XXBBadgeValueBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBBadgeValueBtn.h; sourceTree = "<group>"; };
-		622534571B3943F6001D8705 /* XXBBadgeValueBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBBadgeValueBtn.m; sourceTree = "<group>"; };
-		6225345D1B3957A1001D8705 /* XXBHelpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBHelpTools.h; sourceTree = "<group>"; };
-		6225345E1B3957A1001D8705 /* XXBHelpTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBHelpTools.m; sourceTree = "<group>"; };
-		622534611B395DC8001D8705 /* MBProgressHUD+XXB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XXB.h"; sourceTree = "<group>"; };
-		622534621B395DC8001D8705 /* MBProgressHUD+XXB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+XXB.m"; sourceTree = "<group>"; };
-		622534631B395DC8001D8705 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		622534641B395DC8001D8705 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		622534651B395DC8001D8705 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		62C52B1A1B84973000C1E13F /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		62C52B1B1B84973000C1E13F /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		62C52B1C1B84973000C1E13F /* XXBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBImagePickerController.h; sourceTree = "<group>"; };
+		62C52B1D1B84973000C1E13F /* XXBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBImagePickerController.m; sourceTree = "<group>"; };
+		62C52B1E1B84973000C1E13F /* XXBPhotoCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoCollectionVC.h; sourceTree = "<group>"; };
+		62C52B1F1B84973000C1E13F /* XXBPhotoCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoCollectionVC.m; sourceTree = "<group>"; };
+		62C52B201B84973000C1E13F /* XXBPhotoGroupTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupTabVC.h; sourceTree = "<group>"; };
+		62C52B211B84973000C1E13F /* XXBPhotoGroupTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupTabVC.m; sourceTree = "<group>"; };
+		62C52B231B84973000C1E13F /* XXBPhotoAlasetModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoAlasetModle.h; sourceTree = "<group>"; };
+		62C52B241B84973000C1E13F /* XXBPhotoAlasetModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoAlasetModle.m; sourceTree = "<group>"; };
+		62C52B251B84973000C1E13F /* XXBPhotoGroupModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupModle.h; sourceTree = "<group>"; };
+		62C52B261B84973000C1E13F /* XXBPhotoGroupModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupModle.m; sourceTree = "<group>"; };
+		62C52B331B84973000C1E13F /* XXBBadgeValueBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBBadgeValueBtn.h; sourceTree = "<group>"; };
+		62C52B341B84973000C1E13F /* XXBBadgeValueBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBBadgeValueBtn.m; sourceTree = "<group>"; };
+		62C52B351B84973000C1E13F /* XXBCollectionFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBCollectionFootView.h; sourceTree = "<group>"; };
+		62C52B361B84973000C1E13F /* XXBCollectionFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBCollectionFootView.m; sourceTree = "<group>"; };
+		62C52B371B84973000C1E13F /* XXBImagePickerTabr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBImagePickerTabr.h; sourceTree = "<group>"; };
+		62C52B381B84973000C1E13F /* XXBImagePickerTabr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBImagePickerTabr.m; sourceTree = "<group>"; };
+		62C52B391B84973000C1E13F /* XXBPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		62C52B3A1B84973000C1E13F /* XXBPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		62C52B3B1B84973000C1E13F /* XXBPhotoGroupTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupTVCell.h; sourceTree = "<group>"; };
+		62C52B3C1B84973000C1E13F /* XXBPhotoGroupTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupTVCell.m; sourceTree = "<group>"; };
+		62C52B4F1B84976900C1E13F /* XXBImagePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XXBImagePicker.bundle; sourceTree = "<group>"; };
+		62C52B531B84978D00C1E13F /* MBProgressHUD+XXB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XXB.h"; sourceTree = "<group>"; };
+		62C52B541B84978D00C1E13F /* MBProgressHUD+XXB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+XXB.m"; sourceTree = "<group>"; };
+		62C52B561B84978D00C1E13F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		62C52B571B84978D00C1E13F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		62C52B581B84978D00C1E13F /* XXBDeviceHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBDeviceHelp.h; sourceTree = "<group>"; };
+		62C52B591B84978D00C1E13F /* XXBDeviceHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBDeviceHelp.m; sourceTree = "<group>"; };
+		62C52B5A1B84978D00C1E13F /* XXBHelpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBHelpTools.h; sourceTree = "<group>"; };
+		62C52B5B1B84978D00C1E13F /* XXBHelpTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBHelpTools.m; sourceTree = "<group>"; };
 		C4063BCC1A809ED100606E16 /* 2015_02_03_XXBImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2015_02_03_XXBImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4063BD01A809ED100606E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4063BD11A809ED100606E16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,25 +87,6 @@
 		C4063BE51A809ED100606E16 /* 2015_02_03_XXBImagePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 2015_02_03_XXBImagePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4063BEA1A809ED100606E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4063BEB1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _015_02_03_XXBImagePickerTests.m; sourceTree = "<group>"; };
-		C4063C161A80D3B800606E16 /* XXBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBImagePickerController.h; sourceTree = "<group>"; };
-		C4063C171A80D3B800606E16 /* XXBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBImagePickerController.m; sourceTree = "<group>"; };
-		C4063C181A80D3B800606E16 /* XXBPhotoCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoCollectionVC.h; sourceTree = "<group>"; };
-		C4063C191A80D3B800606E16 /* XXBPhotoCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoCollectionVC.m; sourceTree = "<group>"; };
-		C4063C1A1A80D3B800606E16 /* XXBPhotoGroupTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupTabVC.h; sourceTree = "<group>"; };
-		C4063C1B1A80D3B800606E16 /* XXBPhotoGroupTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupTabVC.m; sourceTree = "<group>"; };
-		C4063C1D1A80D3B800606E16 /* XXBPhotoAlasetModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoAlasetModle.h; sourceTree = "<group>"; };
-		C4063C1E1A80D3B800606E16 /* XXBPhotoAlasetModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoAlasetModle.m; sourceTree = "<group>"; };
-		C4063C1F1A80D3B800606E16 /* XXBPhotoGroupModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupModle.h; sourceTree = "<group>"; };
-		C4063C201A80D3B800606E16 /* XXBPhotoGroupModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupModle.m; sourceTree = "<group>"; };
-		C4063C221A80D3B800606E16 /* XXBPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoCollectionViewCell.h; sourceTree = "<group>"; };
-		C4063C231A80D3B800606E16 /* XXBPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoCollectionViewCell.m; sourceTree = "<group>"; };
-		C4063C241A80D3B800606E16 /* XXBPhotoGroupTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupTVCell.h; sourceTree = "<group>"; };
-		C4063C251A80D3B800606E16 /* XXBPhotoGroupTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupTVCell.m; sourceTree = "<group>"; };
-		C4137C4D1A81DAE3005D9A51 /* XXBImagePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XXBImagePicker.bundle; sourceTree = "<group>"; };
-		C4137C4F1A81E037005D9A51 /* XXBImagePickerTabr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XXBImagePickerTabr.h; path = 2015_02_03_XXBImagePicker/XXBImagePicker/View/XXBImagePickerTabr.h; sourceTree = SOURCE_ROOT; };
-		C4137C501A81E037005D9A51 /* XXBImagePickerTabr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XXBImagePickerTabr.m; path = 2015_02_03_XXBImagePicker/XXBImagePicker/View/XXBImagePickerTabr.m; sourceTree = SOURCE_ROOT; };
-		C4137C521A81F856005D9A51 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
-		C4137C531A81F856005D9A51 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,26 +107,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		622534591B39576E001D8705 /* Tools */ = {
+		62C52B181B84973000C1E13F /* XXBImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				622534601B395DC8001D8705 /* MBProgressHUD */,
-				6225345D1B3957A1001D8705 /* XXBHelpTools.h */,
-				6225345E1B3957A1001D8705 /* XXBHelpTools.m */,
-				620C411D1B413D13007930F8 /* XXBDeviceHelp.h */,
-				620C411E1B413D13007930F8 /* XXBDeviceHelp.m */,
+				62C52B511B84978D00C1E13F /* Tools */,
+				62C52B191B84973000C1E13F /* Controller */,
+				62C52B221B84973000C1E13F /* Modle */,
+				62C52B321B84973000C1E13F /* View */,
+				62C52B4F1B84976900C1E13F /* XXBImagePicker.bundle */,
+			);
+			path = XXBImagePicker;
+			sourceTree = "<group>";
+		};
+		62C52B191B84973000C1E13F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				62C52B1A1B84973000C1E13F /* UIView+AutoLayout.h */,
+				62C52B1B1B84973000C1E13F /* UIView+AutoLayout.m */,
+				62C52B1C1B84973000C1E13F /* XXBImagePickerController.h */,
+				62C52B1D1B84973000C1E13F /* XXBImagePickerController.m */,
+				62C52B1E1B84973000C1E13F /* XXBPhotoCollectionVC.h */,
+				62C52B1F1B84973000C1E13F /* XXBPhotoCollectionVC.m */,
+				62C52B201B84973000C1E13F /* XXBPhotoGroupTabVC.h */,
+				62C52B211B84973000C1E13F /* XXBPhotoGroupTabVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		62C52B221B84973000C1E13F /* Modle */ = {
+			isa = PBXGroup;
+			children = (
+				62C52B231B84973000C1E13F /* XXBPhotoAlasetModle.h */,
+				62C52B241B84973000C1E13F /* XXBPhotoAlasetModle.m */,
+				62C52B251B84973000C1E13F /* XXBPhotoGroupModle.h */,
+				62C52B261B84973000C1E13F /* XXBPhotoGroupModle.m */,
+			);
+			path = Modle;
+			sourceTree = "<group>";
+		};
+		62C52B321B84973000C1E13F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62C52B331B84973000C1E13F /* XXBBadgeValueBtn.h */,
+				62C52B341B84973000C1E13F /* XXBBadgeValueBtn.m */,
+				62C52B351B84973000C1E13F /* XXBCollectionFootView.h */,
+				62C52B361B84973000C1E13F /* XXBCollectionFootView.m */,
+				62C52B371B84973000C1E13F /* XXBImagePickerTabr.h */,
+				62C52B381B84973000C1E13F /* XXBImagePickerTabr.m */,
+				62C52B391B84973000C1E13F /* XXBPhotoCollectionViewCell.h */,
+				62C52B3A1B84973000C1E13F /* XXBPhotoCollectionViewCell.m */,
+				62C52B3B1B84973000C1E13F /* XXBPhotoGroupTVCell.h */,
+				62C52B3C1B84973000C1E13F /* XXBPhotoGroupTVCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62C52B511B84978D00C1E13F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				62C52B521B84978D00C1E13F /* MBProgressHUD */,
+				62C52B581B84978D00C1E13F /* XXBDeviceHelp.h */,
+				62C52B591B84978D00C1E13F /* XXBDeviceHelp.m */,
+				62C52B5A1B84978D00C1E13F /* XXBHelpTools.h */,
+				62C52B5B1B84978D00C1E13F /* XXBHelpTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		622534601B395DC8001D8705 /* MBProgressHUD */ = {
+		62C52B521B84978D00C1E13F /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				622534611B395DC8001D8705 /* MBProgressHUD+XXB.h */,
-				622534621B395DC8001D8705 /* MBProgressHUD+XXB.m */,
-				622534631B395DC8001D8705 /* MBProgressHUD.bundle */,
-				622534641B395DC8001D8705 /* MBProgressHUD.h */,
-				622534651B395DC8001D8705 /* MBProgressHUD.m */,
+				62C52B531B84978D00C1E13F /* MBProgressHUD+XXB.h */,
+				62C52B541B84978D00C1E13F /* MBProgressHUD+XXB.m */,
+				62C52B561B84978D00C1E13F /* MBProgressHUD.h */,
+				62C52B571B84978D00C1E13F /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -154,7 +206,7 @@
 		C4063BCE1A809ED100606E16 /* 2015_02_03_XXBImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				C4063C141A80D3B800606E16 /* XXBImagePicker */,
+				62C52B181B84973000C1E13F /* XXBImagePicker */,
 				C4063BD31A809ED100606E16 /* AppDelegate.h */,
 				C4063BD41A809ED100606E16 /* AppDelegate.m */,
 				C4063BD61A809ED100606E16 /* ViewController.h */,
@@ -191,61 +243,6 @@
 				C4063BEA1A809ED100606E16 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C4063C141A80D3B800606E16 /* XXBImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				622534591B39576E001D8705 /* Tools */,
-				C4137C4D1A81DAE3005D9A51 /* XXBImagePicker.bundle */,
-				C4063C151A80D3B800606E16 /* Controller */,
-				C4063C1C1A80D3B800606E16 /* Modle */,
-				C4063C211A80D3B800606E16 /* View */,
-			);
-			path = XXBImagePicker;
-			sourceTree = "<group>";
-		};
-		C4063C151A80D3B800606E16 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				C4137C521A81F856005D9A51 /* UIView+AutoLayout.h */,
-				C4137C531A81F856005D9A51 /* UIView+AutoLayout.m */,
-				C4063C161A80D3B800606E16 /* XXBImagePickerController.h */,
-				C4063C171A80D3B800606E16 /* XXBImagePickerController.m */,
-				C4063C181A80D3B800606E16 /* XXBPhotoCollectionVC.h */,
-				C4063C191A80D3B800606E16 /* XXBPhotoCollectionVC.m */,
-				C4063C1A1A80D3B800606E16 /* XXBPhotoGroupTabVC.h */,
-				C4063C1B1A80D3B800606E16 /* XXBPhotoGroupTabVC.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		C4063C1C1A80D3B800606E16 /* Modle */ = {
-			isa = PBXGroup;
-			children = (
-				C4063C1D1A80D3B800606E16 /* XXBPhotoAlasetModle.h */,
-				C4063C1E1A80D3B800606E16 /* XXBPhotoAlasetModle.m */,
-				C4063C1F1A80D3B800606E16 /* XXBPhotoGroupModle.h */,
-				C4063C201A80D3B800606E16 /* XXBPhotoGroupModle.m */,
-			);
-			path = Modle;
-			sourceTree = "<group>";
-		};
-		C4063C211A80D3B800606E16 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				622534561B3943F6001D8705 /* XXBBadgeValueBtn.h */,
-				622534571B3943F6001D8705 /* XXBBadgeValueBtn.m */,
-				C4137C4F1A81E037005D9A51 /* XXBImagePickerTabr.h */,
-				C4137C501A81E037005D9A51 /* XXBImagePickerTabr.m */,
-				C4063C221A80D3B800606E16 /* XXBPhotoCollectionViewCell.h */,
-				C4063C231A80D3B800606E16 /* XXBPhotoCollectionViewCell.m */,
-				C4063C241A80D3B800606E16 /* XXBPhotoGroupTVCell.h */,
-				C4063C251A80D3B800606E16 /* XXBPhotoGroupTVCell.m */,
-				620C411A1B4111BD007930F8 /* XXBCollectionFootView.h */,
-				620C411B1B4111BD007930F8 /* XXBCollectionFootView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +294,7 @@
 				TargetAttributes = {
 					C4063BCB1A809ED100606E16 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = USZUZCA5NW;
 					};
 					C4063BE41A809ED100606E16 = {
 						CreatedOnToolsVersion = 6.1;
@@ -328,10 +326,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4137C4E1A81DAE3005D9A51 /* XXBImagePicker.bundle in Resources */,
 				C4063BDB1A809ED100606E16 /* Main.storyboard in Resources */,
-				622534671B395DC8001D8705 /* MBProgressHUD.bundle in Resources */,
 				C4063BE01A809ED100606E16 /* LaunchScreen.xib in Resources */,
+				62C52B501B84976900C1E13F /* XXBImagePicker.bundle in Resources */,
 				C4063BDD1A809ED100606E16 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,24 +347,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6225345F1B3957A1001D8705 /* XXBHelpTools.m in Sources */,
-				622534661B395DC8001D8705 /* MBProgressHUD+XXB.m in Sources */,
-				C4063C261A80D3B800606E16 /* XXBImagePickerController.m in Sources */,
-				C4137C541A81F856005D9A51 /* UIView+AutoLayout.m in Sources */,
-				C4137C511A81E037005D9A51 /* XXBImagePickerTabr.m in Sources */,
-				C4063C2A1A80D3B800606E16 /* XXBPhotoGroupModle.m in Sources */,
+				62C52B431B84973000C1E13F /* XXBPhotoGroupModle.m in Sources */,
+				62C52B5C1B84978D00C1E13F /* MBProgressHUD+XXB.m in Sources */,
 				C4063BD81A809ED100606E16 /* ViewController.m in Sources */,
-				620C411C1B4111BD007930F8 /* XXBCollectionFootView.m in Sources */,
+				62C52B3F1B84973000C1E13F /* XXBImagePickerController.m in Sources */,
+				62C52B3E1B84973000C1E13F /* UIView+AutoLayout.m in Sources */,
 				C4063BD51A809ED100606E16 /* AppDelegate.m in Sources */,
+				62C52B401B84973000C1E13F /* XXBPhotoCollectionVC.m in Sources */,
+				62C52B4C1B84973000C1E13F /* XXBPhotoCollectionViewCell.m in Sources */,
+				62C52B4D1B84973000C1E13F /* XXBPhotoGroupTVCell.m in Sources */,
+				62C52B601B84978D00C1E13F /* XXBHelpTools.m in Sources */,
+				62C52B491B84973000C1E13F /* XXBBadgeValueBtn.m in Sources */,
+				62C52B411B84973000C1E13F /* XXBPhotoGroupTabVC.m in Sources */,
+				62C52B4B1B84973000C1E13F /* XXBImagePickerTabr.m in Sources */,
+				62C52B4A1B84973000C1E13F /* XXBCollectionFootView.m in Sources */,
 				C4063BD21A809ED100606E16 /* main.m in Sources */,
-				C4063C2C1A80D3B800606E16 /* XXBPhotoGroupTVCell.m in Sources */,
-				C4063C2B1A80D3B800606E16 /* XXBPhotoCollectionViewCell.m in Sources */,
-				C4063C291A80D3B800606E16 /* XXBPhotoAlasetModle.m in Sources */,
-				C4063C281A80D3B800606E16 /* XXBPhotoGroupTabVC.m in Sources */,
-				C4063C271A80D3B800606E16 /* XXBPhotoCollectionVC.m in Sources */,
-				620C411F1B413D13007930F8 /* XXBDeviceHelp.m in Sources */,
-				622534581B3943F6001D8705 /* XXBBadgeValueBtn.m in Sources */,
-				622534681B395DC8001D8705 /* MBProgressHUD.m in Sources */,
+				62C52B421B84973000C1E13F /* XXBPhotoAlasetModle.m in Sources */,
+				62C52B5E1B84978D00C1E13F /* MBProgressHUD.m in Sources */,
+				62C52B5F1B84978D00C1E13F /* XXBDeviceHelp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
