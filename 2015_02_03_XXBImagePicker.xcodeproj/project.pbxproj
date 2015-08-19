@@ -23,6 +23,7 @@
 		62C52B5E1B84978D00C1E13F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B571B84978D00C1E13F /* MBProgressHUD.m */; };
 		62C52B5F1B84978D00C1E13F /* XXBDeviceHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B591B84978D00C1E13F /* XXBDeviceHelp.m */; };
 		62C52B601B84978D00C1E13F /* XXBHelpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C52B5B1B84978D00C1E13F /* XXBHelpTools.m */; };
+		62C52B621B84983B00C1E13F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62C52B611B84983B00C1E13F /* MBProgressHUD.bundle */; };
 		C4063BD21A809ED100606E16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BD11A809ED100606E16 /* main.m */; };
 		C4063BD51A809ED100606E16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BD41A809ED100606E16 /* AppDelegate.m */; };
 		C4063BD81A809ED100606E16 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BD71A809ED100606E16 /* ViewController.m */; };
@@ -74,6 +75,7 @@
 		62C52B591B84978D00C1E13F /* XXBDeviceHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBDeviceHelp.m; sourceTree = "<group>"; };
 		62C52B5A1B84978D00C1E13F /* XXBHelpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBHelpTools.h; sourceTree = "<group>"; };
 		62C52B5B1B84978D00C1E13F /* XXBHelpTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBHelpTools.m; sourceTree = "<group>"; };
+		62C52B611B84983B00C1E13F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		C4063BCC1A809ED100606E16 /* 2015_02_03_XXBImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2015_02_03_XXBImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4063BD01A809ED100606E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4063BD11A809ED100606E16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		62C52B521B84978D00C1E13F /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				62C52B611B84983B00C1E13F /* MBProgressHUD.bundle */,
 				62C52B531B84978D00C1E13F /* MBProgressHUD+XXB.h */,
 				62C52B541B84978D00C1E13F /* MBProgressHUD+XXB.m */,
 				62C52B561B84978D00C1E13F /* MBProgressHUD.h */,
@@ -328,6 +331,7 @@
 			files = (
 				C4063BDB1A809ED100606E16 /* Main.storyboard in Resources */,
 				C4063BE01A809ED100606E16 /* LaunchScreen.xib in Resources */,
+				62C52B621B84983B00C1E13F /* MBProgressHUD.bundle in Resources */,
 				62C52B501B84976900C1E13F /* XXBImagePicker.bundle in Resources */,
 				C4063BDD1A809ED100606E16 /* Images.xcassets in Resources */,
 			);
