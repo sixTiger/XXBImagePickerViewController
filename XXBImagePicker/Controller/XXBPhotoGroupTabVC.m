@@ -148,11 +148,11 @@
     {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         CGFloat screenWidth = MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-        CGFloat itemWidth = (screenWidth - self.photoInRow -1)/(CGFloat)self.photoInRow;
+        layout.minimumInteritemSpacing = 4;
+        layout.minimumLineSpacing = 4;
+        CGFloat itemWidth = (screenWidth - layout.minimumInteritemSpacing)/(CGFloat)self.photoInRow - layout.minimumInteritemSpacing;
         layout.itemSize = CGSizeMake(itemWidth, itemWidth);
-        layout.minimumInteritemSpacing = 1;
-        layout.minimumLineSpacing = 1;
-        layout.sectionInset = UIEdgeInsetsMake(2,0,2,0);
+        layout.sectionInset = UIEdgeInsetsMake(layout.minimumInteritemSpacing, layout.minimumInteritemSpacing, layout.minimumLineSpacing, layout.minimumInteritemSpacing);
         layout.footerReferenceSize = CGSizeMake(300.0f, 50.0f);
         _photoCollectionVC  = [[XXBPhotoCollectionVC alloc] initWithCollectionViewLayout:layout];
         _photoCollectionVC.selectPhotoALAssets = self.selectPhotoALAssets;

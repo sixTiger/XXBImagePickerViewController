@@ -10,8 +10,8 @@
 /**
  *  注意，左右会有一个像素的偏差，右边的需要比左边的少2
  */
-#define marginLeft 8
-#define marginRight 8
+#define marginLeft 5.5
+#define marginRight 5.5
 
 @implementation XXBBadgeValueBtn
 

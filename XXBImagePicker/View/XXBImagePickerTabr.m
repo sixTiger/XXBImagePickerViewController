@@ -39,8 +39,6 @@
     [_finishButton autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self withOffset:-10];
     [_finishButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [_finishButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-//    [_finishButton autoSetDimension:ALDimensionWidth toSize:64];
-    
     _bageValueButton = [XXBBadgeValueBtn buttonWithType:UIButtonTypeCustom];
     [self addSubview:_bageValueButton];
     _bageValueButton.frame = CGRectMake(0, 0, 10, 10);
@@ -48,7 +46,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - 26,(self.frame.size.height - 26) * 0.5, 26, 26);
+    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - 26 ,(self.frame.size.height - 26) * 0.5, 26, 26);
 }
 - (void)p_finishButtonClick
 {
@@ -58,6 +56,6 @@
 {
     _selectCount = selectCount;
     self.bageValueButton.badgeValue = [NSString stringWithFormat:@"%@",@(selectCount)];
-    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - self.bageValueButton.frame.size.width, self.bageValueButton.frame.origin.y, self.bageValueButton.frame.size.width, self.bageValueButton.frame.size.height);
+    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - self.bageValueButton.frame.size.width - 8,(self.bounds.size.height - self.bageValueButton.frame.size.height) * 0.5, self.bageValueButton.frame.size.width, self.bageValueButton.frame.size.height);
 }
 @end

@@ -83,10 +83,10 @@
     if (_coverButton == nil)
     {
         //右上角的小图标的尺寸
-        CGFloat margin = 2.0;
-        CGFloat width = 27;
+        CGFloat margin = 4.0;
+        CGFloat width = 20;
         UIButton *coverButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        coverButton.frame = CGRectMake(self.bounds.size.width - width - margin, margin , width , width);
+        coverButton.frame = CGRectMake(self.bounds.size.width - width - margin, self.bounds.size.width - width - margin , width , width);
         [self.photoView addSubview:coverButton];
 #warning 预先展示的图片可以去掉
         [coverButton setImage:[UIImage imageNamed:@"XXBImagePicker.bundle/XXBPhoto"] forState:UIControlStateNormal];

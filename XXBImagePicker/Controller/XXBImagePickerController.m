@@ -15,6 +15,7 @@
 {
     NSMutableArray *_selectPhotoALAssets;
 }
+@property (nonatomic, strong) id popDelegate;
 /**
  *  展示组的相册tableViewController
  */
@@ -34,15 +35,15 @@
 + (void)initialize
 {  // 取出appearance对象
     
-//    UINavigationBar *navBar = [UINavigationBar appearance];
-//    // 设置背景
-//    // 设置标题属性
-//    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-//    textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
-//    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:19];
-//    [navBar setTitleTextAttributes:textAttrs];
-//    //返回箭头的颜色
-//    navBar.tintColor = [UIColor blackColor];
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    // 设置背景
+    // 设置标题属性
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:19];
+    [navBar setTitleTextAttributes:textAttrs];
+    //返回箭头的颜色
+    navBar.tintColor = [UIColor blackColor];
 }
 - (instancetype)init
 {
@@ -53,6 +54,23 @@
         [self setupImagePickerController];
     }
     return self;
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    _popDelegate = self.interactivePopGestureRecognizer.delegate;
+    self.interactivePopGestureRecognizer.delegate = nil;
+}
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (viewController == self.viewControllers[0])
+    { // 是根控制器
+        self.interactivePopGestureRecognizer.delegate = _popDelegate;
+    }
+    else
+    {
+        self.interactivePopGestureRecognizer.delegate = nil;
+    }
 }
 #pragma mark - 代理方法的处理
 - (void)photoGroupTabVCCancleSelect:(XXBPhotoGroupTabVC *)photoGroupTabVC

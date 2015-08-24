@@ -35,7 +35,6 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancaleClick)];
 }
-
 - (void)setupCollectionView
 {
     self.collectionView.backgroundColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:1.0];
