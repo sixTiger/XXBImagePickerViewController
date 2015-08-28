@@ -194,7 +194,7 @@
                 [self.photoTableVC.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
                 if(self.showAllPhoto)
                 {
-                    [self.photoTableVC performSelectorOnMainThread:@selector(showAllPhotos) withObject:nil waitUntilDone:nil];
+                    [self.photoTableVC performSelectorOnMainThread:@selector(showAllPhotos) withObject:nil waitUntilDone:NO];
                 }
             }
         };

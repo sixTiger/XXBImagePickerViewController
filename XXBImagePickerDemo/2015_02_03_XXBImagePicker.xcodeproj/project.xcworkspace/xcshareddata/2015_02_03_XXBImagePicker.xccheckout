@@ -14,11 +14,11 @@
 		<string>https://github.com/sixTiger/XXBImagePickerViewController.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>2015_02_03_XXBImagePicker.xcodeproj</string>
+	<string>XXBImagePickerDemo/2015_02_03_XXBImagePicker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E249B67BA12663B3FA238C12FB6E0CCC89496E7C</key>
-		<string>../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/sixTiger/XXBImagePickerViewController.git</string>
