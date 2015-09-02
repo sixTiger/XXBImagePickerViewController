@@ -7,7 +7,6 @@
 //
 
 #import "XXBImagePickerTabr.h"
-#import "UIView+AutoLayout.h"
 #import "XXBBadgeValueBtn.h"
 
 @interface XXBImagePickerTabr ()
@@ -34,11 +33,13 @@
     [_finishButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [_finishButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [_finishButton addTarget:self action:@selector(p_finishButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [_finishButton autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self withOffset:-10];
-    [_finishButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [_finishButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    _finishButton.translatesAutoresizingMaskIntoConstraints = NO;
+
+    NSLayoutConstraint *lcRightFinishButton = [NSLayoutConstraint constraintWithItem:_finishButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:-10];
+    NSLayoutConstraint *lcTopFinishButton = [NSLayoutConstraint constraintWithItem:_finishButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    NSLayoutConstraint *lcBottomFinishButton = [NSLayoutConstraint constraintWithItem:_finishButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    [self addConstraints:@[lcRightFinishButton, lcTopFinishButton,lcBottomFinishButton]];
+
     _bageValueButton = [XXBBadgeValueBtn buttonWithType:UIButtonTypeCustom];
     [self addSubview:_bageValueButton];
     _bageValueButton.frame = CGRectMake(0, 0, 10, 10);

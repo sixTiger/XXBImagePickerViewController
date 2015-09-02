@@ -20,7 +20,7 @@
 @end
 
 
-@interface XXBPhotoGroupTabVC : UITableViewController
+@interface XXBPhotoGroupTabVC : UIViewController
 
 /**
  *  一行显示的照片个数
@@ -51,5 +51,10 @@
  *  是否显示所有的照片
  */
 @property(nonatomic , assign)BOOL showAllPhoto;
+/**
+ *  用户是否允许访问相册
+ */
+@property(nonatomic , assign)BOOL allowPhoto;
+@property(nonatomic , strong)UITableView *tableView;
 - (void)showAllPhotos;
 @end

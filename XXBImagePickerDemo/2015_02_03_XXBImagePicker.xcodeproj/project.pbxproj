@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62AA188E1B8C5B8F00CF7F02 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18711B8C5B8F00CF7F02 /* UIView+AutoLayout.m */; };
 		62AA188F1B8C5B8F00CF7F02 /* XXBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18731B8C5B8F00CF7F02 /* XXBImagePickerController.m */; };
 		62AA18901B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18751B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.m */; };
 		62AA18911B8C5B8F00CF7F02 /* XXBPhotoGroupTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18771B8C5B8F00CF7F02 /* XXBPhotoGroupTabVC.m */; };
@@ -44,8 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		62AA18701B8C5B8F00CF7F02 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
-		62AA18711B8C5B8F00CF7F02 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		62AA18721B8C5B8F00CF7F02 /* XXBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBImagePickerController.h; sourceTree = "<group>"; };
 		62AA18731B8C5B8F00CF7F02 /* XXBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBImagePickerController.m; sourceTree = "<group>"; };
 		62AA18741B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoCollectionVC.h; sourceTree = "<group>"; };
@@ -125,8 +122,6 @@
 		62AA186F1B8C5B8F00CF7F02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				62AA18701B8C5B8F00CF7F02 /* UIView+AutoLayout.h */,
-				62AA18711B8C5B8F00CF7F02 /* UIView+AutoLayout.m */,
 				62AA18721B8C5B8F00CF7F02 /* XXBImagePickerController.h */,
 				62AA18731B8C5B8F00CF7F02 /* XXBImagePickerController.m */,
 				62AA18741B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.h */,
@@ -360,7 +355,6 @@
 				C4063BD81A809ED100606E16 /* ViewController.m in Sources */,
 				62AA188F1B8C5B8F00CF7F02 /* XXBImagePickerController.m in Sources */,
 				62AA18A21B8C5B9500CF7F02 /* MBProgressHUD+XXB.m in Sources */,
-				62AA188E1B8C5B8F00CF7F02 /* UIView+AutoLayout.m in Sources */,
 				62AA18951B8C5B8F00CF7F02 /* XXBHelpTools.m in Sources */,
 				C4063BD51A809ED100606E16 /* AppDelegate.m in Sources */,
 				62AA18901B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.m in Sources */,

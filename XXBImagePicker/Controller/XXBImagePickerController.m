@@ -28,7 +28,6 @@
  *  图片group
  */
 @property(nonatomic , strong)NSMutableArray *photoGroupArray;
-
 @end
 
 @implementation XXBImagePickerController
@@ -127,14 +126,7 @@
 - (void)setupImagePickerController
 {
         ALAssetsLibraryAccessFailureBlock failureblock = ^(NSError *myerror){
-            NSLog(@"相册访问失败 =%@", [myerror localizedDescription]);
-            if ([myerror.localizedDescription rangeOfString:@"Global denied access"].location!=NSNotFound) {
-                NSLog(@"无法访问相册.请在'设置->定位服务'设置为打开状态.");
-            }
-            else
-            {
-                NSLog(@"相册访问失败.");
-            }
+            self.photoTableVC.allowPhoto = NO;
         };
         ALAssetsGroupEnumerationResultsBlock groupEnumerAtion = ^(ALAsset *result, NSUInteger index, BOOL *stop){
             if (result!=NULL)
