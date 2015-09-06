@@ -27,6 +27,9 @@
 {
     if (self = [super init])
     {
+        [self p_creatPhotoCollectionVC];
+        [self p_creatTableView];
+        [self p_creatMessageLabel];
         self.allowPhoto = YES;
         self.havePush = NO;
         self.view.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
@@ -112,7 +115,7 @@
     [self.navigationController pushViewController:self.photoCollectionVC animated:YES];
     [self.photoCollectionVC scrollToButtom];
 }
-#pragma mark - 
+#pragma mark -
 - (void)setShowPage:(BOOL)showPage
 {
     _showPage = showPage;
@@ -155,66 +158,59 @@
     }
     return _photoInRow;
 }
-
-- (XXBPhotoCollectionVC *)photoCollectionVC
+- (void)p_creatPhotoCollectionVC
 {
-    if (_photoCollectionVC == nil)
-    {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        CGFloat screenWidth = MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-        layout.minimumInteritemSpacing = 4;
-        layout.minimumLineSpacing = 4;
-        CGFloat itemWidth = (screenWidth - layout.minimumInteritemSpacing)/(CGFloat)self.photoInRow - layout.minimumInteritemSpacing;
-        layout.itemSize = CGSizeMake(itemWidth, itemWidth);
-        layout.sectionInset = UIEdgeInsetsMake(layout.minimumInteritemSpacing, layout.minimumInteritemSpacing, layout.minimumLineSpacing, layout.minimumInteritemSpacing);
-        layout.footerReferenceSize = CGSizeMake(300.0f, 50.0f);
-        _photoCollectionVC  = [[XXBPhotoCollectionVC alloc] initWithCollectionViewLayout:layout];
-        _photoCollectionVC.selectPhotoALAssets = self.selectPhotoALAssets;
-        _photoCollectionVC.photoCollectionDelegate = self;
-    }
-    return _photoCollectionVC;
+    if (self.photoCollectionVC)
+        return;
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    CGFloat screenWidth = MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    layout.minimumInteritemSpacing = 4;
+    layout.minimumLineSpacing = 4;
+    CGFloat itemWidth = (screenWidth - layout.minimumInteritemSpacing)/(CGFloat)self.photoInRow - layout.minimumInteritemSpacing;
+    layout.itemSize = CGSizeMake(itemWidth, itemWidth);
+    layout.sectionInset = UIEdgeInsetsMake(layout.minimumInteritemSpacing, layout.minimumInteritemSpacing, layout.minimumLineSpacing, layout.minimumInteritemSpacing);
+    layout.footerReferenceSize = CGSizeMake(300.0f, 50.0f);
+    _photoCollectionVC  = [[XXBPhotoCollectionVC alloc] initWithCollectionViewLayout:layout];
+    _photoCollectionVC.selectPhotoALAssets = self.selectPhotoALAssets;
+    _photoCollectionVC.photoCollectionDelegate = self;
 }
-- (UITableView *)tableView
+- (void)p_creatTableView
 {
-    if(_tableView == nil && self.allowPhoto)
-    {
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        [self.view addSubview:tableView];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        NSLayoutConstraint *tableViewRight = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
-        NSLayoutConstraint *tableViewLeft = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-        NSLayoutConstraint *tableViewBottom = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-        NSLayoutConstraint *tableViewTop = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-        [self.view addConstraints:@[tableViewLeft, tableViewRight,tableViewTop,tableViewBottom]];
-        _tableView = tableView;
-    }
-    return _tableView;
+    if(self.tableView)
+        return;
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self.view addSubview:tableView];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSLayoutConstraint *tableViewRight = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+    NSLayoutConstraint *tableViewLeft = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+    NSLayoutConstraint *tableViewBottom = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    NSLayoutConstraint *tableViewTop = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    [self.view addConstraints:@[tableViewLeft, tableViewRight,tableViewTop,tableViewBottom]];
+    _tableView = tableView;
 }
-- (UILabel *)messageLabel
+- (void)p_creatMessageLabel
 {
-    if (_messageLabel == nil && !self.allowPhoto)
-    {
-        UILabel *messageLabel = [UILabel new];
-        _messageLabel = messageLabel;
-        [self.view addSubview:_messageLabel];
-        messageLabel.numberOfLines = 0;
-        messageLabel.text = @"请在iPhone的“设置-隐私-照片”选项中，允许应用访问你的手机相册";
-        messageLabel.textAlignment = NSTextAlignmentCenter;
-        
-        
-        
-        self.messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        NSLayoutConstraint *messageLabelRight = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-20];
-        NSLayoutConstraint *messageLabelLeft = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:20];
-        NSLayoutConstraint *messageLabelTop = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:104];
-        [self.view addConstraints:@[messageLabelLeft, messageLabelRight,messageLabelTop]];
-    }
-    return _messageLabel;
+    if (self.messageLabel)
+        return;
+    UILabel *messageLabel = [UILabel new];
+    _messageLabel = messageLabel;
+    [self.view addSubview:_messageLabel];
+    messageLabel.numberOfLines = 0;
+    messageLabel.text = @"请在iPhone的“设置-隐私-照片”选项中，允许应用访问你的手机相册";
+    messageLabel.textAlignment = NSTextAlignmentCenter;
+    
+    
+    
+    self.messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSLayoutConstraint *messageLabelRight = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-20];
+    NSLayoutConstraint *messageLabelLeft = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:20];
+    NSLayoutConstraint *messageLabelTop = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:104];
+    [self.view addConstraints:@[messageLabelLeft, messageLabelRight,messageLabelTop]];
 }
 @end
