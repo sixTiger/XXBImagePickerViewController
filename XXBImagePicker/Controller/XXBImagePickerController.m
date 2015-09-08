@@ -213,7 +213,6 @@
     _photoInRow = photoInRow;
     self.photoTableVC.photoInRow = photoInRow;
 }
-
 - (XXBPhotoGroupTabVC *)photoTableVC
 {
     if (_photoTableVC == nil)

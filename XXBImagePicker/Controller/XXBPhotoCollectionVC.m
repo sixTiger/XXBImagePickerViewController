@@ -88,7 +88,12 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 {
     _photoALAssets = photoALAssets;
     [self.collectionView reloadData];
-    self.imagePickerTar.selectCount = 0;
+    self.imagePickerTar.selectCount = self.selectPhotoALAssets.count;
+}
+- (void)setSelectPhotoALAssets:(NSMutableArray *)selectPhotoALAssets
+{
+    _selectPhotoALAssets = selectPhotoALAssets;
+    self.imagePickerTar.selectCount = _selectPhotoALAssets.count;
 }
 - (void)scrollToButtom
 {

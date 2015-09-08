@@ -158,6 +158,11 @@
     }
     return _photoInRow;
 }
+- (void)setSelectPhotoALAssets:(NSMutableArray *)selectPhotoALAssets
+{
+    _selectPhotoALAssets = selectPhotoALAssets;
+    self.photoCollectionVC.selectPhotoALAssets = _selectPhotoALAssets;
+}
 - (void)p_creatPhotoCollectionVC
 {
     if (self.photoCollectionVC)
