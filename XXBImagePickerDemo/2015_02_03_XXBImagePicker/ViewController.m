@@ -113,7 +113,8 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:cell.bounds];
     cell.backgroundView = imageView;
     imageView.image = self.photoArray[indexPath.row];
-    imageView.contentMode = UIViewContentModeScaleToFill;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.clipsToBounds = YES;
     return cell;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
