@@ -7,18 +7,18 @@
 //
 
 #import "XXBBadgeValueBtn.h"
-/**
- *  注意，左右会有一个像素的偏差，右边的需要比左边的少2
- */
-#define marginLeft 5.5
-#define marginRight 5.5
-
 @implementation XXBBadgeValueBtn
-
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder])
+    {
+        [self setup];
+    }
+    return self;
+}
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    if (self = [super initWithFrame:frame]) {
         [self setup];
     }
     return self;
@@ -28,38 +28,28 @@
     self.hidden = YES;
     self.userInteractionEnabled = NO;
     self.titleLabel.font = [UIFont systemFontOfSize:14];
-    /**
-     *  微调文字的位置
-     */
-    self.titleEdgeInsets = UIEdgeInsetsMake(0, marginLeft, 0, marginRight) ;
-    UIImage *bgImage = [UIImage imageNamed:@"XXBImagePicker.bundle/XXBPageNumber"];
-    [self setBackgroundImage:[bgImage stretchableImageWithLeftCapWidth:bgImage.size.width * 0.5 topCapHeight:bgImage.size.height * 0.5] forState:UIControlStateNormal];
+    self.backgroundColor = [UIColor orangeColor];
+    self.clipsToBounds = YES;
 }
-- (void)setBadgeValue:(NSString *)badgeValue
+- (void)setBadgeValue:(NSInteger)badgeValue
 {
-    _badgeValue = [badgeValue copy];
-    if (_badgeValue && _badgeValue.intValue >0)
+    _badgeValue = badgeValue;
+    if (_badgeValue >0)
     {
+        
+        NSString *bageString = [NSString stringWithFormat:@"%@",@(_badgeValue)];
         /**
          *  有值并且值不等于1 的情况向才进行相关设置
          */
         self.hidden = NO;
-#warning keyi 对现实的数字进行个性化的处理
-        if (_badgeValue.length>2)
+        if (_badgeValue > maxBadgeValue)
         {
-            _badgeValue= @"99+";
+            _badgeValue= maxBadgeValue;
+            
+            bageString = [NSString stringWithFormat:@"%@+",@(_badgeValue)];
         }
-        [self setTitle:_badgeValue forState:UIControlStateNormal];
-        // 根据文字的多少动态计算frame
-        CGRect frame = self.frame;
-        CGFloat badgeH = self.currentBackgroundImage.size.height;
-        CGFloat badgeW ;
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSFontAttributeName] = self.titleLabel.font;
-        CGSize badgeSize =  [self.badgeValue boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
-        badgeW = badgeSize.width + marginLeft +marginRight;        frame.size.width = badgeW + 1.0;
-        frame.size.height = badgeH;
-        self.frame = frame;
+        [self setTitle:bageString forState:UIControlStateNormal];
+        [self p_setupFrame];
     }
     else
     {
@@ -68,5 +58,28 @@
          */
         self.hidden = YES;
     }
+}
+- (void)p_setupFrame
+{
+    // 根据文字的多少动态计算frame
+    [self sizeToFit];
+    CGRect frame = self.frame;
+    CGFloat badgeH = self.titleLabel.frame.size.height > 0 ? self.titleLabel.frame.size.height : 17;
+    badgeH += 4;
+    CGFloat length = 0.6;
+    NSInteger temp = _badgeValue;
+    if (temp == maxBadgeValue)
+    {
+        temp++;
+    }
+    while (temp)
+    {
+        length += 0.4;
+        temp /= 10;
+    }
+    frame.size.height = badgeH;
+    frame.size.width = length * badgeH;
+    self.layer.cornerRadius = badgeH * 0.5;
+    self.frame = frame;
 }
 @end

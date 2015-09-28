@@ -30,7 +30,7 @@
 {
     _photoAlasetModle = photoAlasetModle;
     self.selectCover.hidden= !_photoAlasetModle.select;
-    self.bageButton.badgeValue = [NSString stringWithFormat:@"%@",@(_photoAlasetModle.index)];
+    self.bageButton.badgeValue =_photoAlasetModle.index;
     self.coverButton.selected = _photoAlasetModle.select;
     ALAsset *photoAlaset = _photoAlasetModle.photoAlaset;
     if (!self.photoAlasetModle.showPage)

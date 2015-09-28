@@ -58,7 +58,7 @@
 {
     _selectCount = selectCount;
     self.finishButton.enabled = _selectCount > 0;
-    self.bageValueButton.badgeValue = [NSString stringWithFormat:@"%@",@(selectCount)];
+    self.bageValueButton.badgeValue = selectCount;
     self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - self.bageValueButton.frame.size.width - 8,(self.bounds.size.height - self.bageValueButton.frame.size.height) * 0.5, self.bageValueButton.frame.size.width, self.bageValueButton.frame.size.height);
 }
 @end

@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#define maxBadgeValue 99
 @interface XXBBadgeValueBtn : UIButton
-
-@property (copy, nonatomic) NSString *badgeValue;
+@property(nonatomic , assign)NSInteger badgeValue;
 @end
