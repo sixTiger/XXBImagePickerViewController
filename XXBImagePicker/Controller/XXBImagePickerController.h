@@ -69,4 +69,25 @@ typedef enum : NSUInteger {
  */
 @property(nonatomic , weak)id<XXBImagePickerControllerDelegate> imagePickerDelegate;
 @property(nonatomic , assign)XXBPhotoSortType photoSortType;
+/**
+ *  默认有选择的照片
+ *
+ *  @param selectPhotoALAssets 已经选种的照片
+ *
+ *  @return 已经选中的照片
+ */
++ (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets;
+/**
+ *  默认有选择的照片
+ *
+ *  @param selectPhotoALAssets 已经选种的照片
+ *
+ *  @return 已经选中的照片
+ */
+- (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets;
+
+/**
+ *  允许用户跨多个相册进行选择
+ */
+@property(nonatomic , assign) BOOL                          allowFromPhotos;
 @end

@@ -28,6 +28,7 @@
  *  图片group
  */
 @property(nonatomic , strong)NSMutableArray *photoGroupArray;
+@property(nonatomic , strong)NSArray  *oldSelectPhotoAlasetModle;
 @end
 
 @implementation XXBImagePickerController
@@ -43,6 +44,22 @@
     [navBar setTitleTextAttributes:textAttrs];
     //返回箭头的颜色
     navBar.tintColor = [UIColor blackColor];
+}
++ (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets
+{
+    return [self initWithSelectPhotoALAssets:selectPhotoALAssets];
+}
+- (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets
+{
+    _oldSelectPhotoAlasetModle = selectPhotoALAssets;
+    if (self = [super initWithRootViewController:self.photoTableVC])
+    {
+        self.allowFromPhotos = YES;
+        self.showAllPhoto = NO;
+        self.photoCount = NSIntegerMax;
+        [self setupImagePickerController];
+    }
+    return self;
 }
 - (instancetype)init
 {
@@ -142,7 +159,14 @@
                     /**
                      *  判断是否选中
                      */
-                    photoAlaetModle.select = [self.selectPhotoALAssets containsObject:photoAlaetModle];
+                    if ([self.oldSelectPhotoAlasetModle containsObject:photoAlaetModle])
+                    {
+                        photoAlaetModle.select = YES;
+                        NSInteger index = [self.oldSelectPhotoAlasetModle indexOfObject:photoAlaetModle] + 1;
+                        photoAlaetModle.index = index;
+                        photoAlaetModle.showPage = index;
+                        [self.selectPhotoALAssets addObject:photoAlaetModle];
+                    }
                     [photoGroupModle.photoALAssets addObject:photoAlaetModle];
                 }
             }
@@ -190,7 +214,7 @@
                 }
             }
         };
-        _library = [[ALAssetsLibrary alloc] init];
+        _library = [self defaultAssetsLibrary];
         [_library enumerateGroupsWithTypes:ALAssetsGroupAll
                                 usingBlock:libraryGroupsEnumeration
                               failureBlock:failureblock];
@@ -207,7 +231,11 @@
     self.photoTableVC.photoCount = _photoCount;
 }
 #pragma mark - 懒加载
-
+- (void)setAllowFromPhotos:(BOOL)allowFromPhotos
+{
+    _allowFromPhotos = allowFromPhotos;
+    self.photoTableVC.allowFromPhotos = _allowFromPhotos;
+}
 - (void)setPhotoInRow:(NSInteger)photoInRow
 {
     _photoInRow = photoInRow;
@@ -218,6 +246,7 @@
     if (_photoTableVC == nil)
     {
         _photoTableVC = [[XXBPhotoGroupTabVC alloc] init];
+        _photoTableVC.allowFromPhotos = YES;
         _photoTableVC.selectPhotoALAssets = self.selectPhotoALAssets;
         _photoTableVC.photoGroupTabVCDelegate = self;
         _photoTableVC.photoGroupArray = self.photoGroupArray;
@@ -234,7 +263,7 @@
 }
 - (void)setSelectPhotoALAssets:(NSMutableArray *)selectPhotoALAssets
 {
-    _selectPhotoALAssets = [selectPhotoALAssets mutableCopy];
+    _selectPhotoALAssets = selectPhotoALAssets;
 }
 - (NSMutableArray *)photoGroupArray
 {
@@ -242,5 +271,15 @@
         _photoGroupArray = [NSMutableArray array];
     }
     return _photoGroupArray;
+}
+- (ALAssetsLibrary *)defaultAssetsLibrary
+{
+    static dispatch_once_t onceToken;
+    static ALAssetsLibrary *library = nil;
+    dispatch_once(&onceToken,
+                  ^{
+                      library = [[ALAssetsLibrary alloc] init];
+                  });
+    return library;
 }
 @end

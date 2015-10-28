@@ -26,35 +26,39 @@
  *  一行显示的照片个数
  *  默认是4个
  */
-@property(nonatomic , assign)NSInteger photoInRow;
+@property(nonatomic , assign)NSInteger                      photoInRow;
 /**
  *  选中的相册的ALAssets
  */
-@property(nonatomic , strong)NSMutableArray 	*selectPhotoALAssets;
+@property(nonatomic , strong)NSMutableArray                 *selectPhotoALAssets;
 /**
  *  相册分组的模型数组
  */
-@property(nonatomic , strong)NSMutableArray  	*photoGroupArray;
+@property(nonatomic , strong)NSMutableArray                 *photoGroupArray;
 /**
  *  处理照片选中的的代理
  */
-@property(nonatomic , weak)id<XXBPhotoGroupTabVCDelegate> photoGroupTabVCDelegate;
+@property(nonatomic , weak)id<XXBPhotoGroupTabVCDelegate>   photoGroupTabVCDelegate;
 /**
  *  是否显示数字标签
  */
-@property(nonatomic , assign)BOOL showPage;
+@property(nonatomic , assign)BOOL                           showPage;
 /**
  *  最多可选的照片的张数
  */
-@property(nonatomic , assign)NSInteger photoCount;
+@property(nonatomic , assign)NSInteger                      photoCount;
 /**
  *  是否显示所有的照片
  */
-@property(nonatomic , assign)BOOL showAllPhoto;
+@property(nonatomic , assign)BOOL                           showAllPhoto;
 /**
  *  用户是否允许访问相册
  */
-@property(nonatomic , assign)BOOL allowPhoto;
-@property(nonatomic , strong)UITableView *tableView;
+@property(nonatomic , assign)BOOL                           allowPhoto;
+/**
+ *  允许用户跨多个相册进行选择
+ */
+@property(nonatomic , assign) BOOL                          allowFromPhotos;
+@property(nonatomic , strong)UITableView                    *tableView;
 - (void)showAllPhotos;
 @end

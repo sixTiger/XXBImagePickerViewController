@@ -15,7 +15,7 @@
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,XXBImagePickerControllerDelegate>
 @property(nonatomic , weak)UICollectionView                 *collectionView;
 @property(nonatomic , strong)NSMutableArray                 *photoArray;
-@property(nonatomic , strong) XXBImagePickerController      *imagePickerController;
+@property(nonatomic , strong) NSMutableArray                *selectPhotoModelArray;
 @end
 
 @implementation ViewController
@@ -40,7 +40,7 @@
 - (void)openPhoto
 {
     // 创建一个照片选择器
-    XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] init];
+    XXBImagePickerController  *imagePickController = [[XXBImagePickerController alloc] initWithSelectPhotoALAssets:self.selectPhotoModelArray];
     // 设置做多可选的照片数
     imagePickController.photoCount = 100;
     // 是都展示左上角的数字标签
@@ -51,7 +51,6 @@
     imagePickController.imagePickerDelegate = self;
     //  返回照片的排序方式
     imagePickController.photoSortType = XXBPhotoSortTypeSystemOrder;
-    imagePickController.selectPhotoALAssets = self.photoArray;
     [self presentViewController:imagePickController animated:YES completion:^{
         
     }];
@@ -64,6 +63,7 @@
 }
 - (void)imagePickerController:(XXBImagePickerController *)imagePickController didselectPhotos:(NSArray *)selectPhotos
 {
+    self.selectPhotoModelArray = [selectPhotos mutableCopy];
     [MBProgressHUD showMessage:@"正在加载照片" toView:self.collectionView];
     [self.photoArray removeAllObjects];
     [imagePickController dismissViewControllerAnimated:YES completion:^{
@@ -129,5 +129,12 @@
         _photoArray = [NSMutableArray array];
     }
     return _photoArray;
+}
+- (NSMutableArray *)selectPhotoModelArray
+{
+    if (_selectPhotoModelArray == nil) {
+        _selectPhotoModelArray = @[].mutableCopy;
+    }
+    return _selectPhotoModelArray;
 }
 @end

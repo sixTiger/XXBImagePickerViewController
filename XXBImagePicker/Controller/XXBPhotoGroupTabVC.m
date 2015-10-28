@@ -59,11 +59,14 @@
         self.havePush = YES;
         self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
         self.photoCollectionVC.title = photoGroupModle.photoGroupName;
-        for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+        if (!self.allowFromPhotos)
         {
-            photoAlaset.select = NO;
+            for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+            {
+                photoAlaset.select = NO;
+            }
+            [self.selectPhotoALAssets removeAllObjects];
         }
-        [self.selectPhotoALAssets removeAllObjects];
         [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -107,11 +110,14 @@
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     self.photoCollectionVC.photoALAssets = [self.photoGroupArray[indexPath.row] photoALAssets];
     self.photoCollectionVC.title = [self.photoGroupArray[indexPath.row] photoGroupName];
-    for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+    if (!self.allowFromPhotos)
     {
-        photoAlaset.select = NO;
+        for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+        {
+            photoAlaset.select = NO;
+        }
+        [self.selectPhotoALAssets removeAllObjects];
     }
-    [self.selectPhotoALAssets removeAllObjects];
     [self.navigationController pushViewController:self.photoCollectionVC animated:YES];
     [self.photoCollectionVC scrollToButtom];
 }

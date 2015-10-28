@@ -12,15 +12,21 @@
 #import "XXBImagePickerTabr.h"
 #import "XXBCollectionFootView.h"
 
-
 @interface XXBPhotoCollectionVC ()<XXBImagePickerTabrDelegate>
+
 @property(nonatomic , weak)XXBImagePickerTabr *imagePickerTar;
+
 @end
 
 @implementation XXBPhotoCollectionVC
 
 static NSString * const reuseCellIdentifier = @"photoCollectionViewCell";
 static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.imagePickerTar.selectCount = self.selectPhotoALAssets.count;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupItems];
@@ -55,8 +61,8 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
     
     NSLayoutConstraint *imagePickerTarRight = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
     NSLayoutConstraint *imagePickerTarLeft = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-     NSLayoutConstraint *imagePickerTarBottom = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-     NSLayoutConstraint *imagePickerTarHeight = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:44];
+    NSLayoutConstraint *imagePickerTarBottom = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    NSLayoutConstraint *imagePickerTarHeight = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:44];
     [self.view addConstraints:@[imagePickerTarLeft, imagePickerTarRight,imagePickerTarBottom,imagePickerTarHeight]];
     _imagePickerTar = imagePickerTar;
     _imagePickerTar.delegate = self;
@@ -99,7 +105,7 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 {
     if (self.photoALAssets.count == 0)
         return;
-     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.photoALAssets.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.photoALAssets.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
 }
 #pragma mark - collectionView 的相关处理
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -133,6 +139,12 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{        
+        [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+            return photo1.index < photo2.index;
+        }];
+    });
     XXBPhotoAlasetModle *photoAlasetModle = self.photoALAssets[indexPath.row];
     photoAlasetModle.showPage = self.showPage;
     photoAlasetModle.select = !photoAlasetModle.select;
