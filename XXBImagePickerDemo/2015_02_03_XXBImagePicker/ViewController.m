@@ -13,9 +13,9 @@
 #import "MBProgressHUD+XXB.h"
 
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,XXBImagePickerControllerDelegate>
-@property(nonatomic , weak)UICollectionView *collectionView;
-
-@property(nonatomic , strong)NSMutableArray *photoArray;
+@property(nonatomic , weak)UICollectionView                 *collectionView;
+@property(nonatomic , strong)NSMutableArray                 *photoArray;
+@property(nonatomic , strong) XXBImagePickerController      *imagePickerController;
 @end
 
 @implementation ViewController
@@ -51,6 +51,7 @@
     imagePickController.imagePickerDelegate = self;
     //  返回照片的排序方式
     imagePickController.photoSortType = XXBPhotoSortTypeSystemOrder;
+    imagePickController.selectPhotoALAssets = self.photoArray;
     [self presentViewController:imagePickController animated:YES completion:^{
         
     }];

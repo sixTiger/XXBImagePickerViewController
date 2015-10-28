@@ -55,15 +55,15 @@ typedef enum : NSUInteger {
 /**
  *  是否显示数字标签
  */
-@property(nonatomic , assign)BOOL showPage;
+@property(nonatomic , assign)BOOL           showPage;
 /**
  *  是否默认显示所有的相册
  */
-@property(nonatomic , assign)BOOL showAllPhoto;
+@property(nonatomic , assign)BOOL           showAllPhoto;
 /**
  *  最多可选的照片的张数
  */
-@property(nonatomic , assign)NSInteger photoCount;
+@property(nonatomic , assign)NSInteger      photoCount;
 /**
  *  用来处理选中和和取消的代理方法
  */
