@@ -51,6 +51,8 @@
     imagePickController.imagePickerDelegate = self;
     //  返回照片的排序方式
     imagePickController.photoSortType = XXBPhotoSortTypeSystemOrder;
+#warning 执行这一行代码之后和直接init得效果一样了。
+      imagePickController.allowFromPhotos = NO;
     [self presentViewController:imagePickController animated:YES completion:^{
         
     }];

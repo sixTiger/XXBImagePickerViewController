@@ -165,6 +165,8 @@
                         NSInteger index = [self.oldSelectPhotoAlasetModle indexOfObject:photoAlaetModle] + 1;
                         photoAlaetModle.index = index;
                         photoAlaetModle.showPage = index;
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(index -1) inSection:0];
+                        photoAlaetModle.indexPath = indexPath;
                         [self.selectPhotoALAssets addObject:photoAlaetModle];
                     }
                     [photoGroupModle.photoALAssets addObject:photoAlaetModle];

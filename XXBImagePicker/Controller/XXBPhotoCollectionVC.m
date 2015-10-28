@@ -22,11 +22,6 @@
 
 static NSString * const reuseCellIdentifier = @"photoCollectionViewCell";
 static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.imagePickerTar.selectCount = self.selectPhotoALAssets.count;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupItems];

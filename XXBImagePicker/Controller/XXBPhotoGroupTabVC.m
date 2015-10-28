@@ -57,8 +57,6 @@
     else
     {
         self.havePush = YES;
-        self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
-        self.photoCollectionVC.title = photoGroupModle.photoGroupName;
         if (!self.allowFromPhotos)
         {
             for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
@@ -67,6 +65,8 @@
             }
             [self.selectPhotoALAssets removeAllObjects];
         }
+        self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
+        self.photoCollectionVC.title = photoGroupModle.photoGroupName;
         [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -108,8 +108,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    self.photoCollectionVC.photoALAssets = [self.photoGroupArray[indexPath.row] photoALAssets];
-    self.photoCollectionVC.title = [self.photoGroupArray[indexPath.row] photoGroupName];
     if (!self.allowFromPhotos)
     {
         for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
@@ -118,6 +116,8 @@
         }
         [self.selectPhotoALAssets removeAllObjects];
     }
+    self.photoCollectionVC.photoALAssets = [self.photoGroupArray[indexPath.row] photoALAssets];
+    self.photoCollectionVC.title = [self.photoGroupArray[indexPath.row] photoGroupName];
     [self.navigationController pushViewController:self.photoCollectionVC animated:YES];
     [self.photoCollectionVC scrollToButtom];
 }
