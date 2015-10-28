@@ -36,11 +36,11 @@
 /**
  *  是否显示数字标签
  */
-@property(nonatomic , assign)BOOL showPage;
+@property(nonatomic , assign)BOOL                           showPage;
 /**
  *  最多可选的照片的张数
  */
-@property(nonatomic , assign)NSInteger photoCount;
+@property(nonatomic , assign)NSInteger                      photoCount;
 /**
  *  处理照片选中的代理
  */

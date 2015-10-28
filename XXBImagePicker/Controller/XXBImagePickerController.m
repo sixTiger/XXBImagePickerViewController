@@ -15,7 +15,7 @@
 {
     NSMutableArray *_selectPhotoALAssets;
 }
-@property (nonatomic, strong) id popDelegate;
+@property (nonatomic, strong) id                popDelegate;
 /**
  *  展示组的相册tableViewController
  */
@@ -23,12 +23,12 @@
 /**
  *  图片库资源
  */
-@property(nonatomic , strong)ALAssetsLibrary*library ;
+@property(nonatomic , strong)ALAssetsLibrary    *library ;
 /**
  *  图片group
  */
-@property(nonatomic , strong)NSMutableArray *photoGroupArray;
-@property(nonatomic , strong)NSArray  *oldSelectPhotoAlasetModle;
+@property(nonatomic , strong)NSMutableArray     *photoGroupArray;
+@property(nonatomic , strong)NSArray            *oldSelectPhotoAlasetModle;
 @end
 
 @implementation XXBImagePickerController

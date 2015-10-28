@@ -43,7 +43,7 @@ typedef enum : NSUInteger {
  *  竖屏状态下默认照片个数
  *  默认是4个
  */
-@property(nonatomic , assign)NSInteger photoInRow;
+@property(nonatomic , assign)NSInteger                              photoInRow;
 /**
  *  如果想在打开的时候原来选中的图片还是选中的话需要设置 selectPhotoALAssets
  *
@@ -51,43 +51,50 @@ typedef enum : NSUInteger {
  *
  *  原来选中的photo的ALAsset 默认为空
  */
-@property(nonatomic , strong)NSMutableArray *selectPhotoALAssets;
+@property(nonatomic , strong)NSMutableArray                         *selectPhotoALAssets;
 /**
  *  是否显示数字标签
  */
-@property(nonatomic , assign)BOOL           showPage;
+@property(nonatomic , assign)BOOL                                   showPage;
 /**
  *  是否默认显示所有的相册
  */
-@property(nonatomic , assign)BOOL           showAllPhoto;
+@property(nonatomic , assign)BOOL                                   showAllPhoto;
 /**
  *  最多可选的照片的张数
  */
-@property(nonatomic , assign)NSInteger      photoCount;
+@property(nonatomic , assign)NSInteger                              photoCount;
 /**
  *  用来处理选中和和取消的代理方法
  */
-@property(nonatomic , weak)id<XXBImagePickerControllerDelegate> imagePickerDelegate;
-@property(nonatomic , assign)XXBPhotoSortType photoSortType;
+@property(nonatomic , weak)id<XXBImagePickerControllerDelegate>     imagePickerDelegate;
+@property(nonatomic , assign)XXBPhotoSortType                       photoSortType;
+/**
+ *  默认有选择的照片
+ *
+ *  @param selectPhotoALAssets 已经选种的照片
+ * 
+ *  如果想要支持照片默认选种 请讲allowFromPhotos 设置为 YES
+ *
+ *  @return 已经选中的照片
+ */
++ (instancetype)initWithSelectPhotoALAssets:(NSArray *)             selectPhotoALAssets;
 /**
  *  默认有选择的照片
  *
  *  @param selectPhotoALAssets 已经选种的照片
  *
- *  @return 已经选中的照片
- */
-+ (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets;
-/**
- *  默认有选择的照片
- *
- *  @param selectPhotoALAssets 已经选种的照片
+ *  如果想要支持照片默认选种 请讲allowFromPhotos 设置为 YES
  *
  *  @return 已经选中的照片
  */
-- (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets;
+- (instancetype)initWithSelectPhotoALAssets:(NSArray *)             selectPhotoALAssets;
 
 /**
- *  允许用户跨多个相册进行选择
+ *  允许用户跨多个相册进行选择  默认是  YES 
+ * 
+ *  如果你设置了进入相册默认选种的照片请不要更改这个属性
+ *
  */
-@property(nonatomic , assign) BOOL                          allowFromPhotos;
+@property(nonatomic , assign) BOOL                                  allowFromPhotos;
 @end

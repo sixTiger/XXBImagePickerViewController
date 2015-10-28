@@ -17,9 +17,9 @@
 {
     NSInteger _photoInRow;
 }
-@property(nonatomic , strong)XXBPhotoCollectionVC *photoCollectionVC;
-@property(nonatomic , assign)BOOL havePush;
-@property(nonatomic , weak)UILabel *messageLabel;
+@property(nonatomic , strong)XXBPhotoCollectionVC   *photoCollectionVC;
+@property(nonatomic , assign)BOOL                   havePush;
+@property(nonatomic , weak)UILabel                  *messageLabel;
 @end
 
 @implementation XXBPhotoGroupTabVC
