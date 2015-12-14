@@ -29,6 +29,10 @@
  */
 @property(nonatomic , strong)NSMutableArray     *photoGroupArray;
 @property(nonatomic , strong)NSArray            *oldSelectPhotoAlasetModle;
+/**
+ *  选择媒体的类型 默认是照片
+ */
+@property(nonatomic, assign) XXBMediaType       chooseMediaType;
 @end
 
 @implementation XXBImagePickerController
@@ -45,28 +49,39 @@
     //返回箭头的颜色
     navBar.tintColor = [UIColor blackColor];
 }
+
 + (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets
 {
-    return [self initWithSelectPhotoALAssets:selectPhotoALAssets];
+    return [[self alloc] initWithSelectPhotoALAssets:selectPhotoALAssets];
 }
+
 - (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets
 {
-    _oldSelectPhotoAlasetModle = selectPhotoALAssets;
-    return [self init];
+    if (self = [self init])
+    {
+        _oldSelectPhotoAlasetModle = selectPhotoALAssets;
+    }
+    return self;
 }
-- (instancetype)init
+- (instancetype)initWithChooseMediaType:(XXBMediaType)mediaType
 {
     if (self = [super initWithRootViewController:self.photoTableVC])
     {
         self.showAllPhoto = NO;
         self.photoCount = NSIntegerMax;
-        [self setupImagePickerController];
+        self.chooseMediaType = mediaType;
     }
     return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithChooseMediaType:XXBMediaTypePhotos];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupImagePickerController];
     _popDelegate = self.interactivePopGestureRecognizer.delegate;
     self.interactivePopGestureRecognizer.delegate = nil;
 }

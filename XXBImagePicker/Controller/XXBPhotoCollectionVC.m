@@ -53,17 +53,16 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 
 - (void)setupImagePickerTar
 {
-    XXBImagePickerTabr *imagePickerTar = [[XXBImagePickerTabr alloc] init];
+    XXBImagePickerTabr *imagePickerTar = [[XXBImagePickerTabr alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     [self.view addSubview:imagePickerTar];
     imagePickerTar.translatesAutoresizingMaskIntoConstraints = NO;
-    
     NSLayoutConstraint *imagePickerTarRight = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
     NSLayoutConstraint *imagePickerTarLeft = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
     NSLayoutConstraint *imagePickerTarBottom = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
     NSLayoutConstraint *imagePickerTarHeight = [NSLayoutConstraint constraintWithItem:imagePickerTar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:44];
     [self.view addConstraints:@[imagePickerTarLeft, imagePickerTarRight,imagePickerTarBottom,imagePickerTarHeight]];
     _imagePickerTar = imagePickerTar;
-    _imagePickerTar.delegate = self;
+    imagePickerTar.delegate = self;
 }
 
 - (void)cancaleClick

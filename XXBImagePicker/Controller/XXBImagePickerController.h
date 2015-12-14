@@ -26,6 +26,13 @@ typedef enum : NSUInteger {
      */
     XXBPhotoSortTypeSystemDesc = 3,
 } XXBPhotoSortType;
+
+typedef enum : NSUInteger {
+    XXBMediaTypePhotos,
+    XXBMediaTypeVideos,
+    XXBMediaTypeAll,
+} XXBMediaType;
+
 @class XXBImagePickerController;
 
 @protocol XXBImagePickerControllerDelegate <NSObject>
@@ -97,4 +104,18 @@ typedef enum : NSUInteger {
  *
  */
 @property(nonatomic , assign) BOOL                                  allowFromPhotos;
+
+
+/**
+ *  选择媒体的类型 默认是照片
+ */
+@property(nonatomic, assign, readonly) XXBMediaType                 chooseMediaType;
+/**
+ *  创建图片选择器
+ *
+ *  @param mediaType 选择的图片的类型
+ *
+ *  @return 创建好的图片选择器
+ */
+- (instancetype)initWithChooseMediaType:(XXBMediaType)              mediaType;
 @end
