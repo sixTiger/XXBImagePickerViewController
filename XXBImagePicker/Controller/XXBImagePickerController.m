@@ -15,7 +15,6 @@
 {
     NSMutableArray *_selectPhotoALAssets;
 }
-@property (nonatomic, strong) id                popDelegate;
 /**
  *  展示组的相册tableViewController
  */
@@ -63,6 +62,8 @@
     }
     return self;
 }
+
+
 - (instancetype)initWithChooseMediaType:(XXBMediaType)mediaType
 {
     if (self = [super initWithRootViewController:self.photoTableVC])
@@ -78,23 +79,11 @@
 {
     return [self initWithChooseMediaType:XXBMediaTypePhotos];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupImagePickerController];
-    _popDelegate = self.interactivePopGestureRecognizer.delegate;
-    self.interactivePopGestureRecognizer.delegate = nil;
-}
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if (viewController == self.viewControllers[0])
-    { // 是根控制器
-        self.interactivePopGestureRecognizer.delegate = _popDelegate;
-    }
-    else
-    {
-        self.interactivePopGestureRecognizer.delegate = nil;
-    }
+    [self p_getAllMedias];
 }
 #pragma mark - 代理方法的处理
 - (void)photoGroupTabVCCancleSelect:(XXBPhotoGroupTabVC *)photoGroupTabVC
@@ -104,6 +93,7 @@
         [self.imagePickerDelegate imagePickerControllerCancleselect:self];
     }
 }
+
 - (void)photoGroupTabVCDidSelectPhotos:(XXBPhotoGroupTabVC *)photoGroupTabVC
 {
     switch (self.photoSortType)
@@ -146,99 +136,118 @@
 }
 #pragma mark - 获取图片库的所有资源
 /**
- *  初始化imagePickerController
+ * 获取所有的图片资源
  */
-- (void)setupImagePickerController
+- (void)p_getAllMedias
 {
-        ALAssetsLibraryAccessFailureBlock failureblock = ^(NSError *myerror){
-            self.photoTableVC.allowPhoto = NO;
-        };
-        ALAssetsGroupEnumerationResultsBlock groupEnumerAtion = ^(ALAsset *result, NSUInteger index, BOOL *stop){
-            if (result!=NULL)
+    ALAssetsLibraryAccessFailureBlock failureblock = ^(NSError *myerror){
+        self.photoTableVC.allowPhoto = NO;
+    };
+    ALAssetsGroupEnumerationResultsBlock groupEnumerAtion = ^(ALAsset *result, NSUInteger index, BOOL *stop){
+        if (result!=NULL)
+        {
+            //            if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto])
+            /**
+             *  取出对应的photoGroupModle模型
+             */
+            XXBPhotoGroupModle *photoGroupModle = [self.photoGroupArray firstObject];
+            XXBPhotoAlasetModle *photoAlaetModle = [[XXBPhotoAlasetModle alloc] init];
+            photoAlaetModle.photoAlaset = result;
+            if ([result.description isEqualToString:@"ALAsset - Type:Photo, URLs:assets-library://asset/asset.JPG?id=106E99A1-4F6A-45A2-B320-B0AD4A8E8473&ext=JPG"])
             {
-                if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto])
-                {
-                    /**
-                     *  取出对应的photoGroupModle模型
-                     */
-                    XXBPhotoGroupModle *photoGroupModle = [self.photoGroupArray firstObject];
-                    XXBPhotoAlasetModle *photoAlaetModle = [[XXBPhotoAlasetModle alloc] init];
-                    photoAlaetModle.photoAlaset = result;
-                    if ([result.description isEqualToString:@"ALAsset - Type:Photo, URLs:assets-library://asset/asset.JPG?id=106E99A1-4F6A-45A2-B320-B0AD4A8E8473&ext=JPG"])
-                    {
-                        NSLog(@"+++++++++%@",result);
-                    }
-                    /**
-                     *  判断是否选中
-                     */
-                    if ([self.oldSelectPhotoAlasetModle containsObject:photoAlaetModle])
-                    {
-                        photoAlaetModle.select = YES;
-                        NSInteger index = [self.oldSelectPhotoAlasetModle indexOfObject:photoAlaetModle] + 1;
-                        photoAlaetModle.index = index;
-                        photoAlaetModle.showPage = index;
-                        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(index -1) inSection:0];
-                        photoAlaetModle.indexPath = indexPath;
-                        [self.selectPhotoALAssets addObject:photoAlaetModle];
-                    }
-                    [photoGroupModle.photoALAssets addObject:photoAlaetModle];
-                }
+                NSLog(@"+++++++++%@",result);
             }
-        };
-        /**
-         *  获取对应的组
-         */
-        ALAssetsLibraryGroupsEnumerationResultsBlock libraryGroupsEnumeration = ^(ALAssetsGroup* group, BOOL* stop){
-            ALAssetsFilter *onlyPhotosFilter = [ALAssetsFilter allPhotos];
-            [group setAssetsFilter:onlyPhotosFilter];
-            if ([group numberOfAssets] > 0)
+            /**
+             *  判断是否选中
+             */
+            if ([self.oldSelectPhotoAlasetModle containsObject:photoAlaetModle])
             {
-                /**
-                 *  有一个新的group的模型来存放相关的信息
-                 */
-                XXBPhotoGroupModle *groupModle = [[XXBPhotoGroupModle alloc] init];
-                if (self.photoGroupArray.count > 0)
-                {
-                    [self.photoGroupArray insertObject:groupModle atIndex:0];
-                }
-                else
-                {
-                    [self.photoGroupArray addObject:groupModle];
-                }
-                /**
-                 *  获取photoGroup的组名
-                 */
-                
-                groupModle.photoGroupName = [group valueForProperty:ALAssetsGroupPropertyName];
-                /**
-                 *  获取缩略图
-                 */
-                groupModle.photoGroupIcon = [UIImage imageWithCGImage:[group posterImage]];
-                /**
-                 *  便利组
-                 */
-                [group enumerateAssetsUsingBlock:groupEnumerAtion];
+                photoAlaetModle.select = YES;
+                NSInteger index = [self.oldSelectPhotoAlasetModle indexOfObject:photoAlaetModle] + 1;
+                photoAlaetModle.index = index;
+                photoAlaetModle.showPage = index;
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(index -1) inSection:0];
+                photoAlaetModle.indexPath = indexPath;
+                [self.selectPhotoALAssets addObject:photoAlaetModle];
+            }
+            [photoGroupModle.photoALAssets addObject:photoAlaetModle];
+        }
+    };
+    /**
+     *  获取对应的组
+     */
+    ALAssetsLibraryGroupsEnumerationResultsBlock libraryGroupsEnumeration = ^(ALAssetsGroup* group, BOOL* stop){
+        ALAssetsFilter *onlyPhotosFilter ;
+        switch (self.chooseMediaType) {
+            case XXBMediaTypePhotos:
+            {
+                onlyPhotosFilter = [ALAssetsFilter allPhotos];
+                break;
+            }
+            case XXBMediaTypeVideos:
+            {
+                onlyPhotosFilter = [ALAssetsFilter allVideos];
+                break;
+            }
+            case XXBMediaTypeAll:
+            {
+                onlyPhotosFilter = [ALAssetsFilter allAssets];
+                break;
+            }
+            default:
+                break;
+        }
+        [group setAssetsFilter:onlyPhotosFilter];
+        if ([group numberOfAssets] > 0)
+        {
+            /**
+             *  有一个新的group的模型来存放相关的信息
+             */
+            XXBPhotoGroupModle *groupModle = [[XXBPhotoGroupModle alloc] init];
+            if (self.photoGroupArray.count > 0)
+            {
+                [self.photoGroupArray insertObject:groupModle atIndex:0];
             }
             else
             {
-                [self.photoTableVC.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-                if(self.showAllPhoto)
-                {
-                    [self.photoTableVC performSelectorOnMainThread:@selector(showAllPhotos) withObject:nil waitUntilDone:NO];
-                }
+                [self.photoGroupArray addObject:groupModle];
             }
-        };
-        _library = [self defaultAssetsLibrary];
-        [_library enumerateGroupsWithTypes:ALAssetsGroupAll
-                                usingBlock:libraryGroupsEnumeration
-                              failureBlock:failureblock];
+            /**
+             *  获取photoGroup的组名
+             */
+            
+            groupModle.photoGroupName = [group valueForProperty:ALAssetsGroupPropertyName];
+            /**
+             *  获取缩略图
+             */
+            groupModle.photoGroupIcon = [UIImage imageWithCGImage:[group posterImage]];
+            /**
+             *  便利组
+             */
+            [group enumerateAssetsUsingBlock:groupEnumerAtion];
+        }
+        else
+        {
+            [self.photoTableVC.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+            if(self.showAllPhoto)
+            {
+                [self.photoTableVC performSelectorOnMainThread:@selector(showAllPhotos) withObject:nil waitUntilDone:NO];
+            }
+        }
+    };
+    _library = [self defaultAssetsLibrary];
+    [_library enumerateGroupsWithTypes:ALAssetsGroupAll
+                            usingBlock:libraryGroupsEnumeration
+                          failureBlock:failureblock];
 }
+
 #pragma - 一些逻辑处理
 - (void)setShowPage:(BOOL)showPage
 {
     _showPage = showPage;
     self.photoTableVC.showPage = _showPage;
 }
+
 - (void)setPhotoCount:(NSInteger)photoCount
 {
     _photoCount = photoCount;
@@ -250,11 +259,13 @@
     _allowFromPhotos = allowFromPhotos;
     self.photoTableVC.allowFromPhotos = _allowFromPhotos;
 }
+
 - (void)setPhotoInRow:(NSInteger)photoInRow
 {
     _photoInRow = photoInRow;
     self.photoTableVC.photoInRow = photoInRow;
 }
+
 - (XXBPhotoGroupTabVC *)photoTableVC
 {
     if (_photoTableVC == nil)
@@ -268,6 +279,7 @@
     }
     return _photoTableVC;
 }
+
 - (NSMutableArray *)selectPhotoALAssets
 {
     if (_selectPhotoALAssets == nil) {
@@ -275,10 +287,12 @@
     }
     return _selectPhotoALAssets;
 }
+
 - (void)setSelectPhotoALAssets:(NSMutableArray *)selectPhotoALAssets
 {
     _selectPhotoALAssets = selectPhotoALAssets;
 }
+
 - (NSMutableArray *)photoGroupArray
 {
     if (_photoGroupArray == nil) {
@@ -286,6 +300,7 @@
     }
     return _photoGroupArray;
 }
+
 - (ALAssetsLibrary *)defaultAssetsLibrary
 {
     static dispatch_once_t onceToken;

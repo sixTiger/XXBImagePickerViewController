@@ -23,6 +23,7 @@
     }
     return self;
 }
+
 - (void)setupImagePickerTabr
 {
     self.backgroundColor = [UIColor whiteColor];
@@ -41,10 +42,11 @@
     [self addConstraints:@[lcRightFinishButton, lcTopFinishButton,lcBottomFinishButton]];
 
 }
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - 26 - 8 ,(self.frame.size.height - 26) * 0.5, self.bageValueButton.frame.size.width, self.bageValueButton.frame.size.height);
+    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - self.bageValueButton.frame.size.width - 8 ,(self.frame.size.height - self.bageValueButton.frame.size.height) * 0.5, self.bageValueButton.frame.size.width, self.bageValueButton.frame.size.height);
 }
 
 - (void)p_finishButtonClick

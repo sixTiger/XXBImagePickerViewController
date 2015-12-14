@@ -142,6 +142,7 @@
     [self.photoCollectionVC scrollToButtom];
 }
 #pragma mark -
+
 - (void)setShowPage:(BOOL)showPage
 {
     _showPage = showPage;
@@ -159,6 +160,7 @@
     
     
 }
+
 #pragma mark - 懒加载
 - (void)setPhotoInRow:(NSInteger)photoInRow
 {

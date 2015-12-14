@@ -22,6 +22,7 @@
 
 static NSString * const reuseCellIdentifier = @"photoCollectionViewCell";
 static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupItems];

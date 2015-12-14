@@ -56,6 +56,7 @@
      */
     self.photoView.image = [UIImage imageWithCGImage:photoAlaset.thumbnail];
 }
+
 #pragma mark - 懒加载
 - (UIImageView *)photoView
 {
@@ -67,6 +68,7 @@
     }
     return _photoView;
 }
+
 - (UIImageView *)selectCover
 {
     if (_selectCover == nil)
@@ -78,6 +80,7 @@
     }
     return _selectCover;
 }
+
 - (UIButton *)coverButton
 {
     if (_coverButton == nil)
@@ -96,6 +99,7 @@
     }
     return _coverButton;
 }
+
 - (XXBBadgeValueBtn *)bageButton
 {
     if (_bageButton == nil && self.photoAlasetModle.showPage)

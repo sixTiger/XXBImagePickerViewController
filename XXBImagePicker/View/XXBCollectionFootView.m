@@ -18,6 +18,7 @@
     _numberString = [numberString copy];
     self.countNumberLabel.text = [NSString stringWithFormat:@"照片总数：%@",_numberString];
 }
+
 - (UILabel *)countNumberLabel
 {
     if(_countNumberLabel == nil)

@@ -16,6 +16,7 @@
     }
     return self;
 }
+
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -23,6 +24,7 @@
     }
     return self;
 }
+
 - (void)setup
 {
     self.hidden = YES;
@@ -31,6 +33,7 @@
     self.backgroundColor = [UIColor orangeColor];
     self.clipsToBounds = YES;
 }
+
 - (void)setBadgeValue:(NSInteger)badgeValue
 {
     _badgeValue = badgeValue;
@@ -59,6 +62,7 @@
         self.hidden = YES;
     }
 }
+
 - (void)p_setupFrame
 {
     // 根据文字的多少动态计算frame
