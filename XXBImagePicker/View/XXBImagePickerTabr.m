@@ -44,7 +44,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - 26 - 8 ,(self.frame.size.height - 26) * 0.5, 21, 21);
+    self.bageValueButton.frame = CGRectMake(self.finishButton.frame.origin.x - 26 - 8 ,(self.frame.size.height - 26) * 0.5, self.bageValueButton.frame.size.width, self.bageValueButton.frame.size.height);
 }
 
 - (void)p_finishButtonClick
@@ -65,7 +65,6 @@
     if (_bageValueButton == nil) {
         XXBBadgeValueBtn *bageValueButton = [XXBBadgeValueBtn buttonWithType:UIButtonTypeCustom];
         [self addSubview:bageValueButton];
-        bageValueButton.frame = CGRectMake(100, 10, 21, 21);
         _bageValueButton = bageValueButton;
     }
     return _bageValueButton;
