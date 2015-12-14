@@ -59,6 +59,6 @@
  *  允许用户跨多个相册进行选择
  */
 @property(nonatomic , assign) BOOL                          allowFromPhotos;
-@property(nonatomic , strong)UITableView                    *tableView;
+@property(nonatomic , weak)UITableView                      *tableView;
 - (void)showAllPhotos;
 @end

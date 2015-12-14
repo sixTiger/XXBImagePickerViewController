@@ -12,7 +12,6 @@
 
 - (BOOL)isEqual:(XXBPhotoAlasetModle *)other
 {
-//    NSLog(@"\n%@\n%@",[self.photoAlaset.defaultRepresentation url],[other.photoAlaset.defaultRepresentation url]);
-    return [[self.photoAlaset.defaultRepresentation url]  isEqual:[other.photoAlaset.defaultRepresentation url]] ;
+    return [self.photoAlaset.description isEqualToString:other.photoAlaset.description ] ;
 }
 @end

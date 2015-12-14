@@ -31,10 +31,12 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
     self.collectionView.allowsMultipleSelection = YES;
     [self.collectionView registerClass:[XXBCollectionFootView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:reuseFooterIdentifier];
 }
+
 - (void)setupItems
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancaleClick)];
 }
+
 - (void)setupCollectionView
 {
     self.collectionView.backgroundColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:1.0];
@@ -48,6 +50,7 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
     NSLayoutConstraint *collectionViewTop = [NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
     [self.view addConstraints:@[collectionViewLeft, collectionViewRight,collectionViewTop,collectionViewBottom]];
 }
+
 - (void)setupImagePickerTar
 {
     XXBImagePickerTabr *imagePickerTar = [[XXBImagePickerTabr alloc] init];
@@ -62,10 +65,12 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
     _imagePickerTar = imagePickerTar;
     _imagePickerTar.delegate = self;
 }
+
 - (void)cancaleClick
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (void)imagePickerTabrFinishClick
 {
     if ([self.photoCollectionDelegate respondsToSelector:@selector(photoCollectionVCDidselectPhotos:)])
@@ -73,6 +78,7 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
         [self.photoCollectionDelegate photoCollectionVCDidselectPhotos:self];
     }
 }
+
 - (void)setShowPage:(BOOL)showPage
 {
     _showPage = showPage;
@@ -85,23 +91,27 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
         [self.collectionView reloadData];
     }
 }
+
 - (void)setPhotoALAssets:(NSMutableArray *)photoALAssets
 {
     _photoALAssets = photoALAssets;
     [self.collectionView reloadData];
     self.imagePickerTar.selectCount = self.selectPhotoALAssets.count;
 }
+
 - (void)setSelectPhotoALAssets:(NSMutableArray *)selectPhotoALAssets
 {
     _selectPhotoALAssets = selectPhotoALAssets;
     self.imagePickerTar.selectCount = _selectPhotoALAssets.count;
 }
+
 - (void)scrollToButtom
 {
     if (self.photoALAssets.count == 0)
         return;
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.photoALAssets.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
 }
+
 #pragma mark - collectionView 的相关处理
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
@@ -118,20 +128,24 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
     }
     return reusableview;
 }
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.photoALAssets.count;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XXBPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseCellIdentifier forIndexPath:indexPath];
     cell.photoAlasetModle = self.photoALAssets[indexPath.row];
     return cell;
 }
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static dispatch_once_t onceToken;

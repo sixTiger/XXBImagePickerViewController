@@ -52,14 +52,7 @@
 - (instancetype)initWithSelectPhotoALAssets:(NSArray *)selectPhotoALAssets
 {
     _oldSelectPhotoAlasetModle = selectPhotoALAssets;
-    if (self = [super initWithRootViewController:self.photoTableVC])
-    {
-        self.allowFromPhotos = YES;
-        self.showAllPhoto = NO;
-        self.photoCount = NSIntegerMax;
-        [self setupImagePickerController];
-    }
-    return self;
+    return [self init];
 }
 - (instancetype)init
 {
@@ -156,6 +149,10 @@
                     XXBPhotoGroupModle *photoGroupModle = [self.photoGroupArray firstObject];
                     XXBPhotoAlasetModle *photoAlaetModle = [[XXBPhotoAlasetModle alloc] init];
                     photoAlaetModle.photoAlaset = result;
+                    if ([result.description isEqualToString:@"ALAsset - Type:Photo, URLs:assets-library://asset/asset.JPG?id=106E99A1-4F6A-45A2-B320-B0AD4A8E8473&ext=JPG"])
+                    {
+                        NSLog(@"+++++++++%@",result);
+                    }
                     /**
                      *  判断是否选中
                      */
