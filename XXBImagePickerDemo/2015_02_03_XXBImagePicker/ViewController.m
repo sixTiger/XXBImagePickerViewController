@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "XXBImagePickerController.h"
 #import "XXBHelpTools.h"
-#import "XXBPhotoAlasetModle.h"
+#import "XXBPhotoAlasetModel.h"
 #import "MBProgressHUD+XXB.h"
 
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,XXBImagePickerControllerDelegate>

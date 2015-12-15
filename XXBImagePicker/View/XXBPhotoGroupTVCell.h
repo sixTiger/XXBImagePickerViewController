@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class XXBPhotoGroupModle;
+@class XXBPhotoGroupModel;
 
 @interface XXBPhotoGroupTVCell : UITableViewCell
 
-@property(nonatomic , strong)XXBPhotoGroupModle *photoGroupModle;
+@property(nonatomic , strong)XXBPhotoGroupModel *photoGroupModel;
 
 
 

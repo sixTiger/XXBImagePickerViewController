@@ -7,7 +7,7 @@
 //
 
 #import "XXBPhotoGroupTVCell.h"
-#import "XXBPhotoGroupModle.h"
+#import "XXBPhotoGroupModel.h"
 
 @implementation XXBPhotoGroupTVCell
 
@@ -22,12 +22,12 @@
     return cell;
 }
 
-- (void)setPhotoGroupModle:(XXBPhotoGroupModle *)photoGroupModle
+- (void)setPhotoGroupModel:(XXBPhotoGroupModel *)photoGroupModel
 {
-    _photoGroupModle = photoGroupModle;
+    _photoGroupModel = photoGroupModel;
     
-    self.imageView.image = photoGroupModle.photoGroupIcon;
-    self.textLabel.text = photoGroupModle.photoGroupName;
-    self.detailTextLabel.text = [NSString stringWithFormat:@"(%@)张照片",@(photoGroupModle.photoALAssets.count)];
+    self.imageView.image = photoGroupModel.photoGroupIcon;
+    self.textLabel.text = photoGroupModel.photoGroupName;
+    self.detailTextLabel.text = [NSString stringWithFormat:@"(%@)张照片",@(photoGroupModel.photoALAssets.count)];
 }
 @end

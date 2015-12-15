@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface XXBPhotoAlasetModle : NSObject
+@interface XXBPhotoAlasetModel : NSObject
 /**
  *  要显示的照片的ALAsset
  */

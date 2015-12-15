@@ -8,7 +8,7 @@
 
 #import "XXBPhotoCollectionVC.h"
 #import "XXBPhotoCollectionViewCell.h"
-#import "XXBPhotoAlasetModle.h"
+#import "XXBPhotoAlasetModel.h"
 #import "XXBImagePickerTabr.h"
 #import "XXBCollectionFootView.h"
 
@@ -82,9 +82,9 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 - (void)setShowPage:(BOOL)showPage
 {
     _showPage = showPage;
-    for (XXBPhotoAlasetModle  *photoAlasetModle in self.selectPhotoALAssets)
+    for (XXBPhotoAlasetModel  *photoAlasetModel in self.selectPhotoALAssets)
     {
-        photoAlasetModle.showPage = _showPage;
+        photoAlasetModel.showPage = _showPage;
     }
     if (self.selectPhotoALAssets.count > 0)
     {
@@ -142,7 +142,7 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XXBPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseCellIdentifier forIndexPath:indexPath];
-    cell.photoAlasetModle = self.photoALAssets[indexPath.row];
+    cell.photoAlasetModel = self.photoALAssets[indexPath.row];
     return cell;
 }
 
@@ -150,38 +150,38 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{        
-        [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+        [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModel *photo1, XXBPhotoAlasetModel *photo2) {
             return photo1.index < photo2.index;
         }];
     });
-    XXBPhotoAlasetModle *photoAlasetModle = self.photoALAssets[indexPath.row];
-    photoAlasetModle.showPage = self.showPage;
-    photoAlasetModle.select = !photoAlasetModle.select;
-    photoAlasetModle.indexPath = indexPath;
-    if(photoAlasetModle.select)
+    XXBPhotoAlasetModel *photoAlasetModel = self.photoALAssets[indexPath.row];
+    photoAlasetModel.showPage = self.showPage;
+    photoAlasetModel.select = !photoAlasetModel.select;
+    photoAlasetModel.indexPath = indexPath;
+    if(photoAlasetModel.select)
     {
         if(self.selectPhotoALAssets.count < self.photoCount)
         {
-            [self.selectPhotoALAssets addObject:photoAlasetModle];
+            [self.selectPhotoALAssets addObject:photoAlasetModel];
         }
         else
         {
             
-            photoAlasetModle.select = !photoAlasetModle.select;
+            photoAlasetModel.select = !photoAlasetModel.select;
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"你最多只能选择%@张照片",@(self.photoCount)] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
             [alertView show];
         }
     }
     else
     {
-        [self.selectPhotoALAssets removeObject:photoAlasetModle];
+        [self.selectPhotoALAssets removeObject:photoAlasetModel];
     }
     self.imagePickerTar.selectCount = self.selectPhotoALAssets.count;
     NSInteger count = self.selectPhotoALAssets.count;
     for (int i = 0;i < count ; i++)
     {
-        XXBPhotoAlasetModle *photoAlasetModle = self.selectPhotoALAssets[i];
-        photoAlasetModle.index = i + 1;
+        XXBPhotoAlasetModel *photoAlasetModel = self.selectPhotoALAssets[i];
+        photoAlasetModel.index = i + 1;
     }
     [collectionView reloadData];
 }

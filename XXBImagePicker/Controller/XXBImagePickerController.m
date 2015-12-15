@@ -8,8 +8,8 @@
 
 #import "XXBImagePickerController.h"
 #import "XXBPhotoGroupTabVC.h"
-#import "XXBPhotoGroupModle.h"
-#import "XXBPhotoAlasetModle.h"
+#import "XXBPhotoGroupModel.h"
+#import "XXBPhotoAlasetModel.h"
 
 @interface XXBImagePickerController ()<XXBPhotoGroupTabVCDelegate>
 {
@@ -27,7 +27,7 @@
  *  图片group
  */
 @property(nonatomic , strong)NSMutableArray     *photoGroupArray;
-@property(nonatomic , strong)NSArray            *oldSelectPhotoAlasetModle;
+@property(nonatomic , strong)NSArray            *oldSelectPhotoAlasetModel;
 /**
  *  选择媒体的类型 默认是照片
  */
@@ -58,7 +58,7 @@
 {
     if (self = [self init])
     {
-        _oldSelectPhotoAlasetModle = selectPhotoALAssets;
+        _oldSelectPhotoAlasetModel = selectPhotoALAssets;
     }
     return self;
 }
@@ -100,28 +100,28 @@
     {
         case XXBPhotoSortTypeSelectOrder:
         {
-            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModel *photo1, XXBPhotoAlasetModel *photo2) {
                 return photo1.index > photo2.index;
             }];
             break;
         }
         case XXBPhotoSortTypeSelectDesc:
         {
-            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModel *photo1, XXBPhotoAlasetModel *photo2) {
                 return photo1.index < photo2.index;
             }];
             break;
         }
         case XXBPhotoSortTypeSystemOrder:
         {
-            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModel *photo1, XXBPhotoAlasetModel *photo2) {
                 return photo1.indexPath.row > photo2.indexPath.row;
             }];
             break;
         }
         case XXBPhotoSortTypeSystemDesc:
         {
-            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModle *photo1, XXBPhotoAlasetModle *photo2) {
+            [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModel *photo1, XXBPhotoAlasetModel *photo2) {
                 return photo1.indexPath.row < photo2.indexPath.row;
             }];
             break;
@@ -148,11 +148,11 @@
         {
             //            if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto])
             /**
-             *  取出对应的photoGroupModle模型
+             *  取出对应的photoGroupModel模型
              */
-            XXBPhotoGroupModle *photoGroupModle = [self.photoGroupArray firstObject];
-            XXBPhotoAlasetModle *photoAlaetModle = [[XXBPhotoAlasetModle alloc] init];
-            photoAlaetModle.photoAlaset = result;
+            XXBPhotoGroupModel *photoGroupModel = [self.photoGroupArray firstObject];
+            XXBPhotoAlasetModel *photoAlaetModel = [[XXBPhotoAlasetModel alloc] init];
+            photoAlaetModel.photoAlaset = result;
             if ([result.description isEqualToString:@"ALAsset - Type:Photo, URLs:assets-library://asset/asset.JPG?id=106E99A1-4F6A-45A2-B320-B0AD4A8E8473&ext=JPG"])
             {
                 NSLog(@"+++++++++%@",result);
@@ -160,17 +160,17 @@
             /**
              *  判断是否选中
              */
-            if ([self.oldSelectPhotoAlasetModle containsObject:photoAlaetModle])
+            if ([self.oldSelectPhotoAlasetModel containsObject:photoAlaetModel])
             {
-                photoAlaetModle.select = YES;
-                NSInteger index = [self.oldSelectPhotoAlasetModle indexOfObject:photoAlaetModle] + 1;
-                photoAlaetModle.index = index;
-                photoAlaetModle.showPage = index;
+                photoAlaetModel.select = YES;
+                NSInteger index = [self.oldSelectPhotoAlasetModel indexOfObject:photoAlaetModel] + 1;
+                photoAlaetModel.index = index;
+                photoAlaetModel.showPage = index;
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(index -1) inSection:0];
-                photoAlaetModle.indexPath = indexPath;
-                [self.selectPhotoALAssets addObject:photoAlaetModle];
+                photoAlaetModel.indexPath = indexPath;
+                [self.selectPhotoALAssets addObject:photoAlaetModel];
             }
-            [photoGroupModle.photoALAssets addObject:photoAlaetModle];
+            [photoGroupModel.photoALAssets addObject:photoAlaetModel];
         }
     };
     /**
@@ -203,24 +203,24 @@
             /**
              *  有一个新的group的模型来存放相关的信息
              */
-            XXBPhotoGroupModle *groupModle = [[XXBPhotoGroupModle alloc] init];
+            XXBPhotoGroupModel *groupModel = [[XXBPhotoGroupModel alloc] init];
             if (self.photoGroupArray.count > 0)
             {
-                [self.photoGroupArray insertObject:groupModle atIndex:0];
+                [self.photoGroupArray insertObject:groupModel atIndex:0];
             }
             else
             {
-                [self.photoGroupArray addObject:groupModle];
+                [self.photoGroupArray addObject:groupModel];
             }
             /**
              *  获取photoGroup的组名
              */
             
-            groupModle.photoGroupName = [group valueForProperty:ALAssetsGroupPropertyName];
+            groupModel.photoGroupName = [group valueForProperty:ALAssetsGroupPropertyName];
             /**
              *  获取缩略图
              */
-            groupModle.photoGroupIcon = [UIImage imageWithCGImage:[group posterImage]];
+            groupModel.photoGroupIcon = [UIImage imageWithCGImage:[group posterImage]];
             /**
              *  便利组
              */

@@ -7,10 +7,10 @@
 //
 
 #import "XXBPhotoGroupTabVC.h"
-#import "XXBPhotoGroupModle.h"
+#import "XXBPhotoGroupModel.h"
 #import "XXBPhotoGroupTVCell.h"
 #import "XXBPhotoCollectionVC.h"
-#import "XXBPhotoAlasetModle.h"
+#import "XXBPhotoAlasetModel.h"
 #import "XXBDeviceHelp.h"
 
 @interface XXBPhotoGroupTabVC ()<XXBPhotoCollectionVCDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -45,11 +45,11 @@
 - (void)showAllPhotos
 {
     
-    XXBPhotoGroupModle *photoGroupModle = [self.photoGroupArray firstObject];
+    XXBPhotoGroupModel *photoGroupModel = [self.photoGroupArray firstObject];
     if (self.havePush)
     {
-        self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
-        self.photoCollectionVC.title = photoGroupModle.photoGroupName;
+        self.photoCollectionVC.photoALAssets = photoGroupModel.photoALAssets;
+        self.photoCollectionVC.title = photoGroupModel.photoGroupName;
         [self.photoCollectionVC.collectionView reloadData];
     }
     else
@@ -57,14 +57,14 @@
         self.havePush = YES;
         if (!self.allowFromPhotos)
         {
-            for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+            for (XXBPhotoAlasetModel *photoAlaset in self.selectPhotoALAssets)
             {
                 photoAlaset.select = NO;
             }
             [self.selectPhotoALAssets removeAllObjects];
         }
-        self.photoCollectionVC.photoALAssets = photoGroupModle.photoALAssets;
-        self.photoCollectionVC.title = photoGroupModle.photoGroupName;
+        self.photoCollectionVC.photoALAssets = photoGroupModel.photoALAssets;
+        self.photoCollectionVC.title = photoGroupModel.photoGroupName;
         [self.navigationController pushViewController:self.photoCollectionVC animated:NO];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -120,8 +120,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XXBPhotoGroupTVCell *cell = [XXBPhotoGroupTVCell photoGroupTVCellWithTableView:tableView];
-    XXBPhotoGroupModle *photoGroupModle = self.photoGroupArray[indexPath.row];
-    cell.photoGroupModle = photoGroupModle;
+    XXBPhotoGroupModel *photoGroupModel = self.photoGroupArray[indexPath.row];
+    cell.photoGroupModel = photoGroupModel;
     return cell;
 }
 
@@ -130,7 +130,7 @@
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     if (!self.allowFromPhotos)
     {
-        for (XXBPhotoAlasetModle *photoAlaset in self.selectPhotoALAssets)
+        for (XXBPhotoAlasetModel *photoAlaset in self.selectPhotoALAssets)
         {
             photoAlaset.select = NO;
         }

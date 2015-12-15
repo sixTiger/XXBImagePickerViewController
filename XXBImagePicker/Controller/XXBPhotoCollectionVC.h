@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XXBCommonModel.h"
 
 @class XXBPhotoCollectionVC;
 
@@ -41,6 +42,10 @@
  *  最多可选的照片的张数
  */
 @property(nonatomic , assign)NSInteger                      photoCount;
+/**
+ *  选择媒体的类型 默认是照片
+ */
+@property(nonatomic, assign, readonly) XXBMediaType         chooseMediaType;
 /**
  *  处理照片选中的代理
  */

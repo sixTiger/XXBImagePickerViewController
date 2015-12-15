@@ -1,14 +1,14 @@
 //
-//  XXBPhotoGroupModle.m
+//  XXBPhotoGroupModel.m
 //  2015_02_03_XXBImagePicker
 //
 //  Created by Jinhong on 15/2/3.
 //  Copyright (c) 2015年 xiaoxiaobing. All rights reserved.
 //
 
-#import "XXBPhotoGroupModle.h"
+#import "XXBPhotoGroupModel.h"
 
-@implementation XXBPhotoGroupModle
+@implementation XXBPhotoGroupModel
 - (void)setPhotoGroupName:(NSString *)photoGroupName
 {
 //    if ([photoGroupName isEqualToString:@"All Photos"])

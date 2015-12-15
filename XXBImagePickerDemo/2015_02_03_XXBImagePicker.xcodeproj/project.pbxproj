@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622FF7DA1C200CFB00140E1C /* XXBCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 622FF7D91C200CFB00140E1C /* XXBCommonModel.m */; };
 		62AA188F1B8C5B8F00CF7F02 /* XXBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18731B8C5B8F00CF7F02 /* XXBImagePickerController.m */; };
 		62AA18901B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18751B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.m */; };
 		62AA18911B8C5B8F00CF7F02 /* XXBPhotoGroupTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18771B8C5B8F00CF7F02 /* XXBPhotoGroupTabVC.m */; };
-		62AA18921B8C5B8F00CF7F02 /* XXBPhotoAlasetModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA187A1B8C5B8F00CF7F02 /* XXBPhotoAlasetModle.m */; };
-		62AA18931B8C5B8F00CF7F02 /* XXBPhotoGroupModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA187C1B8C5B8F00CF7F02 /* XXBPhotoGroupModle.m */; };
+		62AA18921B8C5B8F00CF7F02 /* XXBPhotoAlasetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA187A1B8C5B8F00CF7F02 /* XXBPhotoAlasetModel.m */; };
+		62AA18931B8C5B8F00CF7F02 /* XXBPhotoGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA187C1B8C5B8F00CF7F02 /* XXBPhotoGroupModel.m */; };
 		62AA18941B8C5B8F00CF7F02 /* XXBDeviceHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA187F1B8C5B8F00CF7F02 /* XXBDeviceHelp.m */; };
 		62AA18951B8C5B8F00CF7F02 /* XXBHelpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18811B8C5B8F00CF7F02 /* XXBHelpTools.m */; };
 		62AA18961B8C5B8F00CF7F02 /* XXBBadgeValueBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA18841B8C5B8F00CF7F02 /* XXBBadgeValueBtn.m */; };
@@ -43,16 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622FF7D81C200CFB00140E1C /* XXBCommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBCommonModel.h; sourceTree = "<group>"; };
+		622FF7D91C200CFB00140E1C /* XXBCommonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBCommonModel.m; sourceTree = "<group>"; };
 		62AA18721B8C5B8F00CF7F02 /* XXBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBImagePickerController.h; sourceTree = "<group>"; };
 		62AA18731B8C5B8F00CF7F02 /* XXBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBImagePickerController.m; sourceTree = "<group>"; };
 		62AA18741B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoCollectionVC.h; sourceTree = "<group>"; };
 		62AA18751B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoCollectionVC.m; sourceTree = "<group>"; };
 		62AA18761B8C5B8F00CF7F02 /* XXBPhotoGroupTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupTabVC.h; sourceTree = "<group>"; };
 		62AA18771B8C5B8F00CF7F02 /* XXBPhotoGroupTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupTabVC.m; sourceTree = "<group>"; };
-		62AA18791B8C5B8F00CF7F02 /* XXBPhotoAlasetModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoAlasetModle.h; sourceTree = "<group>"; };
-		62AA187A1B8C5B8F00CF7F02 /* XXBPhotoAlasetModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoAlasetModle.m; sourceTree = "<group>"; };
-		62AA187B1B8C5B8F00CF7F02 /* XXBPhotoGroupModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupModle.h; sourceTree = "<group>"; };
-		62AA187C1B8C5B8F00CF7F02 /* XXBPhotoGroupModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupModle.m; sourceTree = "<group>"; };
+		62AA18791B8C5B8F00CF7F02 /* XXBPhotoAlasetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoAlasetModel.h; sourceTree = "<group>"; };
+		62AA187A1B8C5B8F00CF7F02 /* XXBPhotoAlasetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoAlasetModel.m; sourceTree = "<group>"; };
+		62AA187B1B8C5B8F00CF7F02 /* XXBPhotoGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBPhotoGroupModel.h; sourceTree = "<group>"; };
+		62AA187C1B8C5B8F00CF7F02 /* XXBPhotoGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBPhotoGroupModel.m; sourceTree = "<group>"; };
 		62AA187E1B8C5B8F00CF7F02 /* XXBDeviceHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBDeviceHelp.h; sourceTree = "<group>"; };
 		62AA187F1B8C5B8F00CF7F02 /* XXBDeviceHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXBDeviceHelp.m; sourceTree = "<group>"; };
 		62AA18801B8C5B8F00CF7F02 /* XXBHelpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBHelpTools.h; sourceTree = "<group>"; };
@@ -135,10 +138,12 @@
 		62AA18781B8C5B8F00CF7F02 /* Modle */ = {
 			isa = PBXGroup;
 			children = (
-				62AA18791B8C5B8F00CF7F02 /* XXBPhotoAlasetModle.h */,
-				62AA187A1B8C5B8F00CF7F02 /* XXBPhotoAlasetModle.m */,
-				62AA187B1B8C5B8F00CF7F02 /* XXBPhotoGroupModle.h */,
-				62AA187C1B8C5B8F00CF7F02 /* XXBPhotoGroupModle.m */,
+				62AA18791B8C5B8F00CF7F02 /* XXBPhotoAlasetModel.h */,
+				62AA187A1B8C5B8F00CF7F02 /* XXBPhotoAlasetModel.m */,
+				62AA187B1B8C5B8F00CF7F02 /* XXBPhotoGroupModel.h */,
+				62AA187C1B8C5B8F00CF7F02 /* XXBPhotoGroupModel.m */,
+				622FF7D81C200CFB00140E1C /* XXBCommonModel.h */,
+				622FF7D91C200CFB00140E1C /* XXBCommonModel.m */,
 			);
 			path = Modle;
 			sourceTree = "<group>";
@@ -348,7 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62AA18971B8C5B8F00CF7F02 /* XXBCollectionFootView.m in Sources */,
-				62AA18931B8C5B8F00CF7F02 /* XXBPhotoGroupModle.m in Sources */,
+				62AA18931B8C5B8F00CF7F02 /* XXBPhotoGroupModel.m in Sources */,
 				62AA18991B8C5B8F00CF7F02 /* XXBPhotoCollectionViewCell.m in Sources */,
 				62AA189A1B8C5B8F00CF7F02 /* XXBPhotoGroupTVCell.m in Sources */,
 				C4063BD81A809ED100606E16 /* ViewController.m in Sources */,
@@ -358,10 +363,11 @@
 				C4063BD51A809ED100606E16 /* AppDelegate.m in Sources */,
 				62AA18901B8C5B8F00CF7F02 /* XXBPhotoCollectionVC.m in Sources */,
 				62AA18961B8C5B8F00CF7F02 /* XXBBadgeValueBtn.m in Sources */,
+				622FF7DA1C200CFB00140E1C /* XXBCommonModel.m in Sources */,
 				62AA18911B8C5B8F00CF7F02 /* XXBPhotoGroupTabVC.m in Sources */,
 				62AA18A41B8C5B9500CF7F02 /* MBProgressHUD.m in Sources */,
 				C4063BD21A809ED100606E16 /* main.m in Sources */,
-				62AA18921B8C5B8F00CF7F02 /* XXBPhotoAlasetModle.m in Sources */,
+				62AA18921B8C5B8F00CF7F02 /* XXBPhotoAlasetModel.m in Sources */,
 				62AA18941B8C5B8F00CF7F02 /* XXBDeviceHelp.m in Sources */,
 				62AA18981B8C5B8F00CF7F02 /* XXBImagePickerTabr.m in Sources */,
 			);

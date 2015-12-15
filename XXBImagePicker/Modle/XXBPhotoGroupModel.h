@@ -1,5 +1,5 @@
 //
-//  XXBPhotoGroupModle.h
+//  XXBPhotoGroupModel.h
 //  2015_02_03_XXBImagePicker
 //
 //  Created by Jinhong on 15/2/3.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface XXBPhotoGroupModle : NSObject
+@interface XXBPhotoGroupModel : NSObject
 /**
  *  相册的组名
  */

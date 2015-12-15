@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class XXBPhotoAlasetModle;
+@class XXBPhotoAlasetModel;
 
 @interface XXBPhotoCollectionViewCell : UICollectionViewCell
 
 /**
  *  要显示的照片的ALAsset
  */
-@property(nonatomic , strong)XXBPhotoAlasetModle *photoAlasetModle;
+@property(nonatomic , strong)XXBPhotoAlasetModel *photoAlasetModel;
 
 @end

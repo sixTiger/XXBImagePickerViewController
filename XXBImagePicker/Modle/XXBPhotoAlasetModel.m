@@ -1,16 +1,16 @@
 //
-//  XXBPhotoAlasetModle.m
+//  XXBPhotoAlasetModel.m
 //  2015_02_03_XXBImagePicker
 //
 //  Created by Jinhong on 15/2/3.
 //  Copyright (c) 2015年 xiaoxiaobing. All rights reserved.
 //
 
-#import "XXBPhotoAlasetModle.h"
+#import "XXBPhotoAlasetModel.h"
 
-@implementation XXBPhotoAlasetModle
+@implementation XXBPhotoAlasetModel
 
-- (BOOL)isEqual:(XXBPhotoAlasetModle *)other
+- (BOOL)isEqual:(XXBPhotoAlasetModel *)other
 {
     return [self.photoAlaset.description isEqualToString:other.photoAlaset.description ] ;
 }

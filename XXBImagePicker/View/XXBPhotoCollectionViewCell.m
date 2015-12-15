@@ -7,7 +7,7 @@
 //
 
 #import "XXBPhotoCollectionViewCell.h"
-#import "XXBPhotoAlasetModle.h"
+#import "XXBPhotoAlasetModel.h"
 #import "XXBBadgeValueBtn.h"
 
 @interface XXBPhotoCollectionViewCell ()
@@ -26,14 +26,14 @@
 @implementation XXBPhotoCollectionViewCell
 
 
-- (void)setPhotoAlasetModle:(XXBPhotoAlasetModle *)photoAlasetModle
+- (void)setPhotoAlasetModel:(XXBPhotoAlasetModel *)photoAlasetModel
 {
-    _photoAlasetModle = photoAlasetModle;
-    self.selectCover.hidden= !_photoAlasetModle.select;
-    self.bageButton.badgeValue =_photoAlasetModle.index;
-    self.coverButton.selected = _photoAlasetModle.select;
-    ALAsset *photoAlaset = _photoAlasetModle.photoAlaset;
-    if (!self.photoAlasetModle.showPage)
+    _photoAlasetModel = photoAlasetModel;
+    self.selectCover.hidden= !_photoAlasetModel.select;
+    self.bageButton.badgeValue =_photoAlasetModel.index;
+    self.coverButton.selected = _photoAlasetModel.select;
+    ALAsset *photoAlaset = _photoAlasetModel.photoAlaset;
+    if (!self.photoAlasetModel.showPage)
     {
         [self.bageButton removeFromSuperview];
         _bageButton = nil;
@@ -102,7 +102,7 @@
 
 - (XXBBadgeValueBtn *)bageButton
 {
-    if (_bageButton == nil && self.photoAlasetModle.showPage)
+    if (_bageButton == nil && self.photoAlasetModel.showPage)
     {
         XXBBadgeValueBtn *bageButton = [[XXBBadgeValueBtn alloc] init];
         [self.selectCover addSubview:bageButton];
