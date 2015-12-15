@@ -202,6 +202,7 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 }
 - (void)p_photoClick
 {
-    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
+#warning todo 拍摄视频或者照相
+//    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
 }
 @end

@@ -72,6 +72,7 @@
     }
     else
     {
+        [self.coverButton removeFromSuperview];
         self.photoView.contentMode = UIViewContentModeCenter;
         self.photoView.image = [UIImage imageNamed:@"XXBImagePicker.bundle/XXBPageNumber"];
     }

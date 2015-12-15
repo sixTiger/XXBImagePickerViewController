@@ -30,18 +30,7 @@
 		C4063BDB1A809ED100606E16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4063BD91A809ED100606E16 /* Main.storyboard */; };
 		C4063BDD1A809ED100606E16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4063BDC1A809ED100606E16 /* Images.xcassets */; };
 		C4063BE01A809ED100606E16 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4063BDE1A809ED100606E16 /* LaunchScreen.xib */; };
-		C4063BEC1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4063BEB1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C4063BE61A809ED100606E16 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4063BC41A809ED100606E16 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C4063BCB1A809ED100606E16;
-			remoteInfo = 2015_02_03_XXBImagePicker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		622FF7D81C200CFB00140E1C /* XXBCommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXBCommonModel.h; sourceTree = "<group>"; };
@@ -86,20 +75,10 @@
 		C4063BDA1A809ED100606E16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4063BDC1A809ED100606E16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C4063BDF1A809ED100606E16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C4063BE51A809ED100606E16 /* 2015_02_03_XXBImagePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 2015_02_03_XXBImagePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4063BEA1A809ED100606E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C4063BEB1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _015_02_03_XXBImagePickerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C4063BC91A809ED100606E16 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C4063BE21A809ED100606E16 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -193,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				C4063BCE1A809ED100606E16 /* 2015_02_03_XXBImagePicker */,
-				C4063BE81A809ED100606E16 /* 2015_02_03_XXBImagePickerTests */,
 				C4063BCD1A809ED100606E16 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -202,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				C4063BCC1A809ED100606E16 /* 2015_02_03_XXBImagePicker.app */,
-				C4063BE51A809ED100606E16 /* 2015_02_03_XXBImagePickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,23 +210,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C4063BE81A809ED100606E16 /* 2015_02_03_XXBImagePickerTests */ = {
-			isa = PBXGroup;
-			children = (
-				C4063BEB1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m */,
-				C4063BE91A809ED100606E16 /* Supporting Files */,
-			);
-			path = 2015_02_03_XXBImagePickerTests;
-			sourceTree = "<group>";
-		};
-		C4063BE91A809ED100606E16 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C4063BEA1A809ED100606E16 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,24 +230,6 @@
 			productReference = C4063BCC1A809ED100606E16 /* 2015_02_03_XXBImagePicker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C4063BE41A809ED100606E16 /* 2015_02_03_XXBImagePickerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C4063BF21A809ED100606E16 /* Build configuration list for PBXNativeTarget "2015_02_03_XXBImagePickerTests" */;
-			buildPhases = (
-				C4063BE11A809ED100606E16 /* Sources */,
-				C4063BE21A809ED100606E16 /* Frameworks */,
-				C4063BE31A809ED100606E16 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C4063BE71A809ED100606E16 /* PBXTargetDependency */,
-			);
-			name = 2015_02_03_XXBImagePickerTests;
-			productName = 2015_02_03_XXBImagePickerTests;
-			productReference = C4063BE51A809ED100606E16 /* 2015_02_03_XXBImagePickerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -299,10 +241,6 @@
 				TargetAttributes = {
 					C4063BCB1A809ED100606E16 = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					C4063BE41A809ED100606E16 = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = C4063BCB1A809ED100606E16;
 					};
 				};
 			};
@@ -320,7 +258,6 @@
 			projectRoot = "";
 			targets = (
 				C4063BCB1A809ED100606E16 /* 2015_02_03_XXBImagePicker */,
-				C4063BE41A809ED100606E16 /* 2015_02_03_XXBImagePickerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -335,13 +272,6 @@
 				62AA18A31B8C5B9500CF7F02 /* MBProgressHUD.bundle in Resources */,
 				C4063BE01A809ED100606E16 /* LaunchScreen.xib in Resources */,
 				C4063BDD1A809ED100606E16 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C4063BE31A809ED100606E16 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,23 +303,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4063BE11A809ED100606E16 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4063BEC1A809ED100606E16 /* _015_02_03_XXBImagePickerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C4063BE71A809ED100606E16 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C4063BCB1A809ED100606E16 /* 2015_02_03_XXBImagePicker */;
-			targetProxy = C4063BE61A809ED100606E16 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C4063BD91A809ED100606E16 /* Main.storyboard */ = {
@@ -520,42 +434,6 @@
 			};
 			name = Release;
 		};
-		C4063BF31A809ED100606E16 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = 2015_02_03_XXBImagePickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.xiaoxiaobing.com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/2015_02_03_XXBImagePicker.app/2015_02_03_XXBImagePicker";
-			};
-			name = Debug;
-		};
-		C4063BF41A809ED100606E16 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = 2015_02_03_XXBImagePickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.xiaoxiaobing.com.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/2015_02_03_XXBImagePicker.app/2015_02_03_XXBImagePicker";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -573,15 +451,6 @@
 			buildConfigurations = (
 				C4063BF01A809ED100606E16 /* Debug */,
 				C4063BF11A809ED100606E16 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C4063BF21A809ED100606E16 /* Build configuration list for PBXNativeTarget "2015_02_03_XXBImagePickerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C4063BF31A809ED100606E16 /* Debug */,
-				C4063BF41A809ED100606E16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
