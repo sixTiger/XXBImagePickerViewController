@@ -117,14 +117,16 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 {
     XXBCollectionFootView *reusableview = nil;
     
-    if (kind == UICollectionElementKindSectionHeader){
+    if (kind == UICollectionElementKindSectionHeader)
+    {
         
     }
-    
-    if (kind == UICollectionElementKindSectionFooter){
+    if (kind == UICollectionElementKindSectionFooter)
+    {
         
         reusableview = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:reuseFooterIdentifier forIndexPath:indexPath];
-        reusableview.numberString = [NSString stringWithFormat:@"%@",@(self.photoALAssets.count)];
+        reusableview.chooseMediaType = self.chooseMediaType;
+        reusableview.number = self.photoALAssets.count;
     }
     return reusableview;
 }
@@ -136,13 +138,21 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.photoALAssets.count;
+    return self.photoALAssets.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XXBPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseCellIdentifier forIndexPath:indexPath];
-    cell.photoAlasetModel = self.photoALAssets[indexPath.row];
+    if (indexPath.row < self.photoALAssets.count)
+    {
+        cell.photoAlasetModel = self.photoALAssets[indexPath.row];
+    }
+    else
+    {
+        cell.photoAlasetModel = nil;
+        cell.chooseMediaType = self.chooseMediaType;
+    }
     return cell;
 }
 
@@ -154,6 +164,11 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
             return photo1.index < photo2.index;
         }];
     });
+    if (indexPath.row >= self.photoALAssets.count)
+    {
+        [self p_photoClick];
+        return;
+    }
     XXBPhotoAlasetModel *photoAlasetModel = self.photoALAssets[indexPath.row];
     photoAlasetModel.showPage = self.showPage;
     photoAlasetModel.select = !photoAlasetModel.select;
@@ -184,5 +199,9 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
         photoAlasetModel.index = i + 1;
     }
     [collectionView reloadData];
+}
+- (void)p_photoClick
+{
+    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
 }
 @end

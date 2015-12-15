@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "XXBCommonModel.h"
 @interface XXBCollectionFootView : UICollectionReusableView
-@property(nonatomic , copy)NSString *numberString;
+/**
+ *  要显示的数字
+ */
+@property(nonatomic , assign) NSInteger                     number;
+/**
+ *  选择媒体的类型 默认是照片
+ */
+@property(nonatomic, assign) XXBMediaType                   chooseMediaType;
 @end

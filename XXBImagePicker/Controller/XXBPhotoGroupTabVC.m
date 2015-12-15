@@ -176,6 +176,12 @@
     self.messageLabel.text  = @"请在iPhone的“设置-隐私-照片”选项中，允许应用访问你的手机相册";
 }
 
+- (void)setChooseMediaType:(XXBMediaType)chooseMediaType
+{
+    _chooseMediaType = chooseMediaType;
+    self.photoCollectionVC.chooseMediaType = chooseMediaType;
+}
+
 - (NSInteger)photoInRow
 {
     if (_photoInRow == 0)

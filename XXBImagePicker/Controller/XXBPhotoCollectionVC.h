@@ -45,7 +45,7 @@
 /**
  *  选择媒体的类型 默认是照片
  */
-@property(nonatomic, assign, readonly) XXBMediaType         chooseMediaType;
+@property(nonatomic, assign) XXBMediaType                   chooseMediaType;
 /**
  *  处理照片选中的代理
  */

@@ -266,6 +266,12 @@
     self.photoTableVC.photoInRow = photoInRow;
 }
 
+- (void)setChooseMediaType:(XXBMediaType)chooseMediaType
+{
+    _chooseMediaType = chooseMediaType;
+    self.photoTableVC.chooseMediaType = chooseMediaType;
+}
+
 - (XXBPhotoGroupTabVC *)photoTableVC
 {
     if (_photoTableVC == nil)

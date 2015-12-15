@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XXBCommonModel.h"
 @class XXBPhotoAlasetModel;
 
 @interface XXBPhotoCollectionViewCell : UICollectionViewCell
@@ -14,6 +15,7 @@
 /**
  *  要显示的照片的ALAsset
  */
-@property(nonatomic , strong)XXBPhotoAlasetModel *photoAlasetModel;
+@property(nonatomic , strong)XXBPhotoAlasetModel    *photoAlasetModel;
 
+@property(nonatomic , assign) XXBMediaType          chooseMediaType;
 @end

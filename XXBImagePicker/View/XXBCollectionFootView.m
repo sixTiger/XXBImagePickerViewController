@@ -13,10 +13,30 @@
 @end
 @implementation XXBCollectionFootView
 
-- (void)setNumberString:(NSString *)numberString
+- (void)setNumber:(NSInteger)number
 {
-    _numberString = [numberString copy];
-    self.countNumberLabel.text = [NSString stringWithFormat:@"照片总数：%@",_numberString];
+    _number = number;
+    NSString *string;
+    switch (self.chooseMediaType) {
+        case XXBMediaTypePhotos:
+        {
+            string = [NSString stringWithFormat:@"照片总数：%@",@(number)];
+            break;
+        }
+        case XXBMediaTypeVideos:
+        {
+            string = [NSString stringWithFormat:@"视频总数：%@",@(number)];
+            break;
+        }
+        case XXBMediaTypeAll:
+        {
+            string = [NSString stringWithFormat:@"多媒体总数：%@",@(number)];
+            break;
+        }
+        default:
+            break;
+    }
+    self.countNumberLabel.text = string;
 }
 
 - (UILabel *)countNumberLabel

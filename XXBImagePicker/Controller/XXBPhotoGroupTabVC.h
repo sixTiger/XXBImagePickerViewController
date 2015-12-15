@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XXBCommonModel.h"
 
 @class XXBPhotoGroupTabVC;
 
@@ -59,6 +60,11 @@
  *  允许用户跨多个相册进行选择
  */
 @property(nonatomic , assign) BOOL                          allowFromPhotos;
+
+/**
+ *  选择媒体的类型 默认是照片
+ */
+@property(nonatomic, assign) XXBMediaType                   chooseMediaType;
 @property(nonatomic , weak)UITableView                      *tableView;
 - (void)showAllPhotos;
 @end

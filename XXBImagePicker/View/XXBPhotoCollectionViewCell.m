@@ -18,9 +18,11 @@
 /**
  *  选中的时候的蒙版
  */
-@property(nonatomic , weak)UIImageView *selectCover;
-@property(nonatomic , weak)UIButton *coverButton;
-@property(nonatomic , weak)XXBBadgeValueBtn *bageButton;
+@property(nonatomic , weak)UIImageView          *selectCover;
+@property(nonatomic , weak)UIButton             *coverButton;
+@property(nonatomic , weak)XXBBadgeValueBtn     *bageButton;
+@property(nonatomic , weak) UILabel             *messageLabel;
+@property(nonatomic , weak) UIView              *videoBgView;
 @end
 
 @implementation XXBPhotoCollectionViewCell
@@ -44,17 +46,35 @@
         /**
          *  视频
          */
+        NSNumber *time = [photoAlaset valueForProperty:ALAssetPropertyDuration];
+        self.messageLabel.text = [self timeFromeNumber:time];
     }
     else
     {
         /**
          *  照片
          */
+        if ([[photoAlaset valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto])
+         {
+             
+         }
+        
+        [_messageLabel removeFromSuperview];
+        _messageLabel = nil;
     }
     /**
      *  设置缩略图
      */
-    self.photoView.image = [UIImage imageWithCGImage:photoAlaset.thumbnail];
+    if (_photoAlasetModel.photoAlaset)
+    {
+        self.photoView.contentMode = UIViewContentModeScaleToFill;
+        self.photoView.image =[UIImage imageWithCGImage:photoAlaset.thumbnail];
+    }
+    else
+    {
+        self.photoView.contentMode = UIViewContentModeCenter;
+        self.photoView.image = [UIImage imageNamed:@"XXBImagePicker.bundle/XXBPageNumber"];
+    }
 }
 
 #pragma mark - 懒加载
@@ -89,7 +109,7 @@
         CGFloat margin = 4.0;
         CGFloat width = 20;
         UIButton *coverButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        coverButton.frame = CGRectMake(self.bounds.size.width - width - margin, self.bounds.size.width - width - margin , width , width);
+        coverButton.frame = CGRectMake(self.bounds.size.width - width - margin,  margin , width , width);
         [self.photoView addSubview:coverButton];
 #warning 预先展示的图片可以去掉
         [coverButton setImage:[UIImage imageNamed:@"XXBImagePicker.bundle/XXBPhoto"] forState:UIControlStateNormal];
@@ -110,5 +130,70 @@
         _bageButton = bageButton;
     }
     return _bageButton;
+}
+- (NSString *)timeFromeNumber:(NSNumber *)number
+{
+    int times[3];
+    memset(times, 0, sizeof(times));
+    int second = number.intValue;
+    int i = 0;
+    while (i < 2)
+    {
+        int time = second % 60;
+        second /= 60;
+        times[i] = time;
+        i ++;
+    }
+    times[i] = second;
+    NSString * time = @"";
+    while (i > 0)
+    {
+        if (i >= 2 && times[i] <= 0 && time.length <= 0) {
+            i-- ;
+            continue;
+        }
+        time = [NSString stringWithFormat:@"%@%02d:",time,times[i]];
+        i--;
+    }
+    time = [NSString stringWithFormat:@"%@%02d",time,times[i]];
+    return time;
+}
+
+- (UILabel *)messageLabel
+{
+    if (_messageLabel == nil)
+    {
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+        messageLabel.font = [UIFont systemFontOfSize:12];
+        messageLabel.textColor = [UIColor whiteColor];
+        [self.videoBgView addSubview:messageLabel];
+        messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *rightMessageLabel = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.videoBgView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-3];
+        NSLayoutConstraint *bottomMessageLabel = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: self.videoBgView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+         NSLayoutConstraint *topMessageLabel = [NSLayoutConstraint constraintWithItem:messageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: self.videoBgView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+        
+        [self.videoBgView addConstraints:@[rightMessageLabel, bottomMessageLabel,topMessageLabel]];
+        _messageLabel = messageLabel;
+    }
+    return _messageLabel;
+}
+
+- (UIView *)videoBgView
+{
+    if (_videoBgView == nil)
+    {
+        
+        UIView *videoBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        videoBgView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+        [self.contentView addSubview:videoBgView];
+        videoBgView.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *lefttVideoBgView = [NSLayoutConstraint constraintWithItem:videoBgView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+        NSLayoutConstraint *rightVideoBgView = [NSLayoutConstraint constraintWithItem:videoBgView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+        NSLayoutConstraint *bottomVideoBgView = [NSLayoutConstraint constraintWithItem:videoBgView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+        NSLayoutConstraint *heightVideoBgView = [NSLayoutConstraint constraintWithItem:videoBgView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:20];
+        [self.contentView addConstraints:@[lefttVideoBgView, rightVideoBgView,bottomVideoBgView,heightVideoBgView]];
+        _videoBgView = videoBgView;
+    }
+    return _videoBgView;
 }
 @end
