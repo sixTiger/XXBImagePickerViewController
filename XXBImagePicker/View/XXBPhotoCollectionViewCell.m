@@ -30,6 +30,7 @@
 
 - (void)setPhotoAlasetModel:(XXBPhotoAlasetModel *)photoAlasetModel
 {
+    self.contentView.backgroundColor = [UIColor colorWithRed:66/255.0 green:66/266.0 blue:66/255.0 alpha:1.0];
     _photoAlasetModel = photoAlasetModel;
     self.selectCover.hidden= !_photoAlasetModel.select;
     self.bageButton.badgeValue =_photoAlasetModel.index;
@@ -74,7 +75,7 @@
     {
         [self.coverButton removeFromSuperview];
         self.photoView.contentMode = UIViewContentModeCenter;
-        self.photoView.image = [UIImage imageNamed:@"XXBImagePicker.bundle/XXBPageNumber"];
+        self.photoView.image = [[photoAlaset valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypeVideo]?[UIImage imageNamed:@"XXBImagePicker.bundle/XXBMakeVideo"]:[UIImage imageNamed:@"XXBImagePicker.bundle/XXBMakePhoto"];
     }
 }
 
@@ -196,5 +197,9 @@
         _videoBgView = videoBgView;
     }
     return _videoBgView;
+}
+- (void)setHighlighted:(BOOL)highlighted
+{
+    self.contentView.backgroundColor = highlighted ? [UIColor lightGrayColor] : [UIColor colorWithRed:66/255.0 green:66/266.0 blue:66/255.0 alpha:1.0];
 }
 @end

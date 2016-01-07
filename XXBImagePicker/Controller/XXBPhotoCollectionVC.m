@@ -158,6 +158,7 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{        
         [self.selectPhotoALAssets sortUsingComparator:^NSComparisonResult(XXBPhotoAlasetModel *photo1, XXBPhotoAlasetModel *photo2) {
@@ -183,7 +184,30 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
         {
             
             photoAlasetModel.select = !photoAlasetModel.select;
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"你最多只能选择%@张照片",@(self.photoCount)] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
+            NSString *title;
+            switch (self.chooseMediaType) {
+                case XXBMediaTypePhotos:
+                {
+                    title = [NSString stringWithFormat:@"最多只能选%@张照片",@(self.photoCount)];
+                    break;
+                }
+                case XXBMediaTypeVideos:
+                {
+                    title = [NSString stringWithFormat:@"最多只能选%@个视频",@(self.photoCount)];
+                    break;
+                }
+                case XXBMediaTypeAll:
+                {
+                    title = [NSString stringWithFormat:@"最多只能选%@个媒体",@(self.photoCount)];
+                    break;
+                }
+                default:
+                {
+                    title = [NSString stringWithFormat:@"最多只能选%@个媒体",@(self.photoCount)];
+                    break;
+                }
+            }
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
             [alertView show];
         }
     }
@@ -198,7 +222,7 @@ static NSString * const reuseFooterIdentifier = @"photoCollectionViewCell";
         XXBPhotoAlasetModel *photoAlasetModel = self.selectPhotoALAssets[i];
         photoAlasetModel.index = i + 1;
     }
-    [collectionView reloadData];
+    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }
 - (void)p_photoClick
 {
