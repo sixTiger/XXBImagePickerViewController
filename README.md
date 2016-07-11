@@ -1,8 +1,6 @@
 # XXBImagePickerViewController
 # 有一个架构更加合理的mediapicker 支持 iOS8.0 以上有意的请到网站
-```c
-https://github.com/sixTiger/XXBMediaPicker
-```
+[foo]: https://github.com/sixTiger/XXBMediaPicker  "https://github.com/sixTiger/XXBMediaPicker"
 # 支持pod
 ``` c
 pod 'XXBImagePickerViewController', :git => "https://github.com/sixTiger/XXBImagePickerViewController"
